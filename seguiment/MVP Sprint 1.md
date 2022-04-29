@@ -10,6 +10,9 @@
   * Base de Dades -> Firebase RealTime Database i MySQL
 
 ## Base de Dades
-### * Firebase
+### Firebase
  * Comanda( l'estat de la comanda en general i de cada plat)
- * I
+ * Usuari (correu electrònic, només per la autenticació)
+### MySQL
+ * Tipus de plat (1r, 2n, postre ...)
+ * Plat
