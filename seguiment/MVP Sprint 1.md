@@ -7,4 +7,9 @@
   * Framework backend -> Simfony
   * Framework frontend -> Angular
   * Framework CSS -> Bootstrap
-  * Base de Dades -> Comandes en temps real i Usuaris -> Firebase
+  * Base de Dades -> Firebase RealTime Database i MySQL
+
+## Base de Dades
+### * Firebase
+ * Comanda( l'estat de la comanda en general i de cada plat)
+ * I
