@@ -7,7 +7,7 @@ Esquema mínim de carpetes pels projectes transversals
 
 
 # Aquest fitxer ha de contenir com a mínim:
- * Cheryl Trujillo, Axell Chaparro
+ * Cheryl Trujillo, Axell Chaparro, Mohamed  Wafik
  * Nom del projecte
  * Petita descripció
  * URL de producció (quan la tingueu)
