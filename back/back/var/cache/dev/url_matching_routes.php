@@ -16,6 +16,8 @@ return [
         '/plat' => [[['_route' => 'app_plat', '_controller' => 'App\\Controller\\PlatController::index'], null, null, null, false, false, null]],
         '/add_plat' => [[['_route' => 'add_plat', '_controller' => 'App\\Controller\\PlatController::add'], null, null, null, false, false, null]],
         '/add_tipus' => [[['_route' => 'add_tipus', '_controller' => 'App\\Controller\\PlatController::addtipus'], null, null, null, false, false, null]],
+        '/get_plats' => [[['_route' => 'get_plats', '_controller' => 'App\\Controller\\PlatController::getAll'], null, null, null, false, false, null]],
+        '/get_tipus' => [[['_route' => 'get_tipus', '_controller' => 'App\\Controller\\PlatController::getTipus'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

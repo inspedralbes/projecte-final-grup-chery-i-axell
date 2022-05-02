@@ -6,6 +6,10 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+$method = $_SERVER['REQUEST_METHOD'];
+if($method == "OPTIONS") {
+    die();
+}
 
 
 use App\Entity\Plat;
@@ -45,6 +49,7 @@ class PlatController extends AbstractController
     public function add(Request $request): JsonResponse
     {
         $data = json_decode($request->getContent(), true);
+        print_r($data);
 
         $nom = $data['nom'];
         $tipusnom = $data['tipusnom'];
@@ -111,6 +116,20 @@ class PlatController extends AbstractController
 
 
 
+    #[Route('/get_tipus', name: 'get_tipus')]
+    public function getTipus(): JsonResponse
+    {
+        $plats = $this->tipusrepo->findAll();
+        $data = [];
+
+        foreach ($plats as $pet) {
+            $data[] = [
+                'nom' => $pet->getNom(),
+            ];
+        }
+
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
 
 
 }

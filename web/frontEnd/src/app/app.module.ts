@@ -12,6 +12,7 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { AfegirPlatsComponent } from './afegir-plats/afegir-plats.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
 
     AppRoutingModule,
