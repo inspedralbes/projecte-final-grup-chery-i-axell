@@ -92,6 +92,24 @@ class PlatController extends AbstractController
 
     }
 
+    #[Route('/get_plats', name: 'get_plats')]
+    public function getAll(): JsonResponse
+    {
+       $plats = $this->platrepo->findAll();
+        $data = [];
+
+        foreach ($plats as $pet) {
+            $data[] = [
+                'nom' => $pet->getNom(),
+                'preu' => $pet->getPreu(),
+                'tipus' => $pet->getTipus()->getNom(),
+            ];
+        }
+
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
+
+
 
 
 
