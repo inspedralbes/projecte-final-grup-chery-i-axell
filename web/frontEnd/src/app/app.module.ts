@@ -9,17 +9,21 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { PruebaComponent } from './prueba/prueba.component';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { AfegirPlatsComponent } from './afegir-plats/afegir-plats.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
-=======
-    PruebaComponent
->>>>>>> 9359fa60721176979cc4becf2ca546ee49c5a39a
+    HeroDetailComponent,
+    AfegirPlatsComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
