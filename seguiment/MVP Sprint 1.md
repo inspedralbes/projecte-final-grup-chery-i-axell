@@ -1,5 +1,6 @@
 ## Flux de pantalles
 [Link a figma](https://www.figma.com/file/4zthPjp9cOT6ejctrTXvor/Flux-de-pantalla?node-id=0%3A1)
+[Link a Trello](https://trello.com/b/PkPF2z47/scrum)
 
 
 ## Tecnologies
