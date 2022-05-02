@@ -1,0 +1,13 @@
+68f378,127.0.0.1,GET,http://127.0.0.1:8000/,1651480976,,404
+dd1010,::1,GET,http://localhost:8000/,1651480983,,404
+80cf68,::1,GET,http://localhost:8000/favicon.ico,1651480983,3cc70f,404
+3cc70f,::1,GET,http://localhost:8000/favicon.ico,1651480983,,404
+f8081d,::1,GET,http://localhost:8000/add_plat,1651480988,41d478,500
+41d478,::1,POST,http://localhost:8000/add_plat,1651480988,,500
+c35905,::1,GET,http://localhost:8000/add_plat,1651481068,e8f2fd,500
+e8f2fd,::1,POST,http://localhost:8000/add_plat,1651481068,,500
+d36892,::1,GET,http://localhost:8000/add_plat,1651481126,ef9300,500
+ef9300,::1,POST,http://localhost:8000/add_plat,1651481126,,500
+750526,::1,POST,http://localhost:8000/add_plat,1651481167,,201
+be7ac7,::1,POST,http://localhost:8000/add_tipus,1651481323,,201
+c7eba4,::1,POST,http://localhost:8000/add_tipus,1651481376,,201
