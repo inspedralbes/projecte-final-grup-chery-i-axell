@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Angul } from '@angular/fire/database';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +11,7 @@ export class AppComponent {
 
 
 
-  constructor(private db: AngularFireDatabase) {
+  constructor() {
 
 
 
