@@ -19,5 +19,6 @@ return [
     'add_plat' => [[], ['_controller' => 'App\\Controller\\PlatController::add'], [], [['text', '/add_plat']], [], [], []],
     'add_tipus' => [[], ['_controller' => 'App\\Controller\\PlatController::addtipus'], [], [['text', '/add_tipus']], [], [], []],
     'get_plats' => [[], ['_controller' => 'App\\Controller\\PlatController::getAll'], [], [['text', '/get_plats']], [], [], []],
+    'get_plats_tipus' => [[], ['_controller' => 'App\\Controller\\PlatController::get_plats_tipus'], [], [['text', '/get_plats_tipus']], [], [], []],
     'get_tipus' => [[], ['_controller' => 'App\\Controller\\PlatController::getTipus'], [], [['text', '/get_tipus']], [], [], []],
 ];

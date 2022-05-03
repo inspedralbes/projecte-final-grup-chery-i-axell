@@ -49,11 +49,11 @@ class PlatController extends AbstractController
     public function add(Request $request): JsonResponse
     {
         $data = json_decode($request->getContent(), true);
-        print_r($data);
 
         $nom = $data['nom'];
         $tipusnom = $data['tipusnom'];
         $preu = $data['preu'];
+
 
         $tipus = $this->tipusrepo->findOneBy(array("Nom" => $tipusnom));
 
@@ -113,6 +113,53 @@ class PlatController extends AbstractController
 
         return new JsonResponse($data, Response::HTTP_OK);
     }
+
+    #[Route('/get_plats_tipus', name: 'get_plats_tipus')]
+    public function get_plats_tipus(): JsonResponse
+    {
+        $tipus = $this->tipusrepo->findAll();
+        $i = 0;
+        $data = [];
+
+
+
+        foreach ($tipus as $tip) {
+
+
+            $plats = $tip->getPlats();
+            $llistaPlats = array();
+
+
+
+            foreach ($plats as $plat) {
+
+
+                $llistaPlats [] = [
+                    'nom' => $plat->getNom(),
+                    'preu' => $plat->getPreu(),
+                    'tipus' => $plat->getTipus()->getNom(),
+                ];
+            }
+            $data[] = [ "nomTipus" => $tip->getNom() ,  "llistatPlats" =>   $llistaPlats];
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
+
 
 
 

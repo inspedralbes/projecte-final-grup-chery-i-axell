@@ -33,7 +33,6 @@ export class AfegirPlatsComponent implements OnInit {
 
 
   }); 
-  this.mostraplats();
 }
 
 
@@ -60,9 +59,9 @@ export class AfegirPlatsComponent implements OnInit {
 
     this.httpclient.post("http://127.0.0.1:8000/add_plat",
     {
-    "nom": "'" + this.nomplat + "'",
+    "nom":  this.nomplat ,
     "preu":  this.preuplat ,
-    "tipusnom": "'" + this.selectedtipus + "'"
+    "tipusnom":   this.selectedtipus  
     },)
     .subscribe(
     data => {

@@ -13,6 +13,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { AfegirPlatsComponent } from './afegir-plats/afegir-plats.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     HeroDetailComponent,
     AfegirPlatsComponent,
+    MostraplatsComponent,
   ],
   imports: [
     BrowserModule,
