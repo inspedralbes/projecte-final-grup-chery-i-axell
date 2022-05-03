@@ -13,6 +13,7 @@ import { ComandaComponent } from './comanda/comanda.component';
 import { ComandaLocalComponent } from './comanda-local/comanda-local.component';
 import { ComprarComandaComponent } from './comprar-comanda/comprar-comanda.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     HomepageComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
@@ -32,7 +34,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     provideDatabase(() => getDatabase())
 
   ],
-  providers: [{provide: FIREBASE_OPTIONS, useValue:environment.firebase}],
+  providers: [HttpClientModule,{provide: FIREBASE_OPTIONS, useValue:environment.firebase}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
