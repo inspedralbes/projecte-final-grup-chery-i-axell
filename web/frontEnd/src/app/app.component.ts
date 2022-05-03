@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {AngularFireDatabase} from '@angular/fire/compat/database';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +11,9 @@ export class AppComponent {
 
 
 
-  constructor(private db:AngularFireDatabase) {
+  constructor() {
 
-  let ref = db.object("prueba");
 
-  ref.set({valor: "Funciona"});
 
   }
 
