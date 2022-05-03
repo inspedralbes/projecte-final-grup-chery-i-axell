@@ -12,6 +12,8 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { ComandaComponent } from './comanda/comanda.component';
 import { ComandaLocalComponent } from './comanda-local/comanda-local.component';
 import { ComprarComandaComponent } from './comprar-comanda/comprar-comanda.component';
+import { HomepageComponent } from './homepage/homepage.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { ComprarComandaComponent } from './comprar-comanda/comprar-comanda.compo
     PruebaComponent,
     ComandaComponent,
     ComandaLocalComponent,
-    ComprarComandaComponent
+    ComprarComandaComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { ComprarComandaComponent } from './comprar-comanda/comprar-comanda.compo
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase())
+
   ],
   providers: [{provide: FIREBASE_OPTIONS, useValue:environment.firebase}],
   bootstrap: [AppComponent]
