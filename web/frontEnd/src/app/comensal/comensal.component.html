@@ -1,10 +1,9 @@
 <div class="card avatar-card col-sm-4">
-    <img class="card-img-top" src="/assets/images/avatar-astro-1.webp" alt="Card image cap">
+    <img class="card-img-top" [src]="image" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title text-center">{{name | titlecase}}</h5>
-      <div class="text-center">
-        <a href="#" class="btn btn-sm  btn-primary">Some action</a>
-      </div>
+        <h5 class="card-title text-center">{{name | titlecase}}</h5>
+        <div class="text-center">
+            <a href="#" class="btn btn-sm  btn-primary">Some action</a>
+        </div>
     </div>
-  </div>
-    
+</div>

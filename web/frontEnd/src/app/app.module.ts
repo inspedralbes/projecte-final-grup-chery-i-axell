@@ -14,6 +14,8 @@ import { CrearTaulaComponent } from './crear-taula/crear-taula.component';
 import { TaulaComponent } from './taula/taula.component';
 import { ComensalComponent } from './comensal/comensal.component';
 import { DynamicComponentDirective } from './directives/dynamic-component.directive';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { TaulaService } from './services/taula.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { DynamicComponentDirective } from './directives/dynamic-component.direct
     provideDatabase(() => getDatabase()),
     FormsModule
   ],
-  providers: [{provide: FIREBASE_OPTIONS, useValue:environment.firebase}],
+  providers: [{provide: FIREBASE_OPTIONS, useValue:environment.firebase},
+  TaulaService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

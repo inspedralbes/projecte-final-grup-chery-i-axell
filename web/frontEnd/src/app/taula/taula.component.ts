@@ -2,40 +2,69 @@ import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/co
 import { ActivatedRoute } from '@angular/router';
 import { AngularFireAction, AngularFireDatabase, AngularFireList, AngularFireObject, DatabaseSnapshot, PathReference } from '@angular/fire/compat/database';
 import { Observable, Subscription } from 'rxjs';
-import { Taula  } from '../interface/Taula';
-import { ComensalComponent } from '../comensal/comensal.component';
 
-import { Directive, ViewContainerRef } from '@angular/core';
-import { DynamicComponentDirective } from '../directives/dynamic-component.directive';
 import { DOCUMENT } from '@angular/common';
+
+
+
+import { TaulaService } from '../services/taula.service';
+import { Comensal } from '../interface/Comensal';
+import { ComensalComponent } from '../comensal/comensal.component';
 
 
 @Component({
   selector: 'app-taula',
   templateUrl: './taula.component.html',
-  styleUrls: ['./taula.component.css']
+  styleUrls: ['./taula.component.css'],
+
 })
 
 
 
 
-export class TaulaComponent implements OnInit, AfterViewInit{
+export class TaulaComponent implements OnInit{
 
 
-  @ViewChild(DynamicComponentDirective) dynamic!:DynamicComponentDirective
+
 
   public nameComensal:string="";
-  public codiTaula:string;
+  public codiTaula:string | undefined;
   public llistaTaulaRef:any;
-  public llistaSubscription:Subscription;
+  public llistaSubscription:Subscription | undefined;
   public taulaRef:any;
   public taulaObject:any;
   public comensals:any;
 
+  public comensalList:Comensal[] | undefined;
 
-  constructor(private route:ActivatedRoute, private db:AngularFireDatabase, @Inject(DOCUMENT) document:Document) {
+
+  constructor(private route:ActivatedRoute, private db:AngularFireDatabase, @Inject(DOCUMENT) document:Document, private taulaService: TaulaService) {
+
+    
 
     this.codiTaula=this.route.snapshot.paramMap.get("id")!;
+
+    this.taulaService.newTaula(this.codiTaula);
+
+    this.taulaService.insertComensal(new ComensalComponent());
+
+
+    this.taulaService.getComensals().snapshotChanges().subscribe(item=>{
+      this.comensalList=[];
+      item.forEach(element=>{
+       /*  let x= element.payload.toJSON();
+        x["key"]=element.key; */
+        let x ={
+          key: element.key,
+          name: element.payload.val().name,
+          image: element.payload.val().image
+        }
+
+        this.comensalList?.push(x as Comensal);
+      })
+    })
+
+/*     this.codiTaula=this.route.snapshot.paramMap.get("id")!;
     this.llistaTaulaRef= db.list("taules");
     this.llistaSubscription= this.llistaTaulaRef.snapshotChanges().subscribe((result:AngularFireAction<DatabaseSnapshot<any>>[])=>{
       //this.crearTaulaSiNoExisteix(result)
@@ -65,71 +94,15 @@ export class TaulaComponent implements OnInit, AfterViewInit{
         this.mostrarComensales();
 
 
-    })
+    }) */
 
   }
-  mostrarComensales() {
-    let subs = this.comensals.valueChanges().subscribe((result: any)=>{
-      console.log(result)
-      result.forEach((element: { nameComensal: any; }) => {
-        const viewContainerRef= this.dynamic.viewContainerRef;
-    const componentRef= viewContainerRef.createComponent<any>(ComensalComponent);
-    componentRef.instance.nameComensal=element.nameComensal;
-      });
 
-      
-
-    })
-  }
-
-  afegirComensal() {
-  
-    //ABRIR MODAL
-  
-      document.getElementById("openModalComensal")?.click();
-      //GUARDAR DATOS MODAL
-      let nombreGuardar = this.nameComensal;
-      //ENVIAR DATOS DEL MODAL A FIREBASE
-      
-      //RENDERIZAR NUEVO COMENSAL
-  }
-
-
-  ngAfterViewInit(): void {
-   
-    
-
-  }
-  generateComponent(){
-   /*  const viewContainerRef= this.dynamic.viewContainerRef;
-    const componentRef= viewContainerRef.createComponent<any>(ComensalComponent);
-    componentRef.instance.nameComensal=this.nameComensal; */
-
-    this.comensals.push({comensal:this.nameComensal});
-  }
 
   ngOnInit(): void {
-    
-  }
-  ngOnDestroy() {
-    this.llistaSubscription.unsubscribe()
+  
   }
 
-  crearTaulaSiNoExisteix(result:Taula[]){
-    let existe = false;
-    result.forEach(element => {
-      if(element.codiTaula==this.codiTaula){
-        existe=true;
-        console.log(element)
-      }
-    });
-    if(!existe){
-    this.taulaRef= this.llistaTaulaRef.push({codiTaula: this.codiTaula});
-    console.log(this.taulaRef)
-    this.llistaSubscription.unsubscribe();
-    
-  }
-    }
   
 }
 
