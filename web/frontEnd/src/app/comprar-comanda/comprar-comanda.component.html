@@ -6,36 +6,48 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
     <div class="row">
         <div class="col">
             <div>
                 <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                <span class="input-group-text">Nombre</span>
+                    <span class="input-group-text" id="basic-addon1">Nombre</span>
+                    <input type="text" class="form-control" placeholder="nombre" aria-describedby="basic-addon1">
                 </div>
                 
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                    <span class="input-group-text">Apellido</span>
+                    <span class="input-group-text" id="basic-addon1">Apellido</span>
+                    <input type="text" class="form-control" placeholder="Apellido" aria-describedby="basic-addon1">
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                    <span class="input-group-text">Email</span>
+                    <span class="input-group-text" id="basic-addon1">Email</span>
+                    <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                    <span class="input-group-text">Numero</span>
+                    <span class="input-group-text" id="basic-addon1">Numero</span>
+                    <input type="text" class="form-control" placeholder="Numero" aria-describedby="basic-addon1">
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                    <span class="input-group-text">Direccion</span>
+                    <span class="input-group-text" id="basic-addon1">Direccion</span>
+                    <input type="text" class="form-control" placeholder="Direccion" aria-describedby="basic-addon1">
                 </div>
-                <br>
-                <button type="button" class="btn btn-outline-success">Comprar</button>
             </div>
+            <br>
+            <br>
+            <label routerLink="/ComandaLocal" routerLinkActive="active">
+                <input type="checkbox" class="btn-check" >
+                <label class="btn btn-outline-danger" id="volver">volver</label>
+            </label>
+            &nbsp;
+            &nbsp;
+            <label routerLink="/ComprarComanda" routerLinkActive="active">
+                <input type="checkbox" class="btn-check" >
+                <label class="btn btn-outline-success" id="ComprarComanda">Comprar comanda</label>
+            </label>
         </div>
         <div class="col">
             <div>
