@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { CrearTaulaComponent } from './crear-taula/crear-taula.component';
 import { TaulaComponent } from './taula/taula.component';
 import { ComensalComponent } from './comensal/comensal.component';
+import { DynamicComponentDirective } from './directives/dynamic-component.directive';
 
 @NgModule({
   declarations: [
@@ -20,8 +21,10 @@ import { ComensalComponent } from './comensal/comensal.component';
     PruebaComponent,
     CrearTaulaComponent,
     TaulaComponent,
-    ComensalComponent
+    ComensalComponent,
+    DynamicComponentDirective
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,

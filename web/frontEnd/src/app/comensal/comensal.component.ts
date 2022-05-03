@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-comensal',
   templateUrl: './comensal.component.html',
-  styleUrls: ['./comensal.component.css']
+  styleUrls: ['./comensal.component.css'] ,
+  host: {'class': 'col-sm-2 col-xs-6'}
 })
 export class ComensalComponent implements OnInit {
 
-  constructor() { }
+
+  @Input() name : string="name";
+  @Input() image : string="/assets/images/avatar-astro-1";
+
+  constructor() {
+   }
 
   ngOnInit(): void {
   }
+  
 
 }
