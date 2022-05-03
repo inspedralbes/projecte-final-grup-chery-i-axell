@@ -9,14 +9,17 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { PruebaComponent } from './prueba/prueba.component';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { ComandaComponent } from './comanda/comanda.component';
+import { ComandaLocalComponent } from './comanda-local/comanda-local.component';
+import { ComprarComandaComponent } from './comprar-comanda/comprar-comanda.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
-=======
-    PruebaComponent
->>>>>>> 9359fa60721176979cc4becf2ca546ee49c5a39a
+    PruebaComponent,
+    ComandaComponent,
+    ComandaLocalComponent,
+    ComprarComandaComponent
   ],
   imports: [
     BrowserModule,
