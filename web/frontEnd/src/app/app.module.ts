@@ -29,7 +29,7 @@ import { MostraplatsComponent } from './mostraplats/mostraplats.component';
     CrearTaulaComponent,
     TaulaComponent,
     ComensalComponent,
-    DynamicComponentDirective
+    AfegirPlatsComponent
   ],
   
   imports: [

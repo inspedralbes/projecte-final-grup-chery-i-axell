@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
+
 @Component({
   selector: 'app-afegir-plats',
   templateUrl: './afegir-plats.component.html',
