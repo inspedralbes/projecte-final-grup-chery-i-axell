@@ -1,31 +1,18 @@
-<div class="bodycompra">
 <div class="accordion" id="accordionExample">
     <div class="accordion-item" *ngFor='let plat of plats'>
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             {{plat.nomTipus}}
         </button>
-      </h2>
-      <div  id= "collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body"  *ngFor='let platnom of plat.llistatPlats' >
-          <strong >{{platnom.nom}}</strong><br>
-          <strong >{{platnom.preu}} €</strong>
-          <button (click)="pedirplat(platnom.nom, platnom.preu)" >Demanar</button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body" *ngFor='let platnom of plat.llistatPlats'>
+                <strong>{{platnom.nom}}</strong><br>
+                <strong>{{platnom.preu}} €</strong>
+                <button (click)="pedirplat(platnom.nom, platnom.preu)">Demanar</button>
+            </div>
         </div>
-      </div>
     </div>
-    <button (click)="lacuenta()" >Ja he comprat</button>
+    <button (click)="lacuenta()" class="btn btn-sm btn-primary">Ja he comprat</button>
 
-  </div>
-
-
-  <div class="total">
-
-    Total
-
-  </div>
-
-
-
-        </div>
-
+</div>
