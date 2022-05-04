@@ -2,36 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d4bcec0-0ece-4772-88f0-75ed2bf80f75" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/back.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/back.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/Controller/PlatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/Controller/PlatController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/Repository/PlatRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/Repository/PlatRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainer.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainer.php.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainer.xml.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainerCompiler.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainerDeprecations.log" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainerDeprecations.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/1/K/Vq7uQ1KxIza8E5BVBoLQ" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/1/K/Vq7uQ1KxIza8E5BVBoLQ" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/B/P/EYoW-CZNikV7tnj3NsOQ" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/B/P/EYoW-CZNikV7tnj3NsOQ" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/E/+/-cDqj1aEjQurxbFTUPww" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/E/+/-cDqj1aEjQurxbFTUPww" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/F/-/fc9-jAacOVPOos4QMrpg" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/F/-/fc9-jAacOVPOos4QMrpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/G/V/B2jhcLxvxDB-kksufPPw" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/G/V/B2jhcLxvxDB-kksufPPw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/L/9/rcnbHrd9dNMsnMW9jOeg" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/L/9/rcnbHrd9dNMsnMW9jOeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/profiler/index.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/twig/7e/7ec62f923aa6ebd4c1b6bd06b86b0a2d.php" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/twig/7e/7ec62f923aa6ebd4c1b6bd06b86b0a2d.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/url_generating_routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/url_generating_routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/url_matching_routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/url_matching_routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/log/dev.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/afegir-plats/afegir-plats.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/afegir-plats/afegir-plats.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/app.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/back/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -174,7 +154,8 @@
       <option name="presentableId" value="Default" />
       <updated>1651486666851</updated>
       <workItem from="1651486668152" duration="3075000" />
-      <workItem from="1651565947720" duration="7064000" />
+      <workItem from="1651565947720" duration="7591000" />
+      <workItem from="1651649485753" duration="1321000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Plat } from '../model/Plat';
+import { MandarplatosService } from '../services/mandarplatos.service';
 
 
 @Component({
@@ -14,7 +16,7 @@ export class MostraplatsComponent implements OnInit {
   platsperdemanar: any[] = [];
  
 
-  constructor(private httpclient:HttpClient) {
+  constructor(private httpclient:HttpClient, private mandarplatos:MandarplatosService) {
     
 
 
@@ -40,7 +42,7 @@ export class MostraplatsComponent implements OnInit {
 
 
 
-    let plat = {  plato: plato, precio: precio};
+    let plat = {  nom: plato, preu: precio, estat: "Demanat"};
     this.platsperdemanar.push(plat);
 
     console.log(this.platsperdemanar)
@@ -50,8 +52,18 @@ export class MostraplatsComponent implements OnInit {
 
   lacuenta(){
 
-    let platos = JSON.stringify(this.platsperdemanar);
-    console.log(platos);
+    this.mandarplatos.init("dsad");
+    this.platsperdemanar.forEach(element=>{
+      let plat = new Plat(element.nom, element.preu, element.estat);
+      this.mandarplatos.insertcomanda(plat);
+
+
+      }
+    );
+
+
+
+    
 
 
 
