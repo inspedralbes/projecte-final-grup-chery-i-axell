@@ -11,11 +11,15 @@ export class ComensalComponent implements OnInit {
 
   @Input() name : string="name";
   @Input() image : string="/assets/images/avatar-astro-1";
+  @Input() isOnConfirmModal : boolean=false;
 
   constructor() {
    }
 
   ngOnInit(): void {
+    if(this.isOnConfirmModal){
+      console.log("On MODal")
+    }
   }
   
 

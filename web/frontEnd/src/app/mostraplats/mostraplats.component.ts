@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Plat } from '../model/Plat';
 import { MandarplatosService } from '../services/mandarplatos.service';
+import { Comensal } from '../interface/Comensal';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class MostraplatsComponent implements OnInit {
   plats: any;
   selectedplats: any;
   platsperdemanar: any[] = [];
+  @Input() comensalList:Comensal[] | undefined;
  
 
   constructor(private httpclient:HttpClient, private mandarplatos:MandarplatosService) {
@@ -55,8 +57,6 @@ export class MostraplatsComponent implements OnInit {
     this.platsperdemanar.forEach(element=>{
       let plat = new Plat(element.nom, element.preu, element.estat, "axell");
       this.mandarplatos.insertcomanda(plat);
-
-
       }
     );
 

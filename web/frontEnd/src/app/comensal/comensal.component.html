@@ -3,7 +3,7 @@
     <div class="card-body">
         <h5 class="card-title text-center">{{name | titlecase}}</h5>
         <div class="text-center">
-            <a href="#" class="btn btn-sm  btn-primary">Some action</a>
+            <a href="#" class="btn btn-sm  btn-primary" *ngIf="isOnConfirmModal==false">Some action</a>
         </div>
     </div>
 </div>

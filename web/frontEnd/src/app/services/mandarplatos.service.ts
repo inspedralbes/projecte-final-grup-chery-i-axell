@@ -30,7 +30,7 @@ export class MandarplatosService {
 
   insertcomanda(plat: Plat){
 
-    this.comandaList?.push({nom:plat.nom, preu: plat.preu, estat: plat.estat })
+    this.comandaList?.push({nom:plat.nom, preu: plat.preu, estat: plat.estat, comensal: plat.comensal })
 
 
   }

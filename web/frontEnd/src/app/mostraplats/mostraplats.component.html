@@ -1,12 +1,12 @@
 <div class="bodycompra">
 <div class="accordion" id="accordionExample">
     <div class="accordion-item" *ngFor='let plat of plats'>
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      <h2 class="accordion-header" [id]="'h'+plat.nomTipus">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"  [attr.data-bs-target]="'#'+plat.nomTipus" aria-expanded="true" [attr.aria-controls]="plat.nomTipus">
             {{plat.nomTipus}}
         </button>
       </h2>
-      <div  id= "collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div  [attr.id]= "plat.nomTipus" class="accordion-collapse collapse " [attr.aria-labelledby]="'h'+plat.nomTipus" data-bs-parent="#accordionExample">
         <div class="accordion-body"  *ngFor='let platnom of plat.llistatPlats' >
           <strong >{{platnom.nom}}</strong><br>
           <strong >{{platnom.preu}} €</strong>
@@ -14,18 +14,50 @@
         </div>
       </div>
     </div>
+  </div>
+
     <button (click)="lacuenta()" >Ja he comprat</button>
+</div>
 
+
+
+
+
+
+<button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modal2" id="openModal2">
+  Afegir un comensal
+</button>
+
+<div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="modal2Label">Afegir comensal</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="text-center">
+
+                  <h5>Confirma la teva comanda!</h5>
+                  <h6>Qui está demanant?</h6>
+                  <div class="container">
+                    <div class="row ">
+                      <app-comensal *ngFor="let comensal of comensalList" [isOnConfirmModal]="true" [name]="comensal.name" [image]="comensal.image" class="col-sm-6 col-xs-12 col-md-6 "></app-comensal>
+                    </div>
+                  </div>
+                  
+                  
+
+              </div>
+
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="buttonClose">Tancar</button>
+              <a class="btn btn-primary" data-bs-dismiss="modal" >Continuar</a>
+
+          </div>
+      </div>
   </div>
+</div>
 
-
-  <div class="total">
-
-    Total
-
-  </div>
-
-
-
-        </div>
 
