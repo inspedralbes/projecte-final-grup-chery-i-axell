@@ -20,6 +20,7 @@ import { TaulaService } from './services/taula.service';
 import { AfegirPlatsComponent } from './afegir-plats/afegir-plats.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MostraplatsComponent } from './mostraplats/mostraplats.component';
+import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MostraplatsComponent } from './mostraplats/mostraplats.component';
     TaulaComponent,
     ComensalComponent,
     AfegirPlatsComponent,
-    MostraplatsComponent
+    MostraplatsComponent,
+    AdminPlatsComponent
   ],
   
   imports: [
