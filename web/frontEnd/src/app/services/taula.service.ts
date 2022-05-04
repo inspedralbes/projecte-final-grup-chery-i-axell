@@ -1,5 +1,6 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database'; 
+import { getDatabase, ref, child, get } from "firebase/database";
 import { Comensal } from '../interface/Comensal';
 
 @Injectable({
@@ -22,17 +23,33 @@ export class TaulaService {
    }
 
 
-   getComensals(){
-     return this.comensalList= this.firebase.list(`taules/${this.key}/comensals`);
+
+   getComensals(key:string){
+     return this.comensalList= this.firebase.list(`taules/${key}/comensals`);
    }
 
    insertComensal(comensal:Comensal){
-      this.comensalList?.push({name:comensal.name})
+      this.comensalList?.push({name:comensal.name, image: comensal.image})
    }
 
    newTaula(codiTaula:string){
-     this.setKey(codiTaula)
-    this.firebase.object(`taules/${this.key}`).set({codiTaula:codiTaula})
+
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, `taules/${codiTaula}`)).then((snapshot) => {
+      if (snapshot.exists()) {
+    
+        this.setKey(codiTaula)
+      } else {
+      
+        this.setKey(codiTaula)
+        this.firebase.object(`taules/${this.key}`).set({codiTaula:codiTaula})
+      }
+    }).catch((error) => {
+     
+    });
+
+   
+    
     
    }
 

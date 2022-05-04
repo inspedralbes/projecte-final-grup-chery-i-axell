@@ -28,32 +28,33 @@ export class TaulaComponent implements OnInit{
 
 
   public nameComensal:string="";
+  public imageComensal:string="";
   public codiTaula:string | undefined;
-  public llistaTaulaRef:any;
-  public llistaSubscription:Subscription | undefined;
-  public taulaRef:any;
-  public taulaObject:any;
-  public comensals:any;
-
   public comensalList:Comensal[] | undefined;
+  selectedImage: string;
+
+  
 
 
-  constructor(private route:ActivatedRoute, private db:AngularFireDatabase, @Inject(DOCUMENT) document:Document, private taulaService: TaulaService) {
+  constructor(private route:ActivatedRoute, @Inject(DOCUMENT) document:Document, private taulaService: TaulaService) {
 
-    
+  this.selectedImage="avatarImg1";
 
     this.codiTaula=this.route.snapshot.paramMap.get("id")!;
 
     this.taulaService.newTaula(this.codiTaula);
 
-    this.taulaService.insertComensal(new ComensalComponent());
 
 
-    this.taulaService.getComensals().snapshotChanges().subscribe(item=>{
+    this.taulaService.getComensals(this.codiTaula).snapshotChanges().subscribe(item=>{
       this.comensalList=[];
+      
+      if (item.length==0){
+        this.askForComensal();
+      }
+
       item.forEach(element=>{
-       /*  let x= element.payload.toJSON();
-        x["key"]=element.key; */
+        
         let x ={
           key: element.key,
           name: element.payload.val().name,
@@ -63,44 +64,36 @@ export class TaulaComponent implements OnInit{
         this.comensalList?.push(x as Comensal);
       })
     })
+  }
 
-/*     this.codiTaula=this.route.snapshot.paramMap.get("id")!;
-    this.llistaTaulaRef= db.list("taules");
-    this.llistaSubscription= this.llistaTaulaRef.snapshotChanges().subscribe((result:AngularFireAction<DatabaseSnapshot<any>>[])=>{
-      //this.crearTaulaSiNoExisteix(result)
-    
-      let existe = false;
-      result.forEach(element => {
-        
-        let taula = element.payload.val();
-        
-        if(taula.codiTaula==this.codiTaula){
-          existe=true;
-          let key = element.key as PathReference;
-          this.taulaObject = db.object(key);
-          this.comensals= db.list(`/taules/${key}/comensals`);
-        
-          
-        }
-    
-      });
-        if(!existe){
-          this.taulaRef=this.llistaTaulaRef.push({codiTaula: this.codiTaula})
-      //    this.afegirComensal()
-          this.llistaSubscription.unsubscribe()
-        }
+  askForComensal() {
+      //ABRIR MODAL
+      document.getElementById("openModalComensal")?.click();
+  }
 
+  saveComensal(){
+    //INSERTAR COMENSAL EN LA BASE DE DATOS
 
-        this.mostrarComensales();
+    let image = document.getElementById(this.selectedImage) as HTMLImageElement;
+    let imgSrc= image.src;
+    let substring = imgSrc.split("assets");
+    let source = "assets/"+substring[1];
+    this.taulaService.insertComensal(new Comensal(this.nameComensal, source));
+  }
 
-
-    }) */
+  seleccionarImagen(event:any){
+    this.selectedImage= event.target.id;
 
   }
 
+  imageIsSelected(id:string){
+    return ((id==this.selectedImage)? true :false);
+  }
+
+
 
   ngOnInit(): void {
-  
+
   }
 
   
