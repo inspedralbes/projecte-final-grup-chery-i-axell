@@ -29,7 +29,8 @@ import { MostraplatsComponent } from './mostraplats/mostraplats.component';
     CrearTaulaComponent,
     TaulaComponent,
     ComensalComponent,
-    AfegirPlatsComponent
+    AfegirPlatsComponent,
+    MostraplatsComponent
   ],
   
   imports: [

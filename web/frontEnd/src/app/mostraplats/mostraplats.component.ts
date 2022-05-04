@@ -24,14 +24,13 @@ export class MostraplatsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.httpclient.get("http://127.0.0.1:8000/get_plats_tipus").subscribe(data => {
+    this.httpclient.get("http://192.168.210.168:8000/get_plats_tipus").subscribe(data => {
       
       data = JSON.stringify(data);
       data = JSON.parse(data.toString());
       this.plats=data;
 
 
-      console.log(this.plats);
 
 
   }); 
@@ -45,7 +44,7 @@ export class MostraplatsComponent implements OnInit {
     let plat = {  nom: plato, preu: precio, estat: "Demanat"};
     this.platsperdemanar.push(plat);
 
-    console.log(this.platsperdemanar)
+
 
 
   }
@@ -54,7 +53,7 @@ export class MostraplatsComponent implements OnInit {
 
     this.mandarplatos.init("dsad");
     this.platsperdemanar.forEach(element=>{
-      let plat = new Plat(element.nom, element.preu, element.estat);
+      let plat = new Plat(element.nom, element.preu, element.estat, "axell");
       this.mandarplatos.insertcomanda(plat);
 
 
