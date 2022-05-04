@@ -32,6 +32,19 @@ export class TaulaService {
       this.comensalList?.push({name:comensal.name, image: comensal.image})
    }
 
+
+  deleteComensal(key:string){
+    this.comensalList?.remove(key);
+  }
+
+
+
+
+
+
+
+
+
    newTaula(codiTaula:string){
 
     const dbRef = ref(getDatabase());
@@ -47,12 +60,7 @@ export class TaulaService {
     }).catch((error) => {
      
     });
-
-   
-    
-    
    }
-
 
 
 }
