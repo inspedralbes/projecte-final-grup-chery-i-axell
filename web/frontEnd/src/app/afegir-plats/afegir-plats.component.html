@@ -1,0 +1,22 @@
+
+  <div class="container">
+    <label for="uname"><b>Nom del Plat</b></label>
+    <input [(ngModel)]="nomplat" type="text" placeholder="" name="nomplat" required><br>
+
+    <label for="uname"><b>Preu del plat</b></label>
+    <input [(ngModel)]="preuplat" type="text" placeholder="" name="preuplat" required><br>
+
+    <label for="tipusplat"><b>Tipus del plat</b></label>
+
+    <select name="selectedtipus" [(ngModel)]="selectedtipus" >
+        <option *ngFor='let tipus of tipusdeplats' [value]="tipus.nom">
+            {{tipus.nom}}
+          </option>
+
+      </select>
+      
+
+    <button (click)="afegirplat()" type="submit">Afegir Plat</button>
+  </div>
+
+{{plats}}

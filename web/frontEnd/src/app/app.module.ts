@@ -17,6 +17,11 @@ import { DynamicComponentDirective } from './directives/dynamic-component.direct
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { TaulaService } from './services/taula.service';
 
+import { AfegirPlatsComponent } from './afegir-plats/afegir-plats.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MostraplatsComponent } from './mostraplats/mostraplats.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +34,9 @@ import { TaulaService } from './services/taula.service';
   
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
+
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
