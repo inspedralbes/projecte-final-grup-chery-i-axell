@@ -46,7 +46,7 @@ export class MostraplatsComponent implements OnInit {
   pedirplat(plato: string, precio: number){
 
 
-    let plat = new Plat(plato, precio, "demanat", this.comensal );
+    let plat = new Plat(plato, precio, "Demanat", this.comensal );
     this.platsperdemanar.push(plat);
     this.ordenarPlats();
 
