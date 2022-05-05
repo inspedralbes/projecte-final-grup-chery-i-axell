@@ -63,6 +63,8 @@ export class TaulaComponent implements OnInit{
 
         this.comensalList?.push(x as Comensal);
       })
+
+      
     })
   }
 
@@ -75,9 +77,7 @@ export class TaulaComponent implements OnInit{
     //INSERTAR COMENSAL EN LA BASE DE DATOS
 
     let image = document.getElementById(this.selectedImage) as HTMLImageElement;
-    let imgSrc= image.src;
-    let substring = imgSrc.split("assets");
-    let source = "assets/"+substring[1];
+    let source= "assets"+image.src.split("assets")[1];
     this.taulaService.insertComensal(new Comensal(this.nameComensal, source));
   }
 
@@ -90,7 +90,9 @@ export class TaulaComponent implements OnInit{
     return ((id==this.selectedImage)? true :false);
   }
 
-
+  deleteComensal(key:string){
+    this.taulaService.deleteComensal(key);
+  }
 
   ngOnInit(): void {
 

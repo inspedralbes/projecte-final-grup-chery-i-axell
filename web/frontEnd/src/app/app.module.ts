@@ -13,7 +13,6 @@ import { FormsModule } from '@angular/forms';
 import { CrearTaulaComponent } from './crear-taula/crear-taula.component';
 import { TaulaComponent } from './taula/taula.component';
 import { ComensalComponent } from './comensal/comensal.component';
-import { DynamicComponentDirective } from './directives/dynamic-component.directive';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { TaulaService } from './services/taula.service';
 
