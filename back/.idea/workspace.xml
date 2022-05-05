@@ -5,6 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/profiler/index.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/log/dev.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/admin-plats/admin-plats.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/admin-plats/admin-plats.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/admin-plats/admin-plats.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/admin-plats/admin-plats.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/app.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,10 +160,22 @@
       <workItem from="1651486668152" duration="3075000" />
       <workItem from="1651565947720" duration="7591000" />
       <workItem from="1651649485753" duration="1321000" />
+      <workItem from="1651737096675" duration="2632000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/back/src/Entity/Tipus.php</url>
+          <line>39</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -23,6 +23,16 @@ export class TaulaService {
    }
 
 
+   getTaules(){
+    return this.comensalList= this.firebase.list(`taules/`);
+
+   }
+
+   getFillsTaules(key:string){
+
+    return this.comensalList= this.firebase.list(`taules/${key}/plats`);
+
+   }
 
    getComensals(key:string){
      return this.comensalList= this.firebase.list(`taules/${key}/comensals`);
