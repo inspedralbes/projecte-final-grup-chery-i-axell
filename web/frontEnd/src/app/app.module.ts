@@ -7,23 +7,23 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { PruebaComponent } from './prueba/prueba.component';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { ComandaComponent } from './comanda/comanda.component';
 import { ComandaLocalComponent } from './comanda-local/comanda-local.component';
 import { ComprarComandaComponent } from './comprar-comanda/comprar-comanda.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PruebaComponent,
     ComandaComponent,
     ComandaLocalComponent,
     ComprarComandaComponent,
-    HomepageComponent
+    HomepageComponent,
+    AdminComponent
   ],
   imports: [
     HttpClientModule,
