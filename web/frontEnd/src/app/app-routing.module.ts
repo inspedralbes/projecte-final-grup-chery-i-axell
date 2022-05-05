@@ -6,6 +6,7 @@ import { TaulaComponent } from './taula/taula.component';
 import { AfegirPlatsComponent } from './afegir-plats/afegir-plats.component';
 import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 import {AdminPlatsComponent} from './admin-plats/admin-plats.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [ 
   {path: 'crearTaula', component: CrearTaulaComponent },
@@ -14,6 +15,8 @@ const routes: Routes = [
   {path: 'AfegirPlat', component: AfegirPlatsComponent},
 {path: 'MostrarPlat', component: MostraplatsComponent},
 {path: 'adminPlats', component: AdminPlatsComponent},
+{path: 'login', component: LoginComponent},
+
 
 ];
 

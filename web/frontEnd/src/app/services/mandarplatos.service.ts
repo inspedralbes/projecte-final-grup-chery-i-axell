@@ -24,9 +24,22 @@ export class MandarplatosService {
 
   getComanda(key:string){
     return this.comandaList= this.firebase.list(`taules/${key}/plats`);
+  }
+
+
+  insertcomandaEstat(keyMesa:string, keyPlat: string, estat: string){
+
+    let itemRef = this.firebase.object(`taules/${keyMesa}/plats/${keyPlat}/`);
+
+    itemRef.update({estat: estat});
 
 
   }
+
+
+
+
+
 
   insertcomanda(plat: Plat){
 
@@ -34,4 +47,7 @@ export class MandarplatosService {
 
 
   }
+
+
+
 }

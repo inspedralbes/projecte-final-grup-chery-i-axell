@@ -4,6 +4,7 @@ import { object } from '@angular/fire/database';
 import { Plat } from '../model/Plat';
 import { Taula } from '../model/Taula';
 import { TaulaService } from '../services/taula.service';
+import { MandarplatosService } from '../services/mandarplatos.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class AdminPlatsComponent implements OnInit {
   taulesmesas:  any[] = [];
   platsbuit: any[] = [];
 
-  constructor(private serveitaules:TaulaService) { }
+  constructor(private serveitaules:TaulaService, private serveiplatos: MandarplatosService) { }
 
   ngOnInit(): void {
 
@@ -33,7 +34,16 @@ export class AdminPlatsComponent implements OnInit {
 
           platosget.forEach(element=>{
 
-            this.platsbuit.push(element.payload.val())
+            let platAmbKey ={
+              key: element.key,  
+              nom: element.payload.val().nom,
+              preu: element.payload.val().preu,
+              comensal: element.payload.val().comensal,
+              estat: element.payload.val().estat,
+
+                }
+
+            this.platsbuit.push(platAmbKey)
 
 
           })
@@ -60,6 +70,14 @@ getPlatossuscription(taulesmesasub: any){
   this.taulesmesas = taulesmesasub;
   console.log(this.taulesmesas)
   
+}
+
+
+
+insertcomandaEstat(keymesa: string, keyplat:string, estat:string){
+  this.serveiplatos.insertcomandaEstat(keymesa, keyplat, estat);
+
+
 }
 
 
