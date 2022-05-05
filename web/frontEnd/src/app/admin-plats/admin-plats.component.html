@@ -1,8 +1,12 @@
 <div class="card" style="width: 18rem;" *ngFor='let mesa of taulesmesas'>
     <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">{{mesa.$key}}</h5>
-      <p class="card-text" ></p><br>
+      <h5 class="card-title">{{mesa.key}}</h5> 
+
+
+      <p class="card-text" *ngFor='let plat of mesa.plats' >{{plat.nom}} Estat: {{plat.estat}}</p><br>
+        <button>cambia estat</button>
+      <br>
      
     </div>
   </div>

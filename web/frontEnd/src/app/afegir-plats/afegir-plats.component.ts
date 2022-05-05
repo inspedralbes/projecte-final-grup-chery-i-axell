@@ -31,19 +31,21 @@ export class AfegirPlatsComponent implements OnInit {
       
       data = JSON.stringify(data);
       this.plats=data;
+      this.mostraTipus()
 
 
   }); 
 }
 
 
-  mostraplats(){
+  mostraTipus(){
     console.log(this.plats)
     this.httpclient.get("http://127.0.0.1:8000/get_tipus").subscribe(data => {
       console.log(data);
       
       data = JSON.stringify(data);
       let json = JSON.parse(data.toString());
+      console.log(json)
       this.tipusdeplats=json;
 
 

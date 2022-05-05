@@ -13,7 +13,7 @@ import { TaulaService } from '../services/taula.service';
 })
 export class AdminPlatsComponent implements OnInit {
 
-  taulesmesas:  Taula[] = [];
+  taulesmesas:  any[] = [];
   platsbuit: any[] = [];
 
   constructor(private serveitaules:TaulaService) { }
@@ -30,6 +30,7 @@ export class AdminPlatsComponent implements OnInit {
         let plats = this.serveitaules.getFillsTaules(string!).snapshotChanges().subscribe(platosget=>{
       
          this.platsbuit = [];
+
           platosget.forEach(element=>{
 
             this.platsbuit.push(element.payload.val())
@@ -38,23 +39,29 @@ export class AdminPlatsComponent implements OnInit {
           })
           let x ={
             key: element.key,  
-            plats: this.platsbuit,
+            plats: this.platsbuit!,
               }
+              this.taulesmesas.push(x);
 
 
-             
-
-            this.taulesmesas.push(x);
 
 
           }
         );
 
   });
+  this.getPlatossuscription(this.taulesmesas)
 });
-console.log(this.taulesmesas)
 
+}
+
+getPlatossuscription(taulesmesasub: any){
+
+  this.taulesmesas = taulesmesasub;
+  console.log(this.taulesmesas)
+  
 }
 
 
 }
+

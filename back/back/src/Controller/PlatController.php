@@ -141,21 +141,7 @@ class PlatController extends AbstractController
                 ];
             }
             $data[] = [ "nomTipus" => $tip->getNom() ,  "llistatPlats" =>   $llistaPlats];
-
-
-
-
-
-
         }
-
-
-
-
-
-
-
-
 
         return new JsonResponse($data, Response::HTTP_OK);
     }
