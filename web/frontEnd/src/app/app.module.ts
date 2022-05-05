@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -15,7 +14,6 @@ import { ComensalComponent } from './comensal/comensal.component';
 import { DynamicComponentDirective } from './directives/dynamic-component.directive';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { TaulaService } from './services/taula.service';
-
 import { AfegirPlatsComponent } from './afegir-plats/afegir-plats.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MostraplatsComponent } from './mostraplats/mostraplats.component';
@@ -24,20 +22,18 @@ import { ComandaComponent } from './comanda/comanda.component';
 import { ComandaLocalComponent } from './comanda-local/comanda-local.component';
 import { ComprarComandaComponent } from './comprar-comanda/comprar-comanda.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PruebaComponent,
     CrearTaulaComponent,
     TaulaComponent,
     ComensalComponent,
     AfegirPlatsComponent,
     MostraplatsComponent,
-    AdminPlatsComponent
+    AdminPlatsComponent,
     ComandaComponent,
     ComandaLocalComponent,
     ComprarComandaComponent,
@@ -57,13 +53,8 @@ import { AdminComponent } from './admin/admin.component';
     provideDatabase(() => getDatabase()),
     FormsModule
   ],
-  providers: [{provide: FIREBASE_OPTIONS, useValue:environment.firebase},
-  TaulaService
-],
-    provideDatabase(() => getDatabase())
 
-  ],
   providers: [HttpClientModule,{provide: FIREBASE_OPTIONS, useValue:environment.firebase}],
   bootstrap: [AppComponent]
-})
+  })
 export class AppModule { }

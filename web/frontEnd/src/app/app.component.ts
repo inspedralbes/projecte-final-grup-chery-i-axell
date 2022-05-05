@@ -13,14 +13,11 @@ export class AppComponent {
 
 
   constructor(private httpclient:HttpClient) {
-
-  constructor() {
-
   }
+
   ngOnInit(): void {
     
   }
-
 
   login(){
 
@@ -42,4 +39,4 @@ export class AppComponent {
   }
 
 }
-}
+

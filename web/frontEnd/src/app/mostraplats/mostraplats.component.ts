@@ -29,24 +29,14 @@ export class MostraplatsComponent implements OnInit {
       data = JSON.stringify(data);
       data = JSON.parse(data.toString());
       this.plats=data;
-
-
-
-
+      console.log( this.plats)
   }); 
   }
 
-
   pedirplat(plato: string, precio: string){
-
-
 
     let plat = {  nom: plato, preu: precio, estat: "Demanat"};
     this.platsperdemanar.push(plat);
-
-
-
-
   }
 
   lacuenta(){
@@ -55,8 +45,6 @@ export class MostraplatsComponent implements OnInit {
     this.platsperdemanar.forEach(element=>{
       let plat = new Plat(element.nom, element.preu, element.estat, "axell");
       this.mandarplatos.insertcomanda(plat);
-
-
       }
     );
 
