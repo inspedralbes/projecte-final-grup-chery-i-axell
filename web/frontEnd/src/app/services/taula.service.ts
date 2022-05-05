@@ -40,7 +40,9 @@ export class TaulaService {
 
 
 
-
+  getPlatsDeTaula(key:string){
+    return this.comensalList=this.firebase.list(`taules/${key}/plats`);
+  }
 
 
 

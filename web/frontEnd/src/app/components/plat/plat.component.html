@@ -1,0 +1,8 @@
+
+<div class="m-5">
+    <h5>{{plat.nom}}</h5>
+    <h5>{{plat.preu}}</h5>
+    <h5>{{plat.comensal}}</h5>
+    <h5>Estat: <button type="button" class="btn btn-primary estat-preparat" [ngClass]="{'estat-preparat': (plat.estat=='Preparat') , 'estat-demanat':(plat.estat=='Demanat'),  'estat-entregat':(plat.estat=='Entregat'),  'estat-preparacio':(plat.estat=='En preparació')  }"  >{{plat.estat}}</button></h5>
+</div>
+
