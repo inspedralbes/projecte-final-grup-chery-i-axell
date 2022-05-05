@@ -10,7 +10,7 @@ import {AdminPlatsComponent} from './admin-plats/admin-plats.component';
 
 
 const routes: Routes = [ 
-  {path: 'crearTaula', component: CrearTaulaComponent },
+  {path: 'local', component: CrearTaulaComponent },
   {path: 'taula/:id', component: TaulaComponent },
   {path: 'comensal', component: ComensalComponent },
   {path: 'AfegirPlat', component: AfegirPlatsComponent},

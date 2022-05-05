@@ -35,8 +35,13 @@ export class CrearTaulaComponent implements OnInit {
 
       this.router.navigate([`taula/${this.codiTaula}`]);
      }
-
   }
+
+  goToTaula(){
+    document.getElementById("buttonCloseVeureComanda")?.click();
+    this.router.navigate([`estatTaula/${this.codiTaula}`]);
+  }
+
 
 
 }

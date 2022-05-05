@@ -27,7 +27,7 @@ export class AdminPlatsComponent implements OnInit {
     
     this.serveitaules.getTaules().snapshotChanges().subscribe(data => {
 
-      console.log("reloading")
+      
       this.taulesmesas=[];
       data.forEach(element=>{
 
