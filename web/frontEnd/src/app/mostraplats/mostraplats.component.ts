@@ -104,6 +104,12 @@ export class MostraplatsComponent implements OnInit {
 
     this.comensal= nameComensal;
     this.select.emit(nameComensal)
+
+
+    this.platsperdemanar.forEach(element=>{
+      element.comensal=this.comensal;
+    })
+
   }
 
 
