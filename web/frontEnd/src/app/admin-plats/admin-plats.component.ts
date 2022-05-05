@@ -17,12 +17,17 @@ export class AdminPlatsComponent implements OnInit {
   taulesmesas:  any[] = [];
   platsbuit: any[] = [];
 
-  constructor(private serveitaules:TaulaService, private serveiplatos: MandarplatosService) { }
+  constructor(private serveitaules:TaulaService, private serveiplatos: MandarplatosService) { 
+
+  
+
+  }
 
   ngOnInit(): void {
-
+    
     this.serveitaules.getTaules().snapshotChanges().subscribe(data => {
 
+      console.log("reloading")
       this.taulesmesas=[];
       data.forEach(element=>{
 
@@ -52,10 +57,6 @@ export class AdminPlatsComponent implements OnInit {
             plats: this.platsbuit!,
               }
               this.taulesmesas.push(x);
-
-
-
-
           }
         );
 
@@ -68,16 +69,20 @@ export class AdminPlatsComponent implements OnInit {
 getPlatossuscription(taulesmesasub: any){
 
   this.taulesmesas = taulesmesasub;
-  console.log(this.taulesmesas)
+
   
 }
 
+track(index:number, plat:any):string{
+  return plat.key!;
+}
+track2(index:number, taula:any):string{
+  return taula.key!;
+}
 
 
 insertcomandaEstat(keymesa: string, keyplat:string, estat:string){
   this.serveiplatos.insertcomandaEstat(keymesa, keyplat, estat);
-
-
 }
 
 
