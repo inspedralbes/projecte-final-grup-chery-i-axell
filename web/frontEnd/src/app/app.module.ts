@@ -7,7 +7,6 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { PruebaComponent } from './prueba/prueba.component';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { FormsModule } from '@angular/forms';
 import { CrearTaulaComponent } from './crear-taula/crear-taula.component';
@@ -21,6 +20,12 @@ import { AfegirPlatsComponent } from './afegir-plats/afegir-plats.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
+import { ComandaComponent } from './comanda/comanda.component';
+import { ComandaLocalComponent } from './comanda-local/comanda-local.component';
+import { ComprarComandaComponent } from './comprar-comanda/comprar-comanda.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -33,9 +38,15 @@ import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
     AfegirPlatsComponent,
     MostraplatsComponent,
     AdminPlatsComponent
+    ComandaComponent,
+    ComandaLocalComponent,
+    ComprarComandaComponent,
+    HomepageComponent,
+    AdminComponent
   ],
   
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
@@ -49,6 +60,10 @@ import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
   providers: [{provide: FIREBASE_OPTIONS, useValue:environment.firebase},
   TaulaService
 ],
+    provideDatabase(() => getDatabase())
+
+  ],
+  providers: [HttpClientModule,{provide: FIREBASE_OPTIONS, useValue:environment.firebase}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
