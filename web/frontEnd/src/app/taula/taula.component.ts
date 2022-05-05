@@ -29,7 +29,7 @@ export class TaulaComponent implements OnInit{
 
   public nameComensal:string="";
   public imageComensal:string="";
-  public codiTaula:string | undefined;
+  public codiTaula:string ;
   public comensalList:Comensal[] | undefined;
   selectedImage: string;
 
@@ -93,6 +93,11 @@ export class TaulaComponent implements OnInit{
   deleteComensal(key:string){
     this.taulaService.deleteComensal(key);
   }
+
+  selectComensal(name:string){
+    console.log(name)
+  }
+
 
   ngOnInit(): void {
 

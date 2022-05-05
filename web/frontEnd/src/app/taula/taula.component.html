@@ -17,7 +17,7 @@
 
 
   <div>
-      <app-mostraplats [comensalList]='comensalList' ></app-mostraplats>
+      <app-mostraplats [keyTaula]="codiTaula" [comensalList]='comensalList' (select)="selectComensal($event)" ></app-mostraplats>
   </div>
 
 

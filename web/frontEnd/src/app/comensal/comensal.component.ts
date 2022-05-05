@@ -16,19 +16,22 @@ export class ComensalComponent implements OnInit {
 
 
   @Output() delete: EventEmitter<any> = new EventEmitter();
+  @Output() select: EventEmitter<any> = new EventEmitter();
 
   constructor() {
    }
 
   ngOnInit(): void {
-    if(this.isOnConfirmModal){
-      console.log("On MODal")
-    }
   }
 
 
   deleteComensal(){
     this.delete.emit(this.key);
+  }
+
+
+  selectComensal(){
+    this.select.emit(this.name)
   }
 
   
