@@ -21,14 +21,12 @@ import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 import { EstatTaulaComponent } from './components/estat-taula/estat-taula.component';
 import { PlatComponent } from './components/plat/plat.component';
 import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
-import { PruebaComponent } from './prueba/prueba.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PruebaComponent,
     CrearTaulaComponent,
     TaulaComponent,
     ComensalComponent,
