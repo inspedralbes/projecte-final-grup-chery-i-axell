@@ -1,24 +1,29 @@
-<div style="width: 18rem;" *ngFor='let mesa of taulesmesas trackBy: track2'>
-    <div>
-        <h5>{{mesa.key}}</h5>
-        <div *ngFor='let plat of mesa.plats; trackBy: track'>
-            <h5><span>Plat demanat: {{plat.nom}} Estat: {{plat.estat}}</span></h5>
-            <div class="btn-group" role="group" [attr.aria-label]="'Basic radio toggle button group'+plat.key">
-                <input type="radio" class="btn-check" [attr.name]="plat.key" [attr.id]="'btnradio1'+plat.key" autocomplete="off" [attr.checked]="(plat.estat=='Demanat')? 'checked':null">
-                <label class="btn btn-sm  btn-outline-primary" [attr.for]="'btnradio1'+ plat.key " (click)="insertcomandaEstat(mesa.key, plat.key, 'Demanat')">Demanat</label>
-
-                <input type="radio" class="btn-check" [attr.name]="plat.key" [attr.id]="'btnradio2'+ plat.key" autocomplete="off" [attr.checked]="(plat.estat=='En preparació')? 'checked':null">
-                <label class="btn btn-sm  btn-outline-primary" [attr.for]="'btnradio2'+plat.key" (click)="insertcomandaEstat(mesa.key, plat.key, 'En preparació')">En preparació</label>
-
-                <input type="radio" class="btn-check" [attr.name]="plat.key" [attr.id]="'btnradio3'+plat.key" autocomplete="off" [attr.checked]="(plat.estat=='Preparat')? 'checked':null">
-                <label class="btn  btn-sm  btn-outline-primary" [attr.for]="'btnradio3'+plat.key" (click)="insertcomandaEstat(mesa.key, plat.key, 'Preparat')">Preparat</label>
-
-                <input type="radio" class="btn-check" [attr.name]="plat.key" [attr.id]="'btnradio4'+plat.key" autocomplete="off" [attr.checked]="(plat.estat=='Entregat')? 'checked':null">
-                <label class="btn btn-sm  btn-outline-primary" [attr.for]="'btnradio4'+plat.key" (click)="insertcomandaEstat(mesa.key, plat.key, 'Entregat')">Entregat</label>
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h3>Taules:</h3>
+        <div *ngFor='let mesa of taulesmesas trackBy: track2' class="card">
+            <div>
+                <h5 class="h5">{{mesa.key}}</h5>
+                <div *ngFor='let plat of mesa.plats; trackBy: track'>
+                    <h5 class="h5"><span class="lead">Plat demanat: {{plat.nom}} Estat: {{plat.estat}}</span></h5>
+                    <div class="btn-group" role="group" [attr.aria-label]="'Basic radio toggle button group'+plat.key">
+                        <input type="radio" class="btn-check" [attr.name]="plat.key" [attr.id]="'btnradio1'+plat.key" autocomplete="off" [attr.checked]="(plat.estat=='Demanat')? 'checked':null">
+                        <label class="btn btn-sm  btn-outline-primary" [attr.for]="'btnradio1'+ plat.key " (click)="insertcomandaEstat(mesa.key, plat.key, 'Demanat')">Demanat</label>
+        
+                        <input type="radio" class="btn-check" [attr.name]="plat.key" [attr.id]="'btnradio2'+ plat.key" autocomplete="off" [attr.checked]="(plat.estat=='En preparació')? 'checked':null">
+                        <label class="btn btn-sm  btn-outline-primary" [attr.for]="'btnradio2'+plat.key" (click)="insertcomandaEstat(mesa.key, plat.key, 'En preparació')">En preparació</label>
+        
+                        <input type="radio" class="btn-check" [attr.name]="plat.key" [attr.id]="'btnradio3'+plat.key" autocomplete="off" [attr.checked]="(plat.estat=='Preparat')? 'checked':null">
+                        <label class="btn  btn-sm  btn-outline-primary" [attr.for]="'btnradio3'+plat.key" (click)="insertcomandaEstat(mesa.key, plat.key, 'Preparat')">Preparat</label>
+        
+                        <input type="radio" class="btn-check" [attr.name]="plat.key" [attr.id]="'btnradio4'+plat.key" autocomplete="off" [attr.checked]="(plat.estat=='Entregat')? 'checked':null">
+                        <label class="btn btn-sm  btn-outline-primary" [attr.for]="'btnradio4'+plat.key" (click)="insertcomandaEstat(mesa.key, plat.key, 'Entregat')">Entregat</label>
+                    </div>
+                </div>
+                <br>
             </div>
         </div>
-
-        <br>
-
+      </div>
     </div>
-</div>
+  </div>

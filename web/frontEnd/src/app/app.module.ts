@@ -23,7 +23,6 @@ import { ComandaComponent } from './comanda/comanda.component';
 import { ComandaLocalComponent } from './comanda-local/comanda-local.component';
 import { ComprarComandaComponent } from './comprar-comanda/comprar-comanda.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -39,7 +38,9 @@ import { AdminComponent } from './admin/admin.component';
     ComandaLocalComponent,
     ComprarComandaComponent,
     HomepageComponent,
-    AdminComponent
+    PlatComponent,
+    EstatTaulaComponent,
+    
   ],
   
   imports: [
