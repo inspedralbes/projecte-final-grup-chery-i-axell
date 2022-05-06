@@ -1,0 +1,71 @@
+<h1 class="text-center">Comanda en el local</h1>
+
+
+<div class="container text-center mt-5">
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalVeureComanda">
+            Fer una comanda
+          </button>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Fer una comanda
+          </button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Codi de taula</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <h5 class="text-center">Introdueix el codi que vols per la teva taula</h5>
+                    <div class="explanation mt-1">Aquest serà el codi amb el que s'identificarà la teva taula, serveix per que tots els integrants de la taula pugueu demanar.</div>
+                    <input class="m-3" type="text" [(ngModel)]="codiTaula">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="buttonClose">Tancar</button>
+                <a class="btn btn-primary" (click)="saveModal()">Continuar</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="modalVeureComanda" tabindex="-1" aria-labelledby="modalVeureComandaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalVeureComandaLabel">Codi de taula</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <h5 class="text-center">Introdueix el codi de la teva taula</h5>
+
+                    <input class="m-3" type="text" [(ngModel)]="codiTaula">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="buttonCloseVeureComanda">Tancar</button>
+                <a class="btn btn-primary" (click)="goToTaula()">Continuar</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<router-outlet></router-outlet>

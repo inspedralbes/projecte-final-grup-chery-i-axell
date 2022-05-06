@@ -1,0 +1,10 @@
+<div class="card avatar-card col-sm-4">
+    <img class="card-img-top" [src]="image" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title text-center">{{name | titlecase}}</h5>
+        <div class="text-center">
+            <button class="btn btn-sm  btn-success" *ngIf="isOnConfirmModal" (click)="selectComensal()">Seleccionar</button>
+            <button class="btn btn-sm  btn-danger" (click)="deleteComensal()" *ngIf="!isOnConfirmModal">Esborrar</button>
+        </div>
+    </div>
+</div>

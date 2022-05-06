@@ -8,33 +8,53 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
-import { ComandaComponent } from './comanda/comanda.component';
-import { ComandaLocalComponent } from './comanda-local/comanda-local.component';
-import { ComprarComandaComponent } from './comprar-comanda/comprar-comanda.component';
-import { HomepageComponent } from './homepage/homepage.component';
+import { FormsModule } from '@angular/forms';
+import { CrearTaulaComponent } from './crear-taula/crear-taula.component';
+import { TaulaComponent } from './taula/taula.component';
+import { ComensalComponent } from './comensal/comensal.component';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { TaulaService } from './services/taula.service';
+
+import { AfegirPlatsComponent } from './afegir-plats/afegir-plats.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AdminComponent } from './admin/admin.component';
+import { MostraplatsComponent } from './mostraplats/mostraplats.component';
+import { EstatTaulaComponent } from './components/estat-taula/estat-taula.component';
+import { PlatComponent } from './components/plat/plat.component';
+import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
+import { PruebaComponent } from './prueba/prueba.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ComandaComponent,
-    ComandaLocalComponent,
-    ComprarComandaComponent,
-    HomepageComponent,
-    AdminComponent
+    PruebaComponent,
+    CrearTaulaComponent,
+    TaulaComponent,
+    ComensalComponent,
+    AfegirPlatsComponent,
+    MostraplatsComponent,
+    EstatTaulaComponent,
+    PlatComponent,
+    AdminPlatsComponent,
+
   ],
+  
   imports: [
     HttpClientModule,
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
+
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideDatabase(() => getDatabase())
-
+    provideDatabase(() => getDatabase()),
+    FormsModule
   ],
-  providers: [HttpClientModule,{provide: FIREBASE_OPTIONS, useValue:environment.firebase}],
+  providers: [{provide: FIREBASE_OPTIONS, useValue:environment.firebase},
+  TaulaService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
