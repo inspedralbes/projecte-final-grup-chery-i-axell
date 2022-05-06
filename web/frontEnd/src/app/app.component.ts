@@ -13,16 +13,11 @@ export class AppComponent {
 
 
   constructor(private httpclient:HttpClient) {
-
-  /*let ref = db.object("prueba");
-
-  ref.set({valor: "Funciona"});*/
   }
 
   ngOnInit(): void {
     
   }
-
 
   login(){
 

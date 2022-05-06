@@ -1,0 +1,30 @@
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col">
+      <div class="input-group mb-3">
+        <span class="input-group-text"><b>Nom del Plat</b></span>
+        <input type="text" class="form-control" [(ngModel)]="nomplat" type="text" placeholder="" name="nomplat" required>
+      </div>
+        
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"><b>Preu del plat</b></span>
+        <input type="text" class="form-control" [(ngModel)]="preuplat" type="text" placeholder="" name="preuplat" required>
+      </div>
+      
+      
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01"><b>Tipus del plat</b></label>
+        <select class="form-select"  name="selectedtipus" [(ngModel)]="selectedtipus" >
+          <option *ngFor='let tipus of tipusdeplats' [value]="tipus.nom">
+            {{tipus.nom}}
+          </option>
+        </select>
+      </div>  
+      <br>
+      <button type="button" class="btn btn-outline-danger">Volver</button>    
+      &nbsp;&nbsp;
+      <button type="button" class="btn btn-outline-success">Success</button>   
+    </div>
+  </div>
+</div>
