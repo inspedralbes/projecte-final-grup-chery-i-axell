@@ -13,34 +13,10 @@ export class AppComponent {
 
 
   constructor(private httpclient:HttpClient) {
-
-  /*let ref = db.object("prueba");
-
-  ref.set({valor: "Funciona"});*/
   }
 
   ngOnInit(): void {
     
-  }
-
-
-  login(){
-
-    this.httpclient.post("",
-    {
-    "usuario":  this.usuario ,
-    "password":  this.password ,
-    },)
-    .subscribe(
-    data => {
-    console.log("POST Request is successful ", data);
-    },
-    error => {
-    console.log("Error", error);
-    }
-    );
-
-
   }
 
 }

@@ -26,7 +26,7 @@ export class AfegirPlatsComponent implements OnInit {
    }
 
   ngOnInit() {
-   this.httpclient.get("http://127.0.0.1:8000/get_plats").subscribe(data => {
+   this.httpclient.get("http://192.168.210.168:8000/get_plats").subscribe(data => {
       console.log(data);
       
       data = JSON.stringify(data);
@@ -40,7 +40,7 @@ export class AfegirPlatsComponent implements OnInit {
 
   mostraTipus(){
     console.log(this.plats)
-    this.httpclient.get("http://127.0.0.1:8000/get_tipus").subscribe(data => {
+    this.httpclient.get("http://192.168.210.168:8000/get_tipus").subscribe(data => {
       console.log(data);
       
       data = JSON.stringify(data);
@@ -60,7 +60,7 @@ export class AfegirPlatsComponent implements OnInit {
   afegirplat(){
     console.log(this.nomplat, this.selectedtipus, this.preuplat);
 
-    this.httpclient.post("http://127.0.0.1:8000/add_plat",
+    this.httpclient.post("http://192.168.210.168:8000/add_plat",
     {
     "nom":  this.nomplat ,
     "preu":  this.preuplat ,

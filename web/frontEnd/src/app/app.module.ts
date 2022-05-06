@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -14,14 +13,17 @@ import { TaulaComponent } from './taula/taula.component';
 import { ComensalComponent } from './comensal/comensal.component';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { TaulaService } from './services/taula.service';
-
 import { AfegirPlatsComponent } from './afegir-plats/afegir-plats.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 import { EstatTaulaComponent } from './components/estat-taula/estat-taula.component';
 import { PlatComponent } from './components/plat/plat.component';
 import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
-
+import { ComandaComponent } from './comanda/comanda.component';
+import { ComandaLocalComponent } from './comanda-local/comanda-local.component';
+import { ComprarComandaComponent } from './comprar-comanda/comprar-comanda.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -32,10 +34,12 @@ import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
     ComensalComponent,
     AfegirPlatsComponent,
     MostraplatsComponent,
-    EstatTaulaComponent,
-    PlatComponent,
     AdminPlatsComponent,
-
+    ComandaComponent,
+    ComandaLocalComponent,
+    ComprarComandaComponent,
+    HomepageComponent,
+    AdminComponent
   ],
   
   imports: [
@@ -54,5 +58,5 @@ import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
   TaulaService
 ],
   bootstrap: [AppComponent]
-})
+  })
 export class AppModule { }
