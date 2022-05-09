@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
 import { LoginComponent } from './login/login.component';
+import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { LoginComponent } from './login/login.component';
     AfegirPlatsComponent,
     MostraplatsComponent,
     AdminPlatsComponent,
-    LoginComponent
+    LoginComponent,
+    CambrerComponentComponent
   ],
   
   imports: [

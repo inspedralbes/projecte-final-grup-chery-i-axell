@@ -36,6 +36,14 @@ export class MandarplatosService {
 
   }
 
+  getNomPlatsiTaules(keyMesa:string, keyPlat: string){
+    return  this.firebase.object(`taules/${keyMesa}/plats/${keyPlat}/`);
+    
+
+
+
+  }
+
 
 
 

@@ -1,3 +1,4 @@
+import { IfStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
@@ -16,16 +17,19 @@ export class LoginComponent implements OnInit {
   }
   constructor(public auth: AngularFireAuth, private empleados: EmpleadosService) {
   }
-  login(user: string| null) {
+  login() {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    this.comprobasiexisteix(user!)
+
   }
   logout() {
     this.auth.signOut();
   }
 
   comprobasiexisteix(user: string | null){
+
     this.empleados.getEmpleat(user!);
+
+
 
 
 
