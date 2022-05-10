@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,15 @@ export class AppComponent {
   password: any;
 
 
-  constructor(private httpclient:HttpClient) {
+  constructor(private httpclient:HttpClient,private router:Router) {
   }
 
+  
   ngOnInit(): void {
     
+  }
+  login(){
+    this.router.navigate(['/login']);
   }
 
 }
