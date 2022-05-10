@@ -1,0 +1,15 @@
+<p>CAMARERO {{idCambrer}}</p>
+
+
+<div class="" style="width: 18rem;" *ngFor='let ordre of arrayOrdres'>
+    <div class="card-body">
+      <h5 class="card-title">Nom del plat: {{ordre.nomplat}}<br> nomtaula: {{ordre.mesataula}} <br>
+        Estat del plat: {{ordre.estat }}</h5> 
+      <button (click)= "submitOrdres(ordre.keyplat, ordre.mesataula)" >Entregat?</button>
+
+
+      </div></div>
+
+      <br>
+     
+  

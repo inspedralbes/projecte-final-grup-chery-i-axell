@@ -4,7 +4,7 @@ Esquema mínim de carpetes pels projectes transversals
 
 És obligatori seguir aquesta estructura tot i que la podeu ampliar.
 
-
+https://trello.com/b/PkPF2z47/scrum
 
 # Aquest fitxer ha de contenir com a mínim:
  * Cheryl Trujillo, Axell Chaparro, Mohamed  Wafik

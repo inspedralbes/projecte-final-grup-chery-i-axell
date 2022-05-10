@@ -19,10 +19,8 @@ import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 import { EstatTaulaComponent } from './components/estat-taula/estat-taula.component';
 import { PlatComponent } from './components/plat/plat.component';
 import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
-import { ComandaComponent } from './comanda/comanda.component';
-import { ComandaLocalComponent } from './comanda-local/comanda-local.component';
-import { ComprarComandaComponent } from './comprar-comanda/comprar-comanda.component';
-import { HomepageComponent } from './homepage/homepage.component';
+import { LoginComponent } from './login/login.component';
+import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
 
 
 @NgModule({
@@ -34,13 +32,12 @@ import { HomepageComponent } from './homepage/homepage.component';
     AfegirPlatsComponent,
     MostraplatsComponent,
     AdminPlatsComponent,
-    ComandaComponent,
-    ComandaLocalComponent,
-    ComprarComandaComponent,
-    HomepageComponent,
+    //HomepageComponent,
     PlatComponent,
     EstatTaulaComponent,
     
+    LoginComponent,
+    CambrerComponentComponent
   ],
   
   imports: [
