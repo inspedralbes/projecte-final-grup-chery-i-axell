@@ -1,5 +1,5 @@
 <h5 class="text-center">El nom de la teva taula és: {{codiTaula}}</h5>
-<div class="container">
+<!-- <div class="container">
     <div class="row ">
 
 
@@ -13,12 +13,12 @@
 
 <button type="button" class="btn btn-primary btn-lg col-sm-1" data-bs-toggle="modal" data-bs-target="#exampleModal" id="openModalComensal">
     Afegir un comensal
-</button>
+</button> -->
 
 
-  <div>
-      <app-mostraplats [keyTaula]="codiTaula" [comensalList]='comensalList' (select)="selectComensal($event)" ></app-mostraplats>
-  </div>
+<div>
+    <app-mostraplats [keyTaula]="codiTaula" (select)="selectComensal($event)"></app-mostraplats>
+</div>
 
 
 

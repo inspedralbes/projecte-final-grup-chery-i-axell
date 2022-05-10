@@ -38,7 +38,7 @@ export class TaulaComponent implements OnInit{
 
   constructor(private route:ActivatedRoute, @Inject(DOCUMENT) document:Document, private taulaService: TaulaService) {
 
-  this.selectedImage="avatarImg1";
+    this.selectedImage="avatarImg1";
 
     this.codiTaula=this.route.snapshot.paramMap.get("id")!;
 
@@ -79,6 +79,7 @@ export class TaulaComponent implements OnInit{
     let image = document.getElementById(this.selectedImage) as HTMLImageElement;
     let source= "assets"+image.src.split("assets")[1];
     this.taulaService.insertComensal(new Comensal(this.nameComensal, source));
+    localStorage.setItem("comensal",this.nameComensal);
   }
 
   seleccionarImagen(event:any){

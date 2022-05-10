@@ -17,10 +17,12 @@ export class MostraplatsComponent implements OnInit {
   selectedplats: any;
   comensal!: string ;
   @Input() keyTaula!:string;
-  @Input() comensalList:Comensal[] | undefined;
+ 
   @Output() select: EventEmitter<any> = new EventEmitter();
   platsperdemanar: any[] = [];
   platsPerDemanarOrdenat: any[] = [];
+  platsTemporalTaula:any[]=[];
+  platsTemporalComensal:any=[];
 
   constructor(private httpclient:HttpClient, private mandarplatos:MandarplatosService) {
     
@@ -30,25 +32,93 @@ export class MostraplatsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.httpclient.get("http://192.168.210.168:8000/get_plats_tipus").subscribe(data => {
+/*     this.httpclient.get("http://192.168.210.168:8000/get_plats_tipus").subscribe(data => {
       
       data = JSON.stringify(data);
       data = JSON.parse(data.toString());
       this.plats=data;
+    
 
 
 
 
-  }); 
+  });  */
+
+  this.mandarplatos.init(this.keyTaula);
+  localStorage.setItem("comensal", "Axell");
+  this.comensal= localStorage.getItem("comensal")!;
+
+  this.plats=[
+    {nomTipus:"Primeros", llistatPlats:[
+                          {nom:"Spaguetis", preu:6},
+                          {nom:"Macarrons", preu:3},
+                          {nom:"No sé", preu:6},
+                          ]},
+  {nomTipus:"Segundos", llistatPlats:[
+                            {nom:"ASDF", preu:6},
+                            {nom:"gdfh", preu:3},
+                            {nom:"NasdAS", preu:6},
+                            ]},
+  ];
+
+
+
+  this.mandarplatos.getComandesTemporals(this.keyTaula).snapshotChanges().subscribe(item=>{
+    this.platsTemporalTaula=[];
+     item.forEach(element=>{
+       if(element.key==this.comensal){
+         this.platsTemporalComensal=element.payload.val()
+       }
+      
+      
+    
+       this.platsTemporalTaula.push(element.payload.val())
+     })
+
+
+     console.log(this.platsTemporalTaula)
+
+
+  });
+
+
+
+
+
+
+
+
   }
 
 
-  pedirplat(plato: string, precio: number){
+  pedirPlat(plato: string, precio: number){
 
-
-    let plat = new Plat(plato, precio, "Demanat", this.comensal );
+    let plat = new Plat(plato, precio, "Demanat", localStorage.getItem("comensal")! );
+    let platTmp = {...plat, quantitat:1}
     this.platsperdemanar.push(plat);
     this.ordenarPlats();
+
+
+    if(this.platsTemporalComensal.length!=0){
+      let noIntroduit= true;
+      this.platsTemporalComensal.forEach((element: { nom: string, quantitat:number; }) => {
+        if(element.nom ==platTmp.nom ){
+          element.quantitat++;
+          noIntroduit=false;
+        }
+      });
+      if(noIntroduit){
+        this.platsTemporalComensal.push(platTmp)
+      }
+    }else{
+      this.platsTemporalComensal.push(platTmp)
+    }
+  
+
+    this.mandarplatos.inserComandaTemporal(this.platsTemporalComensal, this.comensal);
+
+
+
 
   }
 
@@ -60,9 +130,11 @@ export class MostraplatsComponent implements OnInit {
      }, []);
   }
 
+  
+
   lacuenta(){
 
-    this.mandarplatos.init(this.keyTaula);
+    
  
 
     if(this.platsperdemanar.length==0){
@@ -98,6 +170,11 @@ export class MostraplatsComponent implements OnInit {
         return;
       }
     }
+
+
+    
+
+
   }
 
   selectComensal(nameComensal:string){
