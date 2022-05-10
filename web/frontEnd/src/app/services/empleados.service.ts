@@ -20,6 +20,13 @@ export class EmpleadosService {
    }
 
 
+   init(){
+     this.ListEmpleats= this.firebase.list(`empleats/`);
+ 
+   }
+
+
+
    getComandes(empleat: string){
 
     return this.firebase.list(`comandes/${empleat}/plats`);
@@ -39,14 +46,18 @@ export class EmpleadosService {
       else{
     
         this.router.navigate(['/cambrers', data.key]);
-
-
-
       }
 
     });
+ }
+
+getEmpleats(){
+
+  return this.firebase.list(`empleats/`);
+}
 
 
 
-   }
+
+
 }

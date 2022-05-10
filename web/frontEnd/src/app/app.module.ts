@@ -23,6 +23,7 @@ import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
 import { LoginComponent } from './login/login.component';
 import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
+import { AdminCambrersComponent } from './admin-cambrers/admin-cambrers.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { CambrerComponentComponent } from './cambrer-component/cambrer-component
     MostraplatsComponent,
     AdminPlatsComponent,
     LoginComponent,
-    CambrerComponentComponent
+    CambrerComponentComponent,
+    AdminCambrersComponent
   ],
   
   imports: [

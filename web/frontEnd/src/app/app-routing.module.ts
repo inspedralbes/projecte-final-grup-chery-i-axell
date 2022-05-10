@@ -8,6 +8,7 @@ import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 import {AdminPlatsComponent} from './admin-plats/admin-plats.component';
 import { LoginComponent } from './login/login.component';
 import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
+import { AdminCambrersComponent } from './admin-cambrers/admin-cambrers.component';
 
 const routes: Routes = [ 
   {path: 'crearTaula', component: CrearTaulaComponent },
@@ -17,6 +18,8 @@ const routes: Routes = [
 {path: 'MostrarPlat', component: MostraplatsComponent},
 {path: 'adminPlats', component: AdminPlatsComponent},
 {path: 'login', component: LoginComponent},
+{path: 'adminCambrers', component: AdminCambrersComponent},
+
 {path: 'cambrers/:idcambrer', component: CambrerComponentComponent},
 
 
