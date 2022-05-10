@@ -69,14 +69,10 @@ export class MostraplatsComponent implements OnInit {
        if(element.key==this.comensal){
          this.platsTemporalComensal=element.payload.val()
        }
-      
-      
-    
        this.platsTemporalTaula.push(element.payload.val())
      })
 
 
-     console.log(this.platsTemporalTaula)
 
 
   });
@@ -160,21 +156,51 @@ export class MostraplatsComponent implements OnInit {
   }
 
 
+
+  addItem(plat: any){
+
+     if(this.platsTemporalComensal.length!=0){
+      let noIntroduit= true;
+      this.platsTemporalComensal.forEach((element: { nom: string, quantitat:number; }) => {
+        if(element.nom ==plat.nom ){
+          element.quantitat++;
+          noIntroduit=false;
+        }
+      });
+      if(noIntroduit){
+        plat.quantitat=1;
+        this.platsTemporalComensal.push(plat)
+      }
+    }else{
+      plat.quantitat=1;
+      this.platsTemporalComensal.push(plat)
+    } 
+
+
+  this.mandarplatos.inserComandaTemporal(this.platsTemporalComensal, this.comensal);
+
+
+  }
+
+
   deleteItem(key:string){
   
-    for (let index = 0; index < this.platsperdemanar.length; index++) {
-      const element = this.platsperdemanar[index];
-      if(element.nom == key){
-        this.platsperdemanar.splice(index,1)
-        this.ordenarPlats();
-        return;
-      }
-    }
-
-
     
 
+    if(this.platsTemporalComensal.length!=0){
+      this.platsTemporalComensal.forEach((element: { nom: string, quantitat:number; }, index: any) => {
+        if(element.nom ==key && element.quantitat>0){
+          element.quantitat--;
+          if(element.quantitat==0){
+            this.platsTemporalComensal.splice(index,1);
+          }
+        }
+      });
+    }
+    console.log(this.platsTemporalComensal)
 
+    this.mandarplatos.inserComandaTemporal(this.platsTemporalComensal, this.comensal);
+    
   }
 
   selectComensal(nameComensal:string){

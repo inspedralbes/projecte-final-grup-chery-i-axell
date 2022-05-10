@@ -20,7 +20,7 @@
             <h6 class="text-center">La meva comanda:</h6>
             <div *ngFor="let plat of platsTemporalComensal">
                 <span>{{plat.nom | titlecase}} x </span> <span class="">{{plat.quantitat}}</span>
-                <button class="btn btn-sm btn-primary" (click)="deleteItem(plat.key)">-</button>
+                <button class="btn btn-sm btn-primary" (click)="deleteItem(plat.nom)">-</button>
             </div>
         </div>
 
@@ -29,6 +29,7 @@
             <div *ngFor="let comensal of platsTemporalTaula">
                 <div *ngFor="let plat of comensal">
                     <span>{{plat.nom}} </span><span>{{plat.quantitat}}</span>
+                    <button class="btn btn-sm btn-primary" (click)="addItem(plat)">+</button>
                 </div>
                 <hr>
             </div>
