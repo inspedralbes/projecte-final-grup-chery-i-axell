@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Plat } from '../model/Plat';
 import { EmpleadosService } from '../services/empleados.service';
 import { MandarplatosService } from '../services/mandarplatos.service';
 import { TaulaService } from '../services/taula.service';
@@ -23,7 +25,6 @@ export class CambrerComponentComponent implements OnInit {
     this.idCambrer =  this.route.snapshot.paramMap.get("idcambrer")!;
     this.servicioempleados.getComandes(this.idCambrer);
     this.repOrdres();
-    this.traduceNumeros();
 
 
 
@@ -39,6 +40,8 @@ export class CambrerComponentComponent implements OnInit {
         let ordre = {
             keyplat: element.key,
             mesataula: element.payload.val(),
+            nomplat: "",
+            estat: "",
 
 
         }
@@ -49,6 +52,8 @@ export class CambrerComponentComponent implements OnInit {
       })
 
       this.getSubs(this.arrayOrdres);
+      this.traduceNumeros();
+
 
 });
 
@@ -71,21 +76,28 @@ export class CambrerComponentComponent implements OnInit {
 
   traduceNumeros(){
 
-    console.log("aa")
    
     this.arrayOrdres.forEach(element=>{
-      console.log(element)
-      this.servicioplatos.getNomPlatsiTaules(element.keyplat, element.mesataula).snapshotChanges().
+      this.servicioplatos.getNomPlatsiTaules( element.mesataula, element.keyplat).snapshotChanges().
       subscribe(data=>{
 
+        let objeto = data.payload.val() as Plat;
+        
 
-        console.log(data)
+        element.nomplat = objeto.nom;
+        element.estat = objeto.estat;
+
+
 
       })
 
 
 
     });
+
+    console.log(this.arrayOrdres)
+
+
 
 
 
