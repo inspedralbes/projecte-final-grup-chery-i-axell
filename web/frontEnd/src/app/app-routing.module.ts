@@ -7,9 +7,6 @@ import { AfegirPlatsComponent } from './afegir-plats/afegir-plats.component';
 import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 import { EstatTaulaComponent } from './components/estat-taula/estat-taula.component';
 import {AdminPlatsComponent} from './admin-plats/admin-plats.component';
-import { ComandaComponent } from './comanda/comanda.component';
-import { ComandaLocalComponent } from './comanda-local/comanda-local.component';
-import { ComprarComandaComponent } from './comprar-comanda/comprar-comanda.component';
 import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [ 
@@ -20,9 +17,6 @@ const routes: Routes = [
   {path: 'MostrarPlat', component: MostraplatsComponent},
   {path: 'adminPlats', component: AdminPlatsComponent},
   {path:'' ,component:HomepageComponent},
-  {path:'ComprarComanda' ,component:ComprarComandaComponent},
-  {path:'ComandaLocal' ,component:ComandaLocalComponent},
-  {path:'comanda' ,component:ComandaComponent},
 ];
 
 @NgModule({
@@ -31,5 +25,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { 
 
- 
+
 }

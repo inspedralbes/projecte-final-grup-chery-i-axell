@@ -19,9 +19,6 @@ import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 import { EstatTaulaComponent } from './components/estat-taula/estat-taula.component';
 import { PlatComponent } from './components/plat/plat.component';
 import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
-import { ComandaComponent } from './comanda/comanda.component';
-import { ComandaLocalComponent } from './comanda-local/comanda-local.component';
-import { ComprarComandaComponent } from './comprar-comanda/comprar-comanda.component';
 import { HomepageComponent } from './homepage/homepage.component';
 
 
@@ -33,10 +30,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     ComensalComponent,
     AfegirPlatsComponent,
     MostraplatsComponent,
-    AdminPlatsComponent,
-    ComandaComponent,
-    ComandaLocalComponent,
-    ComprarComandaComponent,
+    AdminPlatsComponent, 
     HomepageComponent,
     PlatComponent,
     EstatTaulaComponent,
