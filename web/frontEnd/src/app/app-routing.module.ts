@@ -8,15 +8,19 @@ import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 import { EstatTaulaComponent } from './components/estat-taula/estat-taula.component';
 import {AdminPlatsComponent} from './admin-plats/admin-plats.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { LoginComponent } from './login/login.component';
+import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
 
 const routes: Routes = [ 
   {path: 'crearTaula', component: CrearTaulaComponent },
   {path: 'taula/:id', component: TaulaComponent },
   {path: 'comensal', component: ComensalComponent },
-  {path: 'AfegirPlat', component: AfegirPlatsComponent},
-  {path: 'MostrarPlat', component: MostraplatsComponent},
+  {path: 'afegirPlat', component: AfegirPlatsComponent},
+  {path: 'mostrarPlat', component: MostraplatsComponent},
   {path: 'adminPlats', component: AdminPlatsComponent},
   {path:'' ,component:HomepageComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'cambrers/:idcambrer', component: CambrerComponentComponent},
 ];
 
 @NgModule({
