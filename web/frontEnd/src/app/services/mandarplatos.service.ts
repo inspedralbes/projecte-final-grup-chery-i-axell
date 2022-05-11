@@ -38,10 +38,6 @@ export class MandarplatosService {
 
   getNomPlatsiTaules(keyMesa:string, keyPlat: string){
     return  this.firebase.object(`taules/${keyMesa}/plats/${keyPlat}/`);
-    
-
-
-
   }
 
 
@@ -53,6 +49,15 @@ export class MandarplatosService {
 
     this.comandaList?.push({nom:plat.nom, preu: plat.preu, estat: plat.estat })
 
+
+  }
+
+  insertNumPlats(numplats: number){
+
+    let itemRef = this.firebase.object(`valors/`);
+
+    itemRef.update({numplats: numplats});
+  
 
   }
 

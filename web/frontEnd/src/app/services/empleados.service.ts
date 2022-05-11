@@ -56,6 +56,33 @@ getEmpleats(){
   return this.firebase.list(`empleats/`);
 }
 
+deleteComandes(empleat: string, plat: string){
+
+
+  return this.firebase.object(`comandes/${empleat}/plats/${plat}`).remove();
+
+ }
+
+ insertPlat(empleat: string, plat: string, mesa: string){
+
+  let llistaplatsempleat = this.firebase.list(`comandes/${empleat}/plats`);
+
+
+  llistaplatsempleat.push({mesa: mesa, plat: plat})
+
+ }
+
+
+ insertNumCambrers(numcambrer: number){
+
+  let itemRef = this.firebase.object(`valors/`);
+
+  itemRef.update({numcambrers: numcambrer});
+
+
+ }
+
+
 
 
 
