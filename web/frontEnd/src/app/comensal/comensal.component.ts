@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-comensal',
@@ -11,12 +11,29 @@ export class ComensalComponent implements OnInit {
 
   @Input() name : string="name";
   @Input() image : string="/assets/images/avatar-astro-1";
+  @Input() isOnConfirmModal : boolean=false;
+  @Input() key : string| undefined;
+
+
+  @Output() delete: EventEmitter<any> = new EventEmitter();
+  @Output() select: EventEmitter<any> = new EventEmitter();
 
   constructor() {
    }
 
   ngOnInit(): void {
   }
+
+
+  deleteComensal(){
+    this.delete.emit(this.key);
+  }
+
+
+  selectComensal(){
+    this.select.emit(this.name)
+  }
+
   
 
 }

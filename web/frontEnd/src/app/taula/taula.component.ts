@@ -29,7 +29,7 @@ export class TaulaComponent implements OnInit{
 
   public nameComensal:string="";
   public imageComensal:string="";
-  public codiTaula:string | undefined;
+  public codiTaula:string ;
   public comensalList:Comensal[] | undefined;
   selectedImage: string;
 
@@ -38,7 +38,7 @@ export class TaulaComponent implements OnInit{
 
   constructor(private route:ActivatedRoute, @Inject(DOCUMENT) document:Document, private taulaService: TaulaService) {
 
-  this.selectedImage="avatarImg1";
+    this.selectedImage="avatarImg1";
 
     this.codiTaula=this.route.snapshot.paramMap.get("id")!;
 
@@ -63,6 +63,8 @@ export class TaulaComponent implements OnInit{
 
         this.comensalList?.push(x as Comensal);
       })
+
+      
     })
   }
 
@@ -75,10 +77,9 @@ export class TaulaComponent implements OnInit{
     //INSERTAR COMENSAL EN LA BASE DE DATOS
 
     let image = document.getElementById(this.selectedImage) as HTMLImageElement;
-    let imgSrc= image.src;
-    let substring = imgSrc.split("assets");
-    let source = "assets/"+substring[1];
+    let source= "assets"+image.src.split("assets")[1];
     this.taulaService.insertComensal(new Comensal(this.nameComensal, source));
+    localStorage.setItem("comensal",this.nameComensal);
   }
 
   seleccionarImagen(event:any){
@@ -90,6 +91,13 @@ export class TaulaComponent implements OnInit{
     return ((id==this.selectedImage)? true :false);
   }
 
+  deleteComensal(key:string){
+    this.taulaService.deleteComensal(key);
+  }
+
+  selectComensal(name:string){
+    console.log(name)
+  }
 
 
   ngOnInit(): void {

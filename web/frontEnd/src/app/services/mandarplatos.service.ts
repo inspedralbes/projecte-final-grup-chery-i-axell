@@ -13,12 +13,15 @@ import { Plat } from '../model/Plat';
 export class MandarplatosService {
 
   comandaList: AngularFireList<any> | undefined;
+  key!:string
+  comandaTemporal: AngularFireList<any> | undefined;
 
   constructor(private firebase:AngularFireDatabase) { 
   }
 
   init(key: string){
     this.comandaList= this.firebase.list(`taules/${key}/plats`);
+    this.key=key;
 
   }
 
@@ -47,7 +50,9 @@ export class MandarplatosService {
 
   insertcomanda(plat: Plat){
 
-    this.comandaList?.push({nom:plat.nom, preu: plat.preu, estat: plat.estat })
+    console.log(plat)
+
+    this.comandaList?.push({nom:plat.nom, preu: plat.preu, estat: plat.estat, comensal: plat.comensal })
 
 
   }
@@ -60,6 +65,21 @@ export class MandarplatosService {
   
 
   }
+
+
+  
+
+  inserComandaTemporal(obj:any, comensal:string){
+    let ref= this.firebase.object(`taules/${this.key}/platsTemporal/${comensal}`);
+    ref.set(obj);
+  }
+
+
+  getComandesTemporals(key:string){
+    return this.comandaTemporal =this.firebase.list(`taules/${this.key}/platsTemporal/`);
+
+  }
+
 
 
 

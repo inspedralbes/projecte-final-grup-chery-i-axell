@@ -13,17 +13,19 @@ import { FormsModule } from '@angular/forms';
 import { CrearTaulaComponent } from './crear-taula/crear-taula.component';
 import { TaulaComponent } from './taula/taula.component';
 import { ComensalComponent } from './comensal/comensal.component';
-import { DynamicComponentDirective } from './directives/dynamic-component.directive';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { TaulaService } from './services/taula.service';
 
 import { AfegirPlatsComponent } from './afegir-plats/afegir-plats.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MostraplatsComponent } from './mostraplats/mostraplats.component';
+import { EstatTaulaComponent } from './components/estat-taula/estat-taula.component';
+import { PlatComponent } from './components/plat/plat.component';
 import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
 import { LoginComponent } from './login/login.component';
 import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
 import { AdminCambrersComponent } from './admin-cambrers/admin-cambrers.component';
+
 
 
 @NgModule({
@@ -35,10 +37,13 @@ import { AdminCambrersComponent } from './admin-cambrers/admin-cambrers.componen
     ComensalComponent,
     AfegirPlatsComponent,
     MostraplatsComponent,
+    EstatTaulaComponent,
+    PlatComponent,
     AdminPlatsComponent,
     LoginComponent,
     CambrerComponentComponent,
     AdminCambrersComponent
+
   ],
   
   imports: [
