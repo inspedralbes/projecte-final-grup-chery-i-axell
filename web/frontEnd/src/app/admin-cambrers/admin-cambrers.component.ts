@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { snapshotChanges } from '@angular/fire/compat/database';
 import { elementAt } from 'rxjs';
 import { Empleat } from '../model/Empleat';
 import { Plat } from '../model/Plat';
+import { TaulaPlat } from '../model/TaulaPlat';
 import { EmpleadosService } from '../services/empleados.service';
 import { MandarplatosService } from '../services/mandarplatos.service';
 import { TaulaService } from '../services/taula.service';
@@ -17,14 +19,15 @@ export class AdminCambrersComponent implements OnInit {
   public elsmeusEmpleats: any[] = [] ;
   public empleatstotals: number = 0;
   public platstotals: number = 0;
+  public elsmeusEmpleatsPerAsignar: any[] = [] ;
+
 
 
 
   ngOnInit(): void {
 
-    this.muestraCosas();
-    this.mostraEmpleatsiPlats();
-  this.empleatsservice.insertPlat("01K5X9MSC1fz4HuJ7yg12cSD64i1" ,"arroz", "poma" );
+
+    this.asignaPlat();
 
     
 
@@ -116,6 +119,7 @@ this.getPlatossuscription(this.taulesmesas)
           plats.forEach(plat =>{
 
             let plato = plat.payload.val() as Plat;
+            console.log(plato.nom)
             
 
 
@@ -177,7 +181,6 @@ this.empleatsservice.deleteComandes(empleat, plat);
 
   asignacioPlatsAuto(numCambrers: number, numPlats: number){
     let reparticion = numPlats/numCambrers;
-    console.log(reparticion);
 
 
 
@@ -186,11 +189,42 @@ this.empleatsservice.deleteComandes(empleat, plat);
 
   asignaPlat(){
 
-    this.empleatstotals = this.elsmeusEmpleats.length;
+    this.empleatsservice.returnValors().snapshotChanges().subscribe(data=>{
+
+      let numcambrers = data[0].payload.val() as number;
+      let numplats = data[1].payload.val() as number;
 
 
+      let platospertocados =  Math.floor(numplats/numcambrers);
+      let sobrante = numplats % numcambrers;
+      this.empleatsservice.getEmpleats().snapshotChanges().subscribe(data =>{
+
+        data.forEach(element=>{
+          this.empleatsservice.getComandes(element.key!).snapshotChanges().subscribe(empleat =>{
+
+            let i = 0;
+            empleat.forEach(empleatdata=>{
+
+              let empleatcomand = empleatdata.payload.val() as Plat;
+              console.log(platospertocados)
 
 
+      
+
+        
+
+
+            })
+
+      
+
+          })
+
+
+        })
+ 
+      });
+    })
   }
 
 }

@@ -1,14 +1,14 @@
 
 export class TaulaPlat{
     $key?: string;
-    taula: string;
-    platnom: string;
+    mesa: string;
+    plat: string;
 
     
     constructor(taula: string, platnom: string ){
 
-        this.taula = taula;
-        this.platnom = platnom;
+        this.mesa = taula;
+        this.plat = platnom;
         
     }
     

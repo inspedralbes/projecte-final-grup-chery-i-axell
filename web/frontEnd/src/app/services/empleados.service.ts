@@ -83,6 +83,15 @@ deleteComandes(empleat: string, plat: string){
  }
 
 
+ returnValors(){
+
+  return this.firebase.list(`valors/`);
+
+ }
+
+
+
+
 
 
 
