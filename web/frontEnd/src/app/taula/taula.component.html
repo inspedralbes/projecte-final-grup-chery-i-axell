@@ -1,32 +1,20 @@
-<h5 class="text-center">El nom de la teva taula és: {{codiTaula}}</h5>
+<h3 class="text-center">Codi Taula: {{codiTaula}}</h3>
 <div class="container">
     <div class="row ">
 
-
-
         <app-comensal *ngFor="let comensal of comensalList" [name]="comensal.name" [image]="comensal.image" [key]="comensal.key" (delete)="deleteComensal($event)"></app-comensal>
+        
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="openModalComensal">
+            Afegir un comensal
+        </button>
+        <br><br>
 
+        <div id="comanda">
+            <app-mostraplats [keyTaula]="codiTaula" [comensalList]='comensalList' (select)="selectComensal($event)" ></app-mostraplats>
+        </div>
 
     </div>
 </div>
-
-
-<button type="button" class="btn btn-primary btn-lg col-sm-1" data-bs-toggle="modal" data-bs-target="#exampleModal" id="openModalComensal">
-    Afegir un comensal
-</button>
-
-
-  <div>
-      <app-mostraplats [keyTaula]="codiTaula" [comensalList]='comensalList' (select)="selectComensal($event)" ></app-mostraplats>
-  </div>
-
-
-
-
-
-
-
-
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
