@@ -43,6 +43,13 @@ export class MandarplatosService {
     return  this.firebase.object(`taules/${keyMesa}/plats/${keyPlat}/`);
   }
 
+  getAllPlats(){
+
+    return  this.firebase.list(`taules/`);
+
+
+  }
+
 
 
 

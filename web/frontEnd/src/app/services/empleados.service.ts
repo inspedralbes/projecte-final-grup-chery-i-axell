@@ -63,12 +63,18 @@ deleteComandes(empleat: string, plat: string){
 
  }
 
- insertPlat(empleat: string, plat: string, mesa: string){
+ insertPlat(empleat: string, codiplat: string){
 
-  let llistaplatsempleat = this.firebase.list(`comandes/${empleat}/plats`);
+  
+
+  let llistaplatsempleat = this.firebase.object(`comandes/${empleat}/plats/${codiplat}`).set("en espera");
+
+  return llistaplatsempleat;
+
+  
 
 
-  llistaplatsempleat.push({mesa: mesa, plat: plat})
+  
 
  }
 
@@ -86,6 +92,12 @@ deleteComandes(empleat: string, plat: string){
  returnValors(){
 
   return this.firebase.list(`valors/`);
+
+ }
+
+ limpiar(empleat: string){
+
+  return this.firebase.object(`comandes/${empleat}/plats/`).remove();
 
  }
 

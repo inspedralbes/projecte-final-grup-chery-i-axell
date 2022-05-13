@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9d4bcec0-0ece-4772-88f0-75ed2bf80f75" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/admin-cambrers/admin-cambrers.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/admin-cambrers/admin-cambrers.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/services/empleados.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/services/empleados.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/services/mandarplatos.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/services/mandarplatos.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,6 +163,8 @@
       <workItem from="1652087952433" duration="2410000" />
       <workItem from="1652172090399" duration="1270000" />
       <workItem from="1652249631374" duration="637000" />
+      <workItem from="1652341185882" duration="1621000" />
+      <workItem from="1652433230648" duration="1060000" />
     </task>
     <servers />
   </component>

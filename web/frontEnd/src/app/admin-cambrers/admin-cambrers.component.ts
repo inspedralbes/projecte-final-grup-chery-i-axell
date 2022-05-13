@@ -17,17 +17,23 @@ export class AdminCambrersComponent implements OnInit {
   public taulesmesas:  any[] = [];
   public platsbuit: any[] = [];
   public elsmeusEmpleats: any[] = [] ;
+  public empleatsperassignar: any[] = [];
   public empleatstotals: number = 0;
   public platstotals: number = 0;
   public elsmeusEmpleatsPerAsignar: any[] = [] ;
+  public arrayPlatsPerassignar: any[] = [];
 
 
 
 
   ngOnInit(): void {
 
+    this.automatizadorReparte()
 
-    this.asignaPlat();
+    // this.empleatsservice.insertPlat()
+    //this.asignaPlat();
+    //this.muestraCosas();
+    //this.empleatsservice.insertPlat("RgnPj3LfHhbu2nBxNODpKSypMNY2", "-N1NbRxf26fqPKSst0-i")
 
     
 
@@ -55,6 +61,8 @@ insertcomandaEstat(keymesa: string, keyplat:string, estat:string){
 
 
 muestraCosas(){
+
+  this.asignaPlat();
   
   this.serveitaules.getTaules().snapshotChanges().subscribe(data => {
 
@@ -79,8 +87,12 @@ muestraCosas(){
               }
 
           this.platsbuit.push(platAmbKey)
+          this.arrayPlatsPerassignar.push(platAmbKey);
           this.platstotals++;
           this.serveiplatos.insertNumPlats(this.platstotals)
+          console.log(this.empleatsperassignar)
+
+          console.log(this.arrayPlatsPerassignar)
 
 
         })
@@ -91,6 +103,8 @@ muestraCosas(){
             this.taulesmesas.push(x);
 
 
+
+        
 
         }
       );
@@ -107,7 +121,6 @@ this.getPlatossuscription(this.taulesmesas)
 
   mostraEmpleatsiPlats(){
     this.empleatsservice.getEmpleats().snapshotChanges().subscribe(data =>{
-      console.log(data)
   
         data.forEach(element=>{
 
@@ -119,7 +132,6 @@ this.getPlatossuscription(this.taulesmesas)
           plats.forEach(plat =>{
 
             let plato = plat.payload.val() as Plat;
-            console.log(plato.nom)
             
 
 
@@ -189,42 +201,66 @@ this.empleatsservice.deleteComandes(empleat, plat);
 
   asignaPlat(){
 
-    this.empleatsservice.returnValors().snapshotChanges().subscribe(data=>{
-
-      let numcambrers = data[0].payload.val() as number;
-      let numplats = data[1].payload.val() as number;
-
-
-      let platospertocados =  Math.floor(numplats/numcambrers);
-      let sobrante = numplats % numcambrers;
       this.empleatsservice.getEmpleats().snapshotChanges().subscribe(data =>{
 
-        data.forEach(element=>{
-          this.empleatsservice.getComandes(element.key!).snapshotChanges().subscribe(empleat =>{
 
-            let i = 0;
-            empleat.forEach(empleatdata=>{
+        data.forEach(empleat=>{
 
-              let empleatcomand = empleatdata.payload.val() as Plat;
-              console.log(platospertocados)
+          let objempleat=  empleat.payload.val() as Empleat;
+
+          this.empleatsperassignar.push(objempleat)
 
 
-      
-
-        
-
-
-            })
-
-      
-
-          })
+          
 
 
         })
- 
+
+
+
       });
-    })
+
   }
+
+  automatizadorReparte(){
+    let arrayArepartir = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+    let arrayRecibidor = [{ nom :'camarero1', encarregs: new Array() }, { nom :'camarero2', encarregs: new Array()}, { nom :'camarero3', encarregs: new Array()}];
+
+let j = 0;
+    arrayRecibidor.forEach(el =>{
+
+      console.log(arrayArepartir + " reparte")
+      let i = 0;
+
+ 
+      arrayArepartir.forEach(pedido =>{
+
+
+
+        
+        if(i>= 3){
+
+         arrayArepartir.splice(0,3);
+         i=0;
+         return;
+
+        }
+        else{
+
+          el.encarregs.push(pedido)
+
+        }
+        i++;
+      })
+      j++;
+    })
+
+    console.log(arrayRecibidor)
+
+  }
+
+
+
+
 
 }
