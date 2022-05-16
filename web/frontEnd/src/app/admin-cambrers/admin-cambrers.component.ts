@@ -1,3 +1,4 @@
+import { newArray } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { snapshotChanges } from '@angular/fire/compat/database';
 import { elementAt } from 'rxjs';
@@ -22,17 +23,18 @@ export class AdminCambrersComponent implements OnInit {
   public platstotals: number = 0;
   public elsmeusEmpleatsPerAsignar: any[] = [] ;
   public arrayPlatsPerassignar: any[] = [];
+  public iterator: number = 0;
 
 
 
 
   ngOnInit(): void {
 
-    this.automatizadorReparte()
+ 
 
     // this.empleatsservice.insertPlat()
     //this.asignaPlat();
-    //this.muestraCosas();
+    this.muestraCosas();
     //this.empleatsservice.insertPlat("RgnPj3LfHhbu2nBxNODpKSypMNY2", "-N1NbRxf26fqPKSst0-i")
 
     
@@ -64,18 +66,23 @@ muestraCosas(){
 
   this.asignaPlat();
   
+
   this.serveitaules.getTaules().snapshotChanges().subscribe(data => {
 
     this.taulesmesas=[];
+
     data.forEach(element=>{
 
       let string = element.key;
+
 
       let plats = this.serveitaules.getFillsTaules(string!).snapshotChanges().subscribe(platosget=>{
     
        this.platsbuit = [];
 
         platosget.forEach(element=>{
+
+
 
           let platAmbKey ={
             key: element.key,  
@@ -84,18 +91,21 @@ muestraCosas(){
             comensal: element.payload.val().comensal,
             estat: element.payload.val().estat,
 
+
+            
               }
 
           this.platsbuit.push(platAmbKey)
           this.arrayPlatsPerassignar.push(platAmbKey);
           this.platstotals++;
           this.serveiplatos.insertNumPlats(this.platstotals)
-          console.log(this.empleatsperassignar)
 
-          console.log(this.arrayPlatsPerassignar)
+
+          console.log(platosget.length + " tamaño")
 
 
         })
+
         let x ={
           key: element.key,  
           plats: this.platsbuit!,
@@ -105,13 +115,17 @@ muestraCosas(){
 
 
         
+            //this.automatizadorReparte(this.arrayPlatsPerassignar, this.empleatsperassignar)
 
-        }
+            this.iterator++;
+          }
       );
 
 
 });
+
 this.getPlatossuscription(this.taulesmesas)
+
 });
 }
 
@@ -142,7 +156,6 @@ this.getPlatossuscription(this.taulesmesas)
 
             }
 
-            console.log(objplat)
 
             platosempleado.push(objplat)
 
@@ -187,7 +200,6 @@ this.empleatsservice.deleteComandes(empleat, plat);
 
   getPlatsSize(){
 
-    console.log(this.platstotals)
 
   }
 
@@ -208,7 +220,7 @@ this.empleatsservice.deleteComandes(empleat, plat);
 
           let objempleat=  empleat.payload.val() as Empleat;
 
-          this.empleatsperassignar.push(objempleat)
+          this.empleatsperassignar.push({empleat: objempleat, comandes: new Array()})
 
 
           
@@ -222,40 +234,39 @@ this.empleatsservice.deleteComandes(empleat, plat);
 
   }
 
-  automatizadorReparte(){
-    let arrayArepartir = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-    let arrayRecibidor = [{ nom :'camarero1', encarregs: new Array() }, { nom :'camarero2', encarregs: new Array()}, { nom :'camarero3', encarregs: new Array()}];
+  automatizadorReparte(platos: any[] , camareros: any[]){
+    // let arrayArepartir = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+    // let arrayRecibidor = [{ nom :'camarero1', encarregs: new Array() }, { nom :'camarero2', encarregs: new Array()}, { nom :'camarero3', encarregs: new Array()}];
+
+
+    console.log(platos + " mis platos")
 
 let j = 0;
-    arrayRecibidor.forEach(el =>{
-
-      console.log(arrayArepartir + " reparte")
+camareros.forEach((el: { comandes: any[]; }) =>{
       let i = 0;
 
- 
-      arrayArepartir.forEach(pedido =>{
 
+      platos.forEach((pedido: any) =>{
 
+   
 
-        
-        if(i>= 3){
-
-         arrayArepartir.splice(0,3);
+        if(i == 3){
+          platos.splice(0,3);
          i=0;
          return;
-
         }
         else{
-
-          el.encarregs.push(pedido)
+          el.comandes.push(pedido)
+          
+          i++;
+          return;
 
         }
-        i++;
       })
       j++;
     })
 
-    console.log(arrayRecibidor)
+    console.log(camareros)
 
   }
 

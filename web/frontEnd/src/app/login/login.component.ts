@@ -29,12 +29,6 @@ export class LoginComponent implements OnInit {
 
     this.empleados.getEmpleat(user!);
 
-
-
-
-
-
-
   }
 
 }
