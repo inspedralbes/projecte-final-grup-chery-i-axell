@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AngularFireAction, AngularFireDatabase, AngularFireList, AngularFireObject, DatabaseSnapshot, PathReference } from '@angular/fire/compat/database';
-import { Observable, Subscription } from 'rxjs';
+
 
 import { DOCUMENT } from '@angular/common';
 
@@ -10,7 +9,7 @@ import { DOCUMENT } from '@angular/common';
 import { TaulaService } from '../services/taula.service';
 import { Comensal } from '../interface/Comensal';
 import { ComensalComponent } from '../comensal/comensal.component';
-
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-taula',
@@ -28,6 +27,7 @@ export class TaulaComponent implements OnInit{
 
 
   public nameComensal:string="";
+  public keyComensal:string="";
   public imageComensal:string="";
   public codiTaula:string ;
   public comensalList:Comensal[] | undefined;
@@ -49,16 +49,15 @@ export class TaulaComponent implements OnInit{
     this.taulaService.getComensals(this.codiTaula).snapshotChanges().subscribe(item=>{
       this.comensalList=[];
       
-      if (item.length==0){
-        this.askForComensal();
-      }
+     
 
       item.forEach(element=>{
         
         let x ={
           key: element.key,
           name: element.payload.val().name,
-          image: element.payload.val().image
+          image: element.payload.val().image,
+          ready:element.payload.val().ready
         }
 
         this.comensalList?.push(x as Comensal);
@@ -70,12 +69,18 @@ export class TaulaComponent implements OnInit{
 
   askForComensal() {
       //ABRIR MODAL
-      document.getElementById("openModalComensal")?.click();
+    //  document.getElementById("openModalComensal")?.click();
+  
+    this.taulaService.deletePlatsTemporalComensal(this.codiTaula, this.nameComensal);
+    var myModal = new bootstrap.Modal(document.getElementById('exampleModal'))
+  
+    myModal.toggle();
+
   }
 
   saveComensal(){
     //INSERTAR COMENSAL EN LA BASE DE DATOS
-
+   
     let image = document.getElementById(this.selectedImage) as HTMLImageElement;
     let source= "assets"+image.src.split("assets")[1];
     this.taulaService.insertComensal(new Comensal(this.nameComensal, source));
@@ -93,14 +98,26 @@ export class TaulaComponent implements OnInit{
 
   deleteComensal(key:string){
     this.taulaService.deleteComensal(key);
+    this.taulaService.deletePlatsTemporalComensal(this.codiTaula, this.nameComensal);
+    this.nameComensal="";
+
   }
 
-  selectComensal(name:string){
-    console.log(name)
+  selectComensal(key:string){
+    this.taulaService.deleteComensal(key);
+    this.askForComensal();
   }
 
 
   ngOnInit(): void {
+    let comensal =localStorage.getItem("comensal");
+    if(comensal==null || comensal==""){
+      this.askForComensal();
+    }else{
+      this.nameComensal=comensal;
+    }
+
+
 
   }
 

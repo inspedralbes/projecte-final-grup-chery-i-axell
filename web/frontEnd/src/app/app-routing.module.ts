@@ -7,6 +7,7 @@ import { AfegirPlatsComponent } from './afegir-plats/afegir-plats.component';
 import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 import { EstatTaulaComponent } from './components/estat-taula/estat-taula.component';
 import {AdminPlatsComponent} from './admin-plats/admin-plats.component';
+import { ConfirmarCompraComponent } from './components/confirmar-compra/confirmar-compra.component';
 
 
 const routes: Routes = [ 
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'estatTaula/:id', component: EstatTaulaComponent},
   {path: 'MostrarPlat', component: MostraplatsComponent},
   {path: 'adminPlats', component: AdminPlatsComponent},
+  {path: 'confirmar', component: ConfirmarCompraComponent},
 
 
 ];

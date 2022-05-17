@@ -13,7 +13,7 @@ export class ComensalComponent implements OnInit {
   @Input() image : string="/assets/images/avatar-astro-1";
   @Input() isOnConfirmModal : boolean=false;
   @Input() key : string| undefined;
-
+  @Input() checkIfMe!:string;
 
   @Output() delete: EventEmitter<any> = new EventEmitter();
   @Output() select: EventEmitter<any> = new EventEmitter();
@@ -31,7 +31,7 @@ export class ComensalComponent implements OnInit {
 
 
   selectComensal(){
-    this.select.emit(this.name)
+    this.select.emit(this.key)
   }
 
   
