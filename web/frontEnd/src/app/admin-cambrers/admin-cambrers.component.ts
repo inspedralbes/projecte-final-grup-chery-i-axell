@@ -15,13 +15,13 @@ import { TaulaService } from '../services/taula.service';
   styleUrls: ['./admin-cambrers.component.css']
 })
 export class AdminCambrersComponent implements OnInit {
-  public taulesmesas:  any[] = [];
+  public taulesmesas: any[] = [];
   public platsbuit: any[] = [];
-  public elsmeusEmpleats: any[] = [] ;
+  public elsmeusEmpleats: any[] = [];
   public empleatsperassignar: any[] = [];
   public empleatstotals: number = 0;
   public platstotals: number = 0;
-  public elsmeusEmpleatsPerAsignar: any[] = [] ;
+  public elsmeusEmpleatsPerAsignar: any[] = [];
   public arrayPlatsPerassignar: any[] = [];
   public iterator: number = 0;
 
@@ -30,123 +30,124 @@ export class AdminCambrersComponent implements OnInit {
 
   ngOnInit(): void {
 
- 
+
 
     // this.empleatsservice.insertPlat()
     //this.asignaPlat();
-    this.muestraCosas();
+    //this.muestraCosas();
     //this.empleatsservice.insertPlat("RgnPj3LfHhbu2nBxNODpKSypMNY2", "-N1NbRxf26fqPKSst0-i")
+    this.automatizadorReparte();
 
-    
+
 
   }
 
-  constructor(private serveitaules:TaulaService, private serveiplatos: MandarplatosService, private empleatsservice: EmpleadosService) { }
+  constructor(private serveitaules: TaulaService, private serveiplatos: MandarplatosService, private empleatsservice: EmpleadosService) { }
 
 
 
-getPlatossuscription(taulesmesasub: any){
+  getPlatossuscription(taulesmesasub: any) {
 
-  this.taulesmesas = taulesmesasub;
-  console.log(this.taulesmesas)
-  
-}
+    this.taulesmesas = taulesmesasub;
+    console.log(this.taulesmesas)
 
-
-
-insertcomandaEstat(keymesa: string, keyplat:string, estat:string){
-  this.serveiplatos.insertcomandaEstat(keymesa, keyplat, estat);
-
-
-}
+  }
 
 
 
-muestraCosas(){
-
-  this.asignaPlat();
-  
-
-  this.serveitaules.getTaules().snapshotChanges().subscribe(data => {
-
-    this.taulesmesas=[];
-
-    data.forEach(element=>{
-
-      let string = element.key;
+  insertcomandaEstat(keymesa: string, keyplat: string, estat: string) {
+    this.serveiplatos.insertcomandaEstat(keymesa, keyplat, estat);
 
 
-      let plats = this.serveitaules.getFillsTaules(string!).snapshotChanges().subscribe(platosget=>{
-    
-       this.platsbuit = [];
-
-        platosget.forEach(element=>{
+  }
 
 
 
-          let platAmbKey ={
-            key: element.key,  
-            nom: element.payload.val().nom,
-            preu: element.payload.val().preu,
-            comensal: element.payload.val().comensal,
-            estat: element.payload.val().estat,
+  muestraCosas() {
+
+    this.asignaPlat();
 
 
-            
-              }
+    this.serveitaules.getTaules().snapshotChanges().subscribe(data => {
 
-          this.platsbuit.push(platAmbKey)
-          this.arrayPlatsPerassignar.push(platAmbKey);
-          this.platstotals++;
-          this.serveiplatos.insertNumPlats(this.platstotals)
+      this.taulesmesas = [];
 
+      data.forEach(element => {
 
-          console.log(platosget.length + " tamaño")
+        let string = element.key;
 
 
-        })
+        let plats = this.serveitaules.getFillsTaules(string!).snapshotChanges().subscribe(platosget => {
 
-        let x ={
-          key: element.key,  
-          plats: this.platsbuit!,
+          this.platsbuit = [];
+
+          platosget.forEach(element => {
+
+
+
+            let platAmbKey = {
+              key: element.key,
+              nom: element.payload.val().nom,
+              preu: element.payload.val().preu,
+              comensal: element.payload.val().comensal,
+              estat: element.payload.val().estat,
+
+
+
             }
-            this.taulesmesas.push(x);
+
+            this.platsbuit.push(platAmbKey)
+            this.arrayPlatsPerassignar.push(platAmbKey);
+            this.platstotals++;
+            this.serveiplatos.insertNumPlats(this.platstotals)
 
 
 
-        
-            //this.automatizadorReparte(this.arrayPlatsPerassignar, this.empleatsperassignar)
 
-            this.iterator++;
+          })
+
+          let x = {
+            key: element.key,
+            plats: this.platsbuit!,
           }
-      );
+          this.taulesmesas.push(x);
 
 
-});
-
-this.getPlatossuscription(this.taulesmesas)
-
-});
-}
+          
 
 
+          // this.automatizadorReparte(this.arrayPlatsPerassignar, this.empleatsperassignar)
+
+          this.iterator++;
+        }
+        );
+
+
+      });
+
+      this.getPlatossuscription(this.taulesmesas)
+
+    });
+  }
 
 
 
-  mostraEmpleatsiPlats(){
-    this.empleatsservice.getEmpleats().snapshotChanges().subscribe(data =>{
-  
-        data.forEach(element=>{
 
-        let obj= element.payload.val() as Empleat;
 
-        this.empleatsservice.getComandes(element.key!).snapshotChanges().subscribe(plats =>{
+  mostraEmpleatsiPlats() {
+    this.empleatsservice.getEmpleats().snapshotChanges().subscribe(data => {
+
+      data.forEach(element => {
+
+        let obj = element.payload.val() as Empleat;
+
+        this.empleatsservice.getComandes(element.key!).snapshotChanges().subscribe(plats => {
 
           let platosempleado: { codiplat: string | null; taula: Plat; }[] = [];
-          plats.forEach(plat =>{
+          plats.forEach(plat => {
 
             let plato = plat.payload.val() as Plat;
-            
+
 
 
             let objplat = {
@@ -163,28 +164,21 @@ this.getPlatossuscription(this.taulesmesas)
 
           })
 
-          
-        let empleat ={
-          key: element.key,
-          nom: obj.nom,
-          email: obj.email,
-          plats: platosempleado,
-        }
 
-        this.elsmeusEmpleats.push(empleat)
-        this.empleatstotals++;
-        this.empleatsservice.insertNumCambrers(this.empleatstotals);
-        this.asignaPlat()
+          let empleat = {
+            key: element.key,
+            nom: obj.nom,
+            email: obj.email,
+            plats: platosempleado,
+          }
 
-
+          this.elsmeusEmpleats.push(empleat)
+          this.empleatstotals++;
+          this.empleatsservice.insertNumCambrers(this.empleatstotals);
+          this.asignaPlat()
 
         })
 
-
-
-
-
-        
       })
 
 
@@ -192,81 +186,96 @@ this.getPlatossuscription(this.taulesmesas)
 
   }
 
-  borraAssignacio(empleat: string , plat: string){
-this.empleatsservice.deleteComandes(empleat, plat);
+  borraAssignacio(empleat: string, plat: string) {
+    this.empleatsservice.deleteComandes(empleat, plat);
 
 
   }
 
-  getPlatsSize(){
+  getPlatsSize() {
 
 
   }
 
-  asignacioPlatsAuto(numCambrers: number, numPlats: number){
-    let reparticion = numPlats/numCambrers;
+  asignacioPlatsAuto(numCambrers: number, numPlats: number) {
+    let reparticion = numPlats / numCambrers;
 
 
 
   }
 
 
-  asignaPlat(){
+  asignaPlat() {
 
-      this.empleatsservice.getEmpleats().snapshotChanges().subscribe(data =>{
-
-
-        data.forEach(empleat=>{
-
-          let objempleat=  empleat.payload.val() as Empleat;
-
-          this.empleatsperassignar.push({empleat: objempleat, comandes: new Array()})
+    this.empleatsservice.getEmpleats().snapshotChanges().subscribe(data => {
 
 
-          
+      data.forEach(empleat => {
 
+        let objempleat = empleat.payload.val() as Empleat;
 
-        })
+        this.empleatsperassignar.push({ empleat: objempleat, comandes: new Array() })
 
 
 
-      });
-
-  }
-
-  automatizadorReparte(platos: any[] , camareros: any[]){
-    // let arrayArepartir = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-    // let arrayRecibidor = [{ nom :'camarero1', encarregs: new Array() }, { nom :'camarero2', encarregs: new Array()}, { nom :'camarero3', encarregs: new Array()}];
 
 
-    console.log(platos + " mis platos")
-
-let j = 0;
-camareros.forEach((el: { comandes: any[]; }) =>{
-      let i = 0;
-
-
-      platos.forEach((pedido: any) =>{
-
-   
-
-        if(i == 3){
-          platos.splice(0,3);
-         i=0;
-         return;
-        }
-        else{
-          el.comandes.push(pedido)
-          
-          i++;
-          return;
-
-        }
       })
-      j++;
-    })
 
-    console.log(camareros)
+
+
+    });
+
+  }
+
+  automatizadorReparte() {
+    let platos = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l'];
+    let camareros = [{ empleat: 'camarero1', comandes: new Array() }, { empleat: 'camarero2', comandes: new Array() }, { empleat: 'camarero3', comandes: new Array() }];
+
+    let repartidor = Math.floor(platos.length / camareros.length)
+
+    console.log(repartidor)
+
+    let excedente = platos.length % camareros.length;
+
+    let pertocado =  Math.floor(camareros.length/ excedente);
+
+    let i = 0;
+
+
+    console.log(repartidor + " " + excedente)
+
+    camareros.forEach(el => {
+
+
+      for(let i= 0; i< repartidor; i++){
+
+
+        el.comandes.push(platos[0]);
+        platos.splice(0,1);
+      }
+  console.log(camareros)
+
+})
+
+
+camareros.forEach(el => {
+
+
+  for(let i= 0; i< pertocado; i++){
+
+    if(platos[0]!= null){
+
+    el.comandes.push(platos[0]);
+    platos.splice(0,1);
+    }
+    else{
+      break;
+    }
+  }
+console.log(camareros)
+
+})
 
   }
 

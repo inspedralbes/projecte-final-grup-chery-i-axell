@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d4bcec0-0ece-4772-88f0-75ed2bf80f75" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/admin-cambrers/admin-cambrers.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/admin-cambrers/admin-cambrers.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,6 +164,7 @@
       <workItem from="1652341185882" duration="1621000" />
       <workItem from="1652433230648" duration="1060000" />
       <workItem from="1652699552007" duration="626000" />
+      <workItem from="1652777033607" duration="1212000" />
     </task>
     <servers />
   </component>
