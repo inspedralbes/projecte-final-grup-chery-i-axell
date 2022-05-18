@@ -216,10 +216,6 @@ export class AdminCambrersComponent implements OnInit {
 
         this.empleatsperassignar.push({ empleat: objempleat, comandes: new Array() })
 
-
-
-
-
       })
 
 

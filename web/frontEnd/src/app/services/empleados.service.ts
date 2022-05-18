@@ -56,6 +56,16 @@ getEmpleats(){
   return this.firebase.list(`empleats/`);
 }
 
+
+
+getPlatsTemporal(){
+
+  return this.firebase.list(`platsTemporal/`);
+
+
+
+}
+
 deleteComandes(empleat: string, plat: string){
 
 
@@ -68,6 +78,8 @@ deleteComandes(empleat: string, plat: string){
   
 
   let llistaplatsempleat = this.firebase.object(`comandes/${empleat}/plats/${codiplat}`).set("en espera");
+
+  let temporal = this.firebase.object(`platsTemporal/${codiplat}`);
 
   return llistaplatsempleat;
 
