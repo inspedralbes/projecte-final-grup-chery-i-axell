@@ -69,14 +69,21 @@ export class TaulaService {
 
 
   enviarComanda(keyTaula:string){
-    let platsTemporals = this.firebase.object(`taules/${keyTaula}/platsTemporal/`);
-
+    let platsTemporals = this.firebase.list(`taules/${keyTaula}/platsTemporal/`);
+    let platsRef = this.firebase.list(`taules/${keyTaula}/plats/`);
+    let platsRestauranRef=  this.firebase.list(`plats`);
     let plats = platsTemporals.valueChanges().pipe(take(1));
-    plats.forEach(item=>{
-      console.log(item)
+    plats.forEach((item:any)=>{
+        item.forEach((comensal: any)=>{
+         comensal.forEach((plat: any)=>{
+           for (let index = 0; index < plat.quantitat; index++) {
+             const element = plat;
+              platsRestauranRef.push({...element, taula:keyTaula})
+              platsRef.push(element)
+           }
+         })
+      })        
     })
-
- 
   }
 
 
