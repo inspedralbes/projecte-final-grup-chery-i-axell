@@ -15,7 +15,7 @@ export class MostraplatsComponent implements OnInit {
 
   plats: any;
   selectedplats: any;
-  comensal!: string ;
+  @Input() comensal!: string ;
   @Input() keyTaula!:string;
  
   @Output() select: EventEmitter<any> = new EventEmitter();
@@ -45,7 +45,7 @@ export class MostraplatsComponent implements OnInit {
   });  
 
   this.mandarplatos.init(this.keyTaula);
-  localStorage.setItem("comensal", "Axell");
+
   this.comensal= localStorage.getItem("comensal")!;
 
   this.plats=[
@@ -66,12 +66,17 @@ export class MostraplatsComponent implements OnInit {
   this.mandarplatos.getComandesTemporals(this.keyTaula).snapshotChanges().subscribe(item=>{
     this.platsTemporalTaula=[];
      item.forEach(element=>{
-       if(element.key==this.comensal){
-         this.platsTemporalComensal=element.payload.val()
-       }
-       this.platsTemporalTaula.push(element.payload.val())
-     })
 
+      
+
+       if(element.key==this.comensal){
+         this.platsTemporalComensal=element.payload.val();
+       }
+       this.platsTemporalTaula.push({plats:element.payload.val(), comensal:element.key})
+
+       
+
+     })
 
 
 
@@ -185,19 +190,20 @@ export class MostraplatsComponent implements OnInit {
 
   deleteItem(key:string){
   
-    
+      console.log(key)
 
     if(this.platsTemporalComensal.length!=0){
-      this.platsTemporalComensal.forEach((element: { nom: string, quantitat:number; }, index: any) => {
+     
+       this.platsTemporalComensal.forEach((element: { nom: string, quantitat:number; }, index: any) => {
         if(element.nom ==key && element.quantitat>0){
           element.quantitat--;
           if(element.quantitat==0){
             this.platsTemporalComensal.splice(index,1);
           }
         }
-      });
+      }); 
     }
-    console.log(this.platsTemporalComensal)
+   
 
     this.mandarplatos.inserComandaTemporal(this.platsTemporalComensal, this.comensal);
     

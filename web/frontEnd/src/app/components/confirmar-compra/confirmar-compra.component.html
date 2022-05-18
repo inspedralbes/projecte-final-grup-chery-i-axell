@@ -1,0 +1,71 @@
+
+
+<!-- <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modal2" id="openModal2" (click)="ordenarPlats()">
+  Confirmar la compra
+</button>
+ -->
+
+ <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modal2" id="openModal2" >
+    Confirmar la compra
+
+  </button>
+  
+
+<div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title " id="modal2Label">Confirmar comanda</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+             <!--    <div>
+
+                    <div class="text-center">
+                        <h5>Confirma la teva comanda!</h5>
+                    </div>
+
+
+                    <h6 class="mt-3 text-center">Comanda:</h6>
+                    <div class="order-summary">
+                        <div *ngFor="let plat of platsPerDemanarOrdenat | keyvalue;">
+                            <span>{{plat.key | titlecase}} x </span> <span class="">{{plat.value.length}}</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="buttonClose">Tancar</button>
+                    <a class="btn btn-primary" data-bs-dismiss="modal" (click)="lacuenta()">Continuar</a>
+
+                </div> -->
+                <div class="container">
+                    <div class="row">
+                        <div *ngFor="let comensal of comensalList" class="m-1">
+                            {{comensal.name}} 
+
+                            <span *ngIf="comensal.ready">
+                                <img src="assets/images/check.png" alt="preparat" srcset="">
+                            </span>
+                            <span *ngIf="!comensal.ready">
+                                <img src="assets/images/close.png" alt="no preparat" srcset="">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center my-2">
+                    <button class="btn btn-success" (click)="confirmar()">
+                        Confirmar compra
+                    </button>
+                </div>
+               
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="buttonClose">Tancar</button>
+                   <!--  <a class="btn btn-primary" data-bs-dismiss="modal" >Continuar</a> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

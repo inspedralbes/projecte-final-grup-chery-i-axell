@@ -1,27 +1,41 @@
 <h5 class="text-center">El nom de la teva taula és: {{codiTaula}}</h5>
-<!-- <div class="container">
-    <div class="row ">
+<h1>
+ 
+</h1>
+<div class="accordion my-5 mx-5 " id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+         Comensals de la taula
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
 
+            <div class="container">
+                <div class="row ">
+                    <app-comensal *ngFor="let comensal of comensalList" [name]="comensal.name" [image]="comensal.image" [key]="comensal.key" (delete)="deleteComensal($event)" (select)="selectComensal($event)" [checkIfMe]="nameComensal"></app-comensal>
+                    <button type="button" class="btn btn-primary" (click)="askForComensal()" *ngIf="nameComensal==''" >Afegir-me a la taula</button>
+                </div>
+            </div>
 
-
-        <app-comensal *ngFor="let comensal of comensalList" [name]="comensal.name" [image]="comensal.image" [key]="comensal.key" (delete)="deleteComensal($event)"></app-comensal>
-
-
+        </div>
+      </div>
     </div>
+   
 </div>
 
 
-<button type="button" class="btn btn-primary btn-lg col-sm-1" data-bs-toggle="modal" data-bs-target="#exampleModal" id="openModalComensal">
-    Afegir un comensal
-</button> -->
+
+
 
 
 <div>
-    <app-mostraplats [keyTaula]="codiTaula" (select)="selectComensal($event)"></app-mostraplats>
+    <app-mostraplats [keyTaula]="codiTaula" [comensal]="nameComensal"></app-mostraplats>
 </div>
 
 
-
+<app-confirmar-compra [comensalList]=comensalList></app-confirmar-compra>
 
 
 

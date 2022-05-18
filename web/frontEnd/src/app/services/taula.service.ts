@@ -39,12 +39,23 @@ export class TaulaService {
    }
 
    insertComensal(comensal:Comensal){
-      this.comensalList?.push({name:comensal.name, image: comensal.image})
+      this.comensalList?.push({name:comensal.name, image: comensal.image, ready:false})
+   }
+
+
+   confirmarCompraComensal(taula:string, key:string){
+    let comensal= this.firebase.object(`taules/${taula}/comensals/${key}`);
+    comensal.update({ready:true});
    }
 
 
   deleteComensal(key:string){
     this.comensalList?.remove(key);
+  }
+
+  deletePlatsTemporalComensal(taula:string, comensal:string){
+    let platsComensalTemp = this.firebase.list(`taules/${taula}/platsTemporal/${comensal}`);
+    platsComensalTemp.remove();
   }
 
 

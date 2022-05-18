@@ -10,6 +10,7 @@ import {AdminPlatsComponent} from './admin-plats/admin-plats.component';
 import { LoginComponent } from './login/login.component';
 import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
 import { AdminCambrersComponent } from './admin-cambrers/admin-cambrers.component';
+import { ConfirmarCompraComponent } from './components/confirmar-compra/confirmar-compra.component';
 
 
 const routes: Routes = [ 
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'estatTaula/:id', component: EstatTaulaComponent},
   {path: 'MostrarPlat', component: MostraplatsComponent},
   {path: 'adminPlats', component: AdminPlatsComponent},
+  {path: 'confirmar', component: ConfirmarCompraComponent},
 
 
 ];
