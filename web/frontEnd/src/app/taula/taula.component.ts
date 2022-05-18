@@ -32,6 +32,8 @@ export class TaulaComponent implements OnInit{
   public codiTaula:string ;
   public comensalList:Comensal[] | undefined;
   selectedImage: string;
+  public myComensalKey!:string;
+  imReady: any;
 
   
 
@@ -60,12 +62,38 @@ export class TaulaComponent implements OnInit{
           ready:element.payload.val().ready
         }
 
+        if(x.name==this.nameComensal){
+          this.myComensalKey=x.key!;
+          this.imReady=x.ready;
+        }
+
         this.comensalList?.push(x as Comensal);
       })
 
+
+      this.checkConfirmedAndSend();
       
     })
   }
+
+
+  checkConfirmedAndSend(){
+
+    let requiredConfirms = this.comensalList?.length;
+    let nConfirms = 0;
+    this.comensalList!.forEach(item=>{
+        (item.ready)?nConfirms++:nConfirms;
+    });
+    
+    
+    (nConfirms==requiredConfirms)? this.taulaService.enviarComanda(this.codiTaula): null;
+
+
+  }
+
+
+
+
 
   askForComensal() {
       //ABRIR MODAL

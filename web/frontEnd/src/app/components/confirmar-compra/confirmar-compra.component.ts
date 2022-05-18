@@ -11,6 +11,8 @@ export class ConfirmarCompraComponent implements OnInit {
 
   @Input() comensalList:any;
   @Input() myKey:any;
+  @Input() isReady:any;
+  @Input() keyTaula:any;
 
   constructor(public taulaService:TaulaService) { }
 
@@ -18,7 +20,10 @@ export class ConfirmarCompraComponent implements OnInit {
   }
 
   confirmar(){
-    this.taulaService.confirmarCompraComensal("a", this.myKey);
+    this.taulaService.confirmarCompraComensal(this.keyTaula, this.myKey);
+  }
+  unConfirm(){
+    this.taulaService.unConfirmCompraComensal(this.keyTaula,this.myKey);
   }
 
 }
