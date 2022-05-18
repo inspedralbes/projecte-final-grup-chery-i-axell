@@ -37,6 +37,29 @@ export class TaulaService {
 
    }
 
+
+   deletePlatsTemporal(keyTaula:string){
+     this.firebase.list(`taules/${keyTaula}/platsTemporal`).remove();
+   }
+
+
+   setComensalsToUnReady(keyTaula:string){
+
+    let comensalsRef = this.firebase.list(`taules/${keyTaula}/comensals`)
+
+    let comensals = comensalsRef.snapshotChanges().pipe(take(1));
+
+    comensals.forEach(item=>{
+
+      item.forEach(element=>{
+        this.firebase.object(`taules/${keyTaula}/comensals/${element.key}`).update({ready:false})  ;
+      })
+      
+    })
+
+   }
+
+
    getComensals(key:string){
      return this.comensalList= this.firebase.list(`taules/${key}/comensals`);
    }
