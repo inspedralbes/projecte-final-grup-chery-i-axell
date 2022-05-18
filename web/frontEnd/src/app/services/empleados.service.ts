@@ -79,17 +79,20 @@ deleteComandes(empleat: string, plat: string){
 
   let llistaplatsempleat = this.firebase.object(`comandes/${empleat}/plats/${codiplat}`).set("en espera");
 
-  let temporal = this.firebase.object(`platsTemporal/${codiplat}`);
+
 
   return llistaplatsempleat;
-
-  
-
-
-  
-
  }
 
+
+
+ insertTemporal(codiplat: string){
+  let temporal = this.firebase.object(`platsTemporal/${codiplat}`);
+
+  return temporal;
+
+
+ }
 
  insertNumCambrers(numcambrer: number){
 
