@@ -23,6 +23,7 @@ import { EstatTaulaComponent } from './components/estat-taula/estat-taula.compon
 import { PlatComponent } from './components/plat/plat.component';
 import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
 import { ConfirmarCompraComponent } from './components/confirmar-compra/confirmar-compra.component';
+import { TiquetComponent } from './components/tiquet/tiquet.component';
 
 
 
@@ -39,6 +40,7 @@ import { ConfirmarCompraComponent } from './components/confirmar-compra/confirma
     PlatComponent,
     AdminPlatsComponent,
     ConfirmarCompraComponent,
+    TiquetComponent,
 
   ],
   

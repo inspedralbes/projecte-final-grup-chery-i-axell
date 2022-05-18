@@ -29,16 +29,7 @@ export class EstatTaulaComponent implements OnInit {
 
         this.llistaPlats?.push(x);
       })
-
-      console.log(this.llistaPlats)
-      
     })
-
-
-
-
-
-
   }
 
   ngOnInit(): void {

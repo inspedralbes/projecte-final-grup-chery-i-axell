@@ -118,9 +118,7 @@ export class TaulaService {
   }
 
 
-
-
-   newTaula(codiTaula:string){
+  newTaula(codiTaula:string){
 
     const dbRef = ref(getDatabase());
     get(child(dbRef, `taules/${codiTaula}`)).then((snapshot) => {
@@ -136,6 +134,15 @@ export class TaulaService {
      
     });
    }
+
+
+  
+
+
+
+
+
+
 
 
 }
