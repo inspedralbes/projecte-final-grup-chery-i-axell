@@ -85,7 +85,7 @@ export class TaulaComponent implements OnInit, OnDestroy{
     });
     
     
-    (nConfirms==requiredConfirms)? this.sendComanda(): null;
+    (nConfirms==requiredConfirms&& nConfirms!=0)? this.sendComanda(): null;
 
 
   }
