@@ -35,8 +35,11 @@
 </div>
 
 
-<app-confirmar-compra [comensalList]="comensalList" [myKey]="myComensalKey" [isReady]="imReady" [keyTaula]="codiTaula"></app-confirmar-compra>
+<app-confirmar-compra class="m-5" [comensalList]="comensalList" [myKey]="myComensalKey" [isReady]="imReady" [keyTaula]="codiTaula"></app-confirmar-compra>
 
+<a [routerLink]="['/estatTaula',codiTaula]" class="btn btn-primary m-5">
+    Informació de les meves comandes
+  </a>
 
 
 
