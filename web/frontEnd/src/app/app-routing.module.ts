@@ -12,6 +12,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
 import { AdminTaulaComponent } from './components/admin-taula/admin-taula.component';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [ 
   {path: 'crearTaula', component: CrearTaulaComponent },
@@ -22,7 +23,7 @@ const routes: Routes = [
   {path:'' ,component:HomepageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'cambrers/:idcambrer', component: CambrerComponentComponent},
-  {path: 'adminTaula', component: AdminTaulaComponent},
+  {path: 'adminTaula', component: AdminTaulaComponent, canActivate:[AuthGuard]},
 ];
 
 @NgModule({

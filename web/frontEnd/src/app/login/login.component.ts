@@ -2,6 +2,7 @@ import { IfStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
+import { AuthServiceService } from '../services/auth-service.service';
 import { EmpleadosService } from '../services/empleados.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   userData: any;
 
  
-  constructor(public auth: AngularFireAuth, private empleados: EmpleadosService) {
+  constructor(public auth: AngularFireAuth, private empleados: EmpleadosService, public authService: AuthServiceService) {
   }
   login() {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
@@ -45,7 +46,8 @@ export class LoginComponent implements OnInit {
 
   comprobasiexisteix(user: string | null){
 
-    this.empleados.getEmpleat(user!);
+    console.log( this.authService.isAdmin(user!))
+   
 
   }
 

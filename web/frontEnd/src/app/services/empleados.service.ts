@@ -27,26 +27,18 @@ export class EmpleadosService {
    }
 
    getEmpleat(empleat: string)  {
+console.log(empleat)
+     return this.firebase.object(`empleats/${empleat}`)
 
-    let alert = this.firebase.object(`empleats/${empleat}`).snapshotChanges().subscribe(data =>{
+   /*  let alert = this.firebase.object(`empleats/${empleat}`).snapshotChanges().subscribe(data =>{
 
 
       if(data.key == null){
-        this.router.navigate(['/login']);
-
-      
+       return false;
       }
       else{
-    
-        this.router.navigate(['/cambrers', data.key]);
-
-
-
+        return true;
       }
-
-    });
-
-
-
+    }); */
    }
 }
