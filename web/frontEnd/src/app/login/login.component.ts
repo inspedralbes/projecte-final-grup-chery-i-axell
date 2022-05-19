@@ -12,28 +12,40 @@ import { EmpleadosService } from '../services/empleados.service';
 export class LoginComponent implements OnInit {
 
  
+  userData: any;
 
-  ngOnInit(): void {
-  }
+ 
   constructor(public auth: AngularFireAuth, private empleados: EmpleadosService) {
   }
   login() {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.auth.authState.subscribe(user=>{
+      if (user) {
+        this.userData = user;
+        localStorage.setItem('user', JSON.stringify(this.userData));
+        JSON.parse(localStorage.getItem('user')!);
+      } else {
+        localStorage.setItem('user', 'null');
+        JSON.parse(localStorage.getItem('user')!);
+      }
+    })
 
   }
+
+
+  ngOnInit(): void {
+  }
+
+
   logout() {
-    this.auth.signOut();
+    this.auth.signOut().then(() => {
+      localStorage.removeItem('user');
+    });
   }
 
   comprobasiexisteix(user: string | null){
 
     this.empleados.getEmpleat(user!);
-
-
-
-
-
-
 
   }
 
