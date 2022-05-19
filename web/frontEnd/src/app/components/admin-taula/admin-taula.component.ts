@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaulaService } from 'src/app/services/taula.service';
 
+
 @Component({
   selector: 'app-admin-taula',
   templateUrl: './admin-taula.component.html',
@@ -27,6 +28,11 @@ export class AdminTaulaComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  borrar(t: string){  
+
+  this.taulaService.deleteTaula(t);
   }
 
 }

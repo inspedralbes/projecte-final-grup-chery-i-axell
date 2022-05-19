@@ -42,6 +42,10 @@ export class TaulaService {
      this.firebase.list(`taules/${keyTaula}/platsTemporal`).remove();
    }
 
+   deleteTaula(t:string){
+    this.firebase.list(`taules/${t}`).remove();
+  }
+
 
    setComensalsToUnReady(keyTaula:string){
 
