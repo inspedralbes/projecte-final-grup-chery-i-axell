@@ -19,12 +19,15 @@ import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 import { EstatTaulaComponent } from './components/estat-taula/estat-taula.component';
 import { PlatComponent } from './components/plat/plat.component';
 import { AdminPlatsComponent } from './admin-plats/admin-plats.component';
+import { LoginComponent } from './login/login.component';
+import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
+import { AdminCambrersComponent } from './admin-cambrers/admin-cambrers.component';
 import { ConfirmarCompraComponent } from './components/confirmar-compra/confirmar-compra.component';
+
 import { TiquetComponent } from './components/tiquet/tiquet.component';
 
 import { HomepageComponent } from './homepage/homepage.component';
-import { LoginComponent } from './login/login.component';
-import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
+
 import { AdminTaulaComponent } from './components/admin-taula/admin-taula.component';
 
 
@@ -39,6 +42,11 @@ import { AdminTaulaComponent } from './components/admin-taula/admin-taula.compon
     AdminPlatsComponent, 
     HomepageComponent,
     AdminPlatsComponent,
+    LoginComponent,
+    CambrerComponentComponent,
+    AdminCambrersComponent,
+    ConfirmarCompraComponent,
+
     ConfirmarCompraComponent,
     TiquetComponent,
     PlatComponent,

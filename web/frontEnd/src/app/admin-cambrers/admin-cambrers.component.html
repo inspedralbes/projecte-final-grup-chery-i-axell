@@ -1,0 +1,33 @@
+<p>Aqui administro cambreros</p>
+
+<div *ngFor='let empleados of elsmeusEmpleats' >
+
+    key : {{empleados.key}}
+    Email: {{empleados.email}}
+    Plats asignats: 
+    <p *ngFor='let platos of empleados.plats' >
+        Codi del plat : {{platos.codiplat}}<br>
+        Taula del Plat: {{platos.taula.mesa}}<br>
+        Plat demanat : {{platos.taula.plat}}
+        <button (click)= "borraAssignacio(empleados.key, platos.codiplat)">Borra asignacion</button>
+        <hr>
+
+        <p>
+    <hr>
+
+</div>
+
+
+<h1>TENGO PLATOS PARA ASIGNAR A LOS EMPLEADOS PERO NO SE COMO</h1>
+
+<div *ngFor='let mesa of taulesmesas'>
+
+    {{mesa.key}}
+
+    <ul>
+<li *ngFor='let plato of mesa.plats' >{{ plato.nom}}
+
+    </ul>
+
+</div>
+
