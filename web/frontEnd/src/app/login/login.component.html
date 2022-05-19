@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card" *ngIf="auth.user | async as user; else showLogin">
+        <h3 class="card-header">Bienvenido</h3>
+        <div class="card-body">
+          <h5 class="card-subtitle mb-2 text-muted">{{ user.email }}</h5>
+          <p class="card-text"><b>ID:</b> {{ user.uid }}</p>
+          <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+          &nbsp;
+          <button class="btn btn-outline-info" (click) = "comprobasiexisteix(user.uid)">Comprueba si existo!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #showLogin>
+
+  <div class="card">
+    <div class="card-header-center">
+      Porfavor registrate o logeate con tu cuenta.
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">¿Registrarse o unirse con <b>Google</b>?</h5>
+      <button class="btn btn-outline-info" (click)="login()">Login</button>
+    </div>
+  </div>
+</ng-template>

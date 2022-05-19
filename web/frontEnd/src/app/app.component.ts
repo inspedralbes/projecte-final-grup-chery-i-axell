@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +9,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  title = 'frontEnd';
+  usuario: any;
+  password: any;
 
 
-
-  constructor() {
-
-
-
+  constructor(private httpclient:HttpClient,private router:Router) {
   }
 
-
+  
+  ngOnInit(): void {
+    
+  }
+  login(){
+    this.router.navigate(['/login']);
+  }
 
 }
+
