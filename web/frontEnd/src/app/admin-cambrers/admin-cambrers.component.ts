@@ -117,7 +117,7 @@ export class AdminCambrersComponent implements OnInit {
 
 
 
-          // this.automatizadorReparte(this.arrayPlatsPerassignar, this.empleatsperassignar)
+           this.automatizadorReparte(this.arrayPlatsPerassignar, this.empleatsperassignar)
 
           this.iterator++;
         }
@@ -160,6 +160,7 @@ export class AdminCambrersComponent implements OnInit {
 
 
             platosempleado.push(objplat)
+
 
 
 
@@ -221,11 +222,46 @@ export class AdminCambrersComponent implements OnInit {
 
         }
 
+        let comandes: { key: string | null; comensal: string; nom: string; preu: number; quantitat: number; taula: string; estat: string; }[] = [];
 
-        this.empleatsperassignar.push({ empleat: objempleatmillor, comandes: new Array() })
+        this.empleatsservice.getComandes(empleat.key!).snapshotChanges().subscribe(comand=>{
+
+
+          comand.forEach(cosasarray=>{
+
+            let push = cosasarray.payload.val() as Plat;
+
+            let objpush = {
+              key: cosasarray.key,
+              comensal: push.comensal,
+              nom: push.nom,
+              preu: push.preu,
+              quantitat: push.quantitat,
+              taula: push.taula,
+              estat: push.estat
+            }
+
+            comandes.push(objpush!);
+            
+
+
+
+          })
+
+
+
+        })
+
+
+
+        this.empleatsperassignar.push({ empleat: objempleatmillor, comandes: comandes })
+
 
       })
-      this.automatizadorReparte(arrayplats, this.empleatsperassignar);
+
+      console.log(arrayplats.length + " platos i empleados " + this.empleatsperassignar.length)
+
+    this.automatizadorReparte(arrayplats, this.empleatsperassignar);
 
 
 
@@ -262,6 +298,7 @@ export class AdminCambrersComponent implements OnInit {
         this.arrayPlatsPerassignar.push(platbo);
 
 
+
       })
 
       this.asignaPlat(this.arrayPlatsPerassignar);
@@ -269,6 +306,7 @@ export class AdminCambrersComponent implements OnInit {
 
 
 
+    //  this.empleatsservice.removePlatsTemporal()
 
     })
 
@@ -281,31 +319,45 @@ export class AdminCambrersComponent implements OnInit {
 
 
   automatizadorReparte(platos: any[], camareros: any[]) {
-    //let platos = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l'];
+    //let p = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l'];
     // let camareros = [{ empleat: 'camarero1', comandes: new Array() }, { empleat: 'camarero2', comandes: new Array() }, { empleat: 'camarero3', comandes: new Array() }];
 
     let repartidor = Math.floor(platos.length / camareros.length)
 
-    console.log(repartidor)
+    console.log(platos + " somlos platos")
+
+
+    camareros.forEach(el=>{
+
+      el.comandes.forEach((com: any)=>{
+        console.log(com.preu)
+      })
+
+
+    })
+
 
     let excedente = platos.length % camareros.length;
 
     let pertocado = Math.floor(camareros.length / excedente);
 
-    let i = 0;
+    let j = 0;
 
 
-    console.log(repartidor + " " + excedente)
+
 
     camareros.forEach(el => {
 
+      console.log(el.comandes)
 
       for (let i = 0; i < repartidor; i++) {
 
-
-        el.comandes.push(platos[0]);
+        el.comandes.push(platos[0])
         platos.splice(0, 1);
+
+
       }
+
 
 
 
@@ -323,6 +375,7 @@ export class AdminCambrersComponent implements OnInit {
           platos.splice(0, 1);
         }
         else {
+
           break;
         }
       }
@@ -332,14 +385,16 @@ export class AdminCambrersComponent implements OnInit {
 
     camareros.forEach(insert => {
 
+
       console.log(insert)
 
-      insert.comandes.forEach((a: any) => {
+      insert.comandes.forEach((a: any)  => {
 
 
+    this.empleatsservice.insertPlat(insert.empleat.key, a)
+    //this.empleatsservice.removeOnePlatTemporal(a.key)
+   // insert.comandes.splice(0,1)
 
-
-        this.empleatsservice.insertPlat(insert.empleat.key, a)
         
 
 
@@ -348,7 +403,7 @@ export class AdminCambrersComponent implements OnInit {
 
 
     })
-    //this.empleatsservice.removePlatsTemporal()
+
 
 
   }
