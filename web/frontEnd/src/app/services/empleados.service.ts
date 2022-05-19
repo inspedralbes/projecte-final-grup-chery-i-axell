@@ -68,6 +68,14 @@ getPlatsTemporal(){
 
 }
 
+
+removePlatsTemporal(){
+
+  return this.firebase.list(`plats/`).remove();
+
+
+}
+
 deleteComandes(empleat: string, plat: string){
 
 

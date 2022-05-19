@@ -193,10 +193,7 @@ export class AdminCambrersComponent implements OnInit {
 
   }
 
-  getPlatsSize() {
 
-
-  }
 
   asignacioPlatsAuto(numCambrers: number, numPlats: number) {
     let reparticion = numPlats / numCambrers;
@@ -341,7 +338,9 @@ export class AdminCambrersComponent implements OnInit {
 
 
 
+
         this.empleatsservice.insertPlat(insert.empleat.key, a)
+        
 
 
       })
@@ -349,6 +348,8 @@ export class AdminCambrersComponent implements OnInit {
 
 
     })
+    //this.empleatsservice.removePlatsTemporal()
+
 
   }
 
