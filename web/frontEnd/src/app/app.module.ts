@@ -25,6 +25,7 @@ import { TiquetComponent } from './components/tiquet/tiquet.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
+import { AdminTaulaComponent } from './components/admin-taula/admin-taula.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { CambrerComponentComponent } from './cambrer-component/cambrer-component
     PlatComponent,
     EstatTaulaComponent,
     LoginComponent,
-    CambrerComponentComponent
+    CambrerComponentComponent,
+    AdminTaulaComponent
   ],
   
   imports: [
