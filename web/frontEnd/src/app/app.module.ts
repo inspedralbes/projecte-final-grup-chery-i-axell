@@ -24,12 +24,9 @@ import { CambrerComponentComponent } from './cambrer-component/cambrer-component
 import { AdminCambrersComponent } from './admin-cambrers/admin-cambrers.component';
 import { ConfirmarCompraComponent } from './components/confirmar-compra/confirmar-compra.component';
 
-import { ConfirmarCompraComponent } from './components/confirmar-compra/confirmar-compra.component';
 import { TiquetComponent } from './components/tiquet/tiquet.component';
 
 import { HomepageComponent } from './homepage/homepage.component';
-import { LoginComponent } from './login/login.component';
-import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
 
 
 @NgModule({

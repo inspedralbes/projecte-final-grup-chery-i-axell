@@ -95,7 +95,7 @@ export class CambrerComponentComponent implements OnInit {
 
     });
 
-    console.log(this.arrayOrdres)
+    console.log(this.arrayOrdres+ " estoy aqui..?")
 
 
 

@@ -11,13 +11,19 @@
           <div class="card text-center" *ngFor='let ordre of arrayOrdres'>
             <div class="card-header">
               <h5 class="card-title">Taula:</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{{ordre.mesataula}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">{{ordre.mesataula.taula}}</h6>
             </div>
             <div class="card-body">
               <h5 class="card-title">Nom del plat:</h5>
-              <p class="card-text">{{ordre.nomplat}}</p>
+              <p class="card-text">{{ordre.mesataula.nom}}</p>
               <h5 class="card-title">Estat del plat:</h5>
-              <p class="card-text">{{ordre.estat }}</p>
+              <p class="card-text">{{ordre.mesataula.estat }}</p>
+
+              <h5 class="card-title">Quantitat:</h5>
+              <p class="card-text">{{ordre.mesataula.quantitat }}</p>
+
+              <h5 class="card-title">Preu:</h5>
+              <p class="card-text">{{ordre.mesataula.preu }}</p>
               <button class="btn btn-outline-primary" (click)= "submitOrdres(ordre.keyplat, ordre.mesataula)" >Entregat</button>
             </div>
           </div>

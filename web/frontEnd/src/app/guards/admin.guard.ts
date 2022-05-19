@@ -16,12 +16,12 @@ export class AdminGuard implements CanActivate, CanActivateChild, CanDeactivate<
 
   
       // Obtenemos la hora actual  
-      const hora = new Date().getHours();
+        const token = new Date().getHours();
       
       // Comparamos la hora con el maximo permitido
       // Esto sería en caso de que no queremos que 
       // pueda entrar a la página después de las 10:00 pm  
-      if (hora >= 22) {
+      if (token >= 22) {
         // Si la hora es mayor o igual redireccionamos al homeComponent
         this.router.navigate(['']);
         // Si devolvemos FALSE no de permitirá el acceso

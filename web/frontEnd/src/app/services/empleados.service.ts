@@ -2,6 +2,8 @@ import { identifierName } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database'; 
 import { Router, RouterLink } from '@angular/router';
+import { Comensal } from '../interface/Comensal';
+import { Plat } from '../model/Plat';
 import { TaulaService } from './taula.service';
 
 
@@ -60,7 +62,7 @@ getEmpleats(){
 
 getPlatsTemporal(){
 
-  return this.firebase.list(`platsTemporal/`);
+  return this.firebase.list(`plats/`);
 
 
 
@@ -73,11 +75,23 @@ deleteComandes(empleat: string, plat: string){
 
  }
 
- insertPlat(empleat: string, codiplat: string){
+ insertPlat(empleat: string, plat: any| undefined){
 
-  
+  console.log(plat.estat)
 
-  let llistaplatsempleat = this.firebase.object(`comandes/${empleat}/plats/${codiplat}`).set("en espera");
+  let llistaplatsempleat = this.firebase.object(`comandes/${empleat}/plats/${plat.key}`).set(
+    {comensal: plat.comensal,
+      
+      preu: plat.preu,
+      taula: plat.taula,
+      nom: plat.nom,
+      quantitat: plat.quantitat,
+      estat: plat.estat
+    }
+
+
+
+  );
 
 
 

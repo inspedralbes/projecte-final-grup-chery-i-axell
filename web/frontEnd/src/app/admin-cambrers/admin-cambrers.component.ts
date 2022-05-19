@@ -36,7 +36,8 @@ export class AdminCambrersComponent implements OnInit {
     //this.asignaPlat();
     //this.muestraCosas();
     //this.empleatsservice.insertPlat("RgnPj3LfHhbu2nBxNODpKSypMNY2", "-N1NbRxf26fqPKSst0-i")
-    this.automatizadorReparte();
+    // this.automatizadorReparte();
+    this.getPlatsRaiz();
 
 
 
@@ -65,7 +66,7 @@ export class AdminCambrersComponent implements OnInit {
 
   muestraCosas() {
 
-    this.asignaPlat();
+    // this.asignaPlat();
 
 
     this.serveitaules.getTaules().snapshotChanges().subscribe(data => {
@@ -113,7 +114,7 @@ export class AdminCambrersComponent implements OnInit {
           this.taulesmesas.push(x);
 
 
-          
+
 
 
           // this.automatizadorReparte(this.arrayPlatsPerassignar, this.empleatsperassignar)
@@ -175,7 +176,7 @@ export class AdminCambrersComponent implements OnInit {
           this.elsmeusEmpleats.push(empleat)
           this.empleatstotals++;
           this.empleatsservice.insertNumCambrers(this.empleatstotals);
-          this.asignaPlat()
+          // this.asignaPlat()
 
         })
 
@@ -205,18 +206,29 @@ export class AdminCambrersComponent implements OnInit {
   }
 
 
-  asignaPlat() {
+  asignaPlat(arrayplats: any[]) {
 
     this.empleatsservice.getEmpleats().snapshotChanges().subscribe(data => {
 
 
       data.forEach(empleat => {
 
+
         let objempleat = empleat.payload.val() as Empleat;
 
-        this.empleatsperassignar.push({ empleat: objempleat, comandes: new Array() })
+
+        let objempleatmillor = {
+          key: empleat.key,
+          nom: objempleat.nom,
+          email: objempleat.email
+
+        }
+
+
+        this.empleatsperassignar.push({ empleat: objempleatmillor, comandes: new Array() })
 
       })
+      this.automatizadorReparte(arrayplats, this.empleatsperassignar);
 
 
 
@@ -224,9 +236,56 @@ export class AdminCambrersComponent implements OnInit {
 
   }
 
-  automatizadorReparte() {
-    let platos = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l'];
-    let camareros = [{ empleat: 'camarero1', comandes: new Array() }, { empleat: 'camarero2', comandes: new Array() }, { empleat: 'camarero3', comandes: new Array() }];
+
+  getPlatsRaiz() {
+
+    this.empleatsservice.getPlatsTemporal().snapshotChanges().subscribe(data => {
+
+
+      data.forEach(plat => {
+
+        let p = plat.payload.val() as Plat;
+
+
+
+
+        let platbo = {
+          key: plat.key,
+          comensal: p.comensal,
+          nom: p.nom,
+          preu: p.preu,
+          quantitat: p.quantitat,
+          taula: p.taula,
+          estat: p.estat
+
+
+        }
+
+
+        this.arrayPlatsPerassignar.push(platbo);
+
+
+      })
+
+      this.asignaPlat(this.arrayPlatsPerassignar);
+
+
+
+
+
+    })
+
+
+
+
+
+
+  }
+
+
+  automatizadorReparte(platos: any[], camareros: any[]) {
+    //let platos = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l'];
+    // let camareros = [{ empleat: 'camarero1', comandes: new Array() }, { empleat: 'camarero2', comandes: new Array() }, { empleat: 'camarero3', comandes: new Array() }];
 
     let repartidor = Math.floor(platos.length / camareros.length)
 
@@ -234,7 +293,7 @@ export class AdminCambrersComponent implements OnInit {
 
     let excedente = platos.length % camareros.length;
 
-    let pertocado =  Math.floor(camareros.length/ excedente);
+    let pertocado = Math.floor(camareros.length / excedente);
 
     let i = 0;
 
@@ -244,34 +303,52 @@ export class AdminCambrersComponent implements OnInit {
     camareros.forEach(el => {
 
 
-      for(let i= 0; i< repartidor; i++){
+      for (let i = 0; i < repartidor; i++) {
 
 
         el.comandes.push(platos[0]);
-        platos.splice(0,1);
+        platos.splice(0, 1);
       }
-  console.log(camareros)
-
-})
 
 
-camareros.forEach(el => {
+
+    })
 
 
-  for(let i= 0; i< pertocado; i++){
+    camareros.forEach(el => {
 
-    if(platos[0]!= null){
 
-    el.comandes.push(platos[0]);
-    platos.splice(0,1);
-    }
-    else{
-      break;
-    }
-  }
-console.log(camareros)
+      for (let i = 0; i < pertocado; i++) {
 
-})
+        if (platos[0] != null) {
+
+          el.comandes.push(platos[0]);
+          platos.splice(0, 1);
+        }
+        else {
+          break;
+        }
+      }
+
+    })
+
+
+    camareros.forEach(insert => {
+
+      console.log(insert)
+
+      insert.comandes.forEach((a: any) => {
+
+
+
+        this.empleatsservice.insertPlat(insert.empleat.key, a)
+
+
+      })
+
+
+
+    })
 
   }
 
