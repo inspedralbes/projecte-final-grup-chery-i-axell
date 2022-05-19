@@ -1,10 +1,16 @@
-<div class="card avatar-card col-sm-4">
-    <img class="card-img-top" [src]="image" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title text-center">{{name | titlecase}} <span *ngIf="name==checkIfMe"> (Tu)</span></h5>
-        <div class="text-center">
-            <button class="btn btn-sm  btn-success" *ngIf="name==checkIfMe" (click)="selectComensal()">Canviar usuari</button>
-            <button class="btn btn-sm  btn-danger my-1" (click)="deleteComensal()" *ngIf="name==checkIfMe">Esborrar-me de la taula</button>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card avatar-card col-sm-4">
+                <img class="card-img-top" [src]="image" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{name | titlecase}}</h5>
+                    <div class="text-center">
+                        <button class="btn btn-sm  btn-success" *ngIf="name==checkIfMe" (click)="selectComensal()">Canviar usuari</button>
+                        <button class="btn btn-sm  btn-danger my-1" (click)="deleteComensal()" *ngIf="name==checkIfMe">Esborrar-me de la taula</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

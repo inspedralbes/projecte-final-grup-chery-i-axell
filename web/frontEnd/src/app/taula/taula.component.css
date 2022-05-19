@@ -1,3 +1,7 @@
 .image-selected{
     border: 1px solid red;
 }
+#comanda{
+    margin: 50px;
+    padding: 20px;
+}

@@ -1,6 +1,5 @@
 <h1>{{codiTaula}}</h1>
 
+<app-plat *ngFor="let plat of llistaPlats" [plat]=plat></app-plat>
 
-
-
-<app-plat *ngFor="let plat of llistaPlats"  [plat]= plat></app-plat>
+<app-tiquet [codiTaula]="codiTaula"></app-tiquet>

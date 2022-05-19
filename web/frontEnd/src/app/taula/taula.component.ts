@@ -1,14 +1,12 @@
-import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
-
-import { DOCUMENT } from '@angular/common';
+import { AfterViewInit, Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
 import { TaulaService } from '../services/taula.service';
 import { Comensal } from '../interface/Comensal';
 import { ComensalComponent } from '../comensal/comensal.component';
+import { ConfirmarCompraComponent } from '../components/confirmar-compra/confirmar-compra.component';
 declare var bootstrap: any;
 
 @Component({
@@ -21,22 +19,25 @@ declare var bootstrap: any;
 
 
 
-export class TaulaComponent implements OnInit{
+export class TaulaComponent implements OnInit, OnDestroy{
 
 
 
-
+  @ViewChild(ConfirmarCompraComponent) confirmarCompraComponent!: ConfirmarCompraComponent;
   public nameComensal:string="";
   public keyComensal:string="";
   public imageComensal:string="";
   public codiTaula:string ;
   public comensalList:Comensal[] | undefined;
   selectedImage: string;
+  public myComensalKey!:string;
+  imReady: any;
 
   
 
 
-  constructor(private route:ActivatedRoute, @Inject(DOCUMENT) document:Document, private taulaService: TaulaService) {
+  constructor(private route:ActivatedRoute,  private taulaService: TaulaService, public router: Router) {
+
 
     this.selectedImage="avatarImg1";
 
@@ -60,12 +61,45 @@ export class TaulaComponent implements OnInit{
           ready:element.payload.val().ready
         }
 
+        if(x.name==this.nameComensal){
+          this.myComensalKey=x.key!;
+          this.imReady=x.ready;
+        }
+
         this.comensalList?.push(x as Comensal);
       })
 
+
+      this.checkConfirmed();
       
     })
   }
+
+
+  checkConfirmed(){
+
+    let requiredConfirms = this.comensalList?.length;
+    let nConfirms = 0;
+    this.comensalList!.forEach(item=>{
+        (item.ready)?nConfirms++:null;
+    });
+    
+    
+    (nConfirms==requiredConfirms&& nConfirms!=0)? this.sendComanda(): null;
+
+
+  }
+
+  sendComanda(){
+  this.taulaService.enviarComanda(this.codiTaula);
+  this.taulaService.deletePlatsTemporal(this.codiTaula);
+  this.taulaService.setComensalsToUnReady(this.codiTaula);
+
+  this.router.navigate([`estatTaula/${this.codiTaula}`]);
+ 
+  }
+
+
 
   askForComensal() {
       //ABRIR MODAL
@@ -116,10 +150,13 @@ export class TaulaComponent implements OnInit{
     }else{
       this.nameComensal=comensal;
     }
-
-
-
   }
+
+  ngOnDestroy(): void {
+    this.confirmarCompraComponent.closeModal();
+  }
+
+
 
   
 }

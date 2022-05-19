@@ -13,8 +13,12 @@ import { AdminCambrersComponent } from './admin-cambrers/admin-cambrers.componen
 import { ConfirmarCompraComponent } from './components/confirmar-compra/confirmar-compra.component';
 
 
+import { HomepageComponent } from './homepage/homepage.component';
+import { LoginComponent } from './login/login.component';
+import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
+
 const routes: Routes = [ 
-  {path: 'local', component: CrearTaulaComponent },
+  {path: 'crearTaula', component: CrearTaulaComponent },
   {path: 'taula/:id', component: TaulaComponent },
   {path: 'comensal', component: ComensalComponent },
   {path: 'AfegirPlat', component: AfegirPlatsComponent},
@@ -32,6 +36,12 @@ const routes: Routes = [
   {path: 'confirmar', component: ConfirmarCompraComponent},
 
 
+  {path: 'afegirPlat', component: AfegirPlatsComponent},
+  {path: 'adminPlats', component: AdminPlatsComponent},
+  {path: 'estatTaula/:id', component: EstatTaulaComponent},
+  {path:'' ,component:HomepageComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'cambrers/:idcambrer', component: CambrerComponentComponent},
 ];
 
 @NgModule({
@@ -40,5 +50,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { 
 
- 
 }

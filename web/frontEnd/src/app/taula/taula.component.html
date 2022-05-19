@@ -1,28 +1,28 @@
 <h5 class="text-center">El nom de la teva taula és: {{codiTaula}}</h5>
 <h1>
- 
+
 </h1>
 <div class="accordion my-5 mx-5 " id="accordionExample">
     <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
          Comensals de la taula
         </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
 
-            <div class="container">
-                <div class="row ">
-                    <app-comensal *ngFor="let comensal of comensalList" [name]="comensal.name" [image]="comensal.image" [key]="comensal.key" (delete)="deleteComensal($event)" (select)="selectComensal($event)" [checkIfMe]="nameComensal"></app-comensal>
-                    <button type="button" class="btn btn-primary" (click)="askForComensal()" *ngIf="nameComensal==''" >Afegir-me a la taula</button>
+                <div class="container">
+                    <div class="row ">
+                        <app-comensal *ngFor="let comensal of comensalList" [name]="comensal.name" [image]="comensal.image" [key]="comensal.key" (delete)="deleteComensal($event)" (select)="selectComensal($event)" [checkIfMe]="nameComensal"></app-comensal>
+                        <button type="button" class="btn btn-primary" (click)="askForComensal()" *ngIf="nameComensal==''">Afegir-me a la taula</button>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
-      </div>
     </div>
-   
+
 </div>
 
 
@@ -35,8 +35,11 @@
 </div>
 
 
-<app-confirmar-compra [comensalList]=comensalList></app-confirmar-compra>
+<app-confirmar-compra class="m-5" [comensalList]="comensalList" [myKey]="myComensalKey" [isReady]="imReady" [keyTaula]="codiTaula"></app-confirmar-compra>
 
+<a [routerLink]="['/estatTaula',codiTaula]" class="btn btn-primary m-5">
+    Informació de les meves comandes
+  </a>
 
 
 
