@@ -85,6 +85,5 @@ insertcomandaEstat(keymesa: string, keyplat:string, estat:string){
   this.serveiplatos.insertcomandaEstat(keymesa, keyplat, estat);
 }
 
-
 }
 

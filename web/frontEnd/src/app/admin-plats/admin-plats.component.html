@@ -3,8 +3,10 @@
       <div class="col">
         <div *ngFor='let mesa of taulesmesas trackBy: track2'>
           <div class="card">
+            <h3 class="card-title">Taula: {{mesa.key}}</h3>
+            <br>
+            <hr>
             <div class="card-body" *ngFor='let plat of mesa.plats; trackBy: track'>
-              <h3 class="card-title">{{mesa.key}}</h3>
               <h4 class="card-subtitle mb-2 text-muted">Plat demanat: {{plat.nom}} Estat: {{plat.estat}}</h4>
               <div class="btn-group" role="group" [attr.aria-label]="'Basic radio toggle button group'+plat.key">
                 <input type="radio" class="btn-check" [attr.name]="plat.key" [attr.id]="'btnradio1'+plat.key" autocomplete="off" [attr.checked]="(plat.estat=='Demanat')? 'checked':null">
@@ -23,7 +25,7 @@
               <hr>
             </div>
           </div>
-          <br><br>
+          <br><br><br>
         </div>
       </div>
     </div>
