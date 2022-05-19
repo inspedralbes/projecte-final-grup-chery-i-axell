@@ -17,6 +17,7 @@ export class AfegirPlatsComponent implements OnInit {
   tipusplat: any;
   preuplat: any;
   selectedtipus: any;
+  categoria: any;
 
 
   constructor(private httpclient:HttpClient) {
@@ -47,13 +48,7 @@ export class AfegirPlatsComponent implements OnInit {
       let json = JSON.parse(data.toString());
       console.log(json)
       this.tipusdeplats=json;
-
-
-  })
-
-
-
-
+    })
   }
 
 
@@ -74,8 +69,23 @@ export class AfegirPlatsComponent implements OnInit {
     console.log("Error", error);
     }
     );
+  }
 
+  afegirCategoria(categoria :any){
+    console.log(categoria);
 
+    this.httpclient.post("http://192.168.210.168:8000/add_tipus",
+    {
+    "categoria":  categoria ,
+    },)
+    .subscribe(
+    data => {
+    console.log("POST Request is successful ", data);
+    },
+    error => {
+    console.log("Error", error);
+    }
+    );
   }
 
 

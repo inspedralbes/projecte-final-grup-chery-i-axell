@@ -22,9 +22,34 @@
         </select>
       </div>  
       <br>
+      <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#categoria">
+        Crear Categoria
+      </button> 
+      &nbsp;&nbsp; 
       <button type="button" class="btn btn-outline-danger">Volver</button>    
       &nbsp;&nbsp;
-      <button type="button" class="btn btn-outline-success">Success</button>   
+      <button type="button" class="btn btn-outline-success">Guardar</button> 
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="categoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Categoria</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <span class="input-group-text"><b>Nom de la categoria:</b></span>
+          <input type="text" class="form-control" [(ngModel)]="categoria" type="text" placeholder="categoria" name="categoria">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tancar</button>
+        <button type="button" class="btn btn-primary" (click)="afegirCategoria(categoria)">Guardar</button>
+      </div>
     </div>
   </div>
 </div>

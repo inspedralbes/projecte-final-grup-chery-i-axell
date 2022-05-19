@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
 import { AdminTaulaComponent } from './components/admin-taula/admin-taula.component';
 
+
 const routes: Routes = [ 
   {path: 'crearTaula', component: CrearTaulaComponent },
   {path: 'taula/:id', component: TaulaComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'cambrers/:idcambrer', component: CambrerComponentComponent},
   {path: 'adminTaula', component: AdminTaulaComponent},
+  
 ];
 
 @NgModule({

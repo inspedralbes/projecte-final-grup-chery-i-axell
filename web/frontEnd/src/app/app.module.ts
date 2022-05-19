@@ -45,7 +45,7 @@ import { AdminTaulaComponent } from './components/admin-taula/admin-taula.compon
     EstatTaulaComponent,
     LoginComponent,
     CambrerComponentComponent,
-    AdminTaulaComponent
+    AdminTaulaComponent,
   ],
   
   imports: [
