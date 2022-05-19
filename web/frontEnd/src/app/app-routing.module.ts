@@ -15,9 +15,7 @@ import { CambrerComponentComponent } from './cambrer-component/cambrer-component
 const routes: Routes = [ 
   {path: 'crearTaula', component: CrearTaulaComponent },
   {path: 'taula/:id', component: TaulaComponent },
-  {path: 'comensal', component: ComensalComponent },
   {path: 'afegirPlat', component: AfegirPlatsComponent},
-  {path: 'mostrarPlat', component: MostraplatsComponent},
   {path: 'adminPlats', component: AdminPlatsComponent},
   {path: 'estatTaula/:id', component: EstatTaulaComponent},
   {path:'' ,component:HomepageComponent},
