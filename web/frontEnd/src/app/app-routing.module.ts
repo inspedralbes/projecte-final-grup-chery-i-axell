@@ -17,12 +17,12 @@ import { AuthGuard } from './shared/auth.guard';
 const routes: Routes = [ 
   {path: 'crearTaula', component: CrearTaulaComponent },
   {path: 'taula/:id', component: TaulaComponent },
-  {path: 'afegirPlat', component: AfegirPlatsComponent},
-  {path: 'adminPlats', component: AdminPlatsComponent},
+  {path: 'afegirPlat', component: AfegirPlatsComponent, canActivate:[AuthGuard]},
+  {path: 'adminPlats', component: AdminPlatsComponent, canActivate:[AuthGuard]},
   {path: 'estatTaula/:id', component: EstatTaulaComponent},
   {path:'' ,component:HomepageComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'cambrers/:idcambrer', component: CambrerComponentComponent},
+  {path: 'cambrers/:idcambrer', component: CambrerComponentComponent , canActivate:[AuthGuard]} ,
   {path: 'adminTaula', component: AdminTaulaComponent, canActivate:[AuthGuard]},
 ];
 
