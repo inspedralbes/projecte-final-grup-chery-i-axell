@@ -12,6 +12,7 @@ export class PlatsTipusService {
   urlPostPlat = 'http://192.168.210.169:8000/add_plat';
   urlPlatsTipus = "http://192.168.210.169:8000/get_plats_tipus"
   urlDeletePlat="http://192.168.210.169:8000/del_plat"
+  urlAddCategoria ="http://192.168.210.169:8000/add_tipus"
 
 
   constructor(private httpClient:HttpClient) { }
@@ -20,6 +21,25 @@ export class PlatsTipusService {
   getPlats(){
     return  this.httpClient.get(this.urlAllPlats);
   }
+
+
+  addCategoria(categoria:string){
+   
+      console.log(categoria);
+  
+      return this.httpClient.post(this.urlAddCategoria,
+      {
+      "categoria":  categoria ,
+      },)
+    
+  }
+
+  deleteCategoria(categoria:string){
+    return this.httpClient.post("http://192.168.210.169:8000/del_tipus/", {"categoria":categoria})
+
+
+  }
+
 
 
   getPlatsTipus(){
