@@ -91,11 +91,75 @@ class PlatController extends AbstractController
 
 
             return new JsonResponse(['status' => 'bien!'], Response::HTTP_CREATED);
-
-
-
-
     }
+
+
+    #[Route('/del_tipus', name: 'del_tipus')]
+    public function deltipus(Request $request): JsonResponse
+    {
+
+        $data = json_decode($request->getContent(), true);
+
+
+        $nom = $data['nom'];
+
+
+
+        $tipus = $this->tipusrepo->findOneBy(array("Nom" => $nom));
+        $this->tipusrepo->remove($tipus);
+
+
+
+        return new JsonResponse(['status' => 'bien!'], Response::HTTP_CREATED);
+    }
+
+
+
+    #[Route('/edit_plat', name: 'del_tipus')]
+    public function editplat(Request $request): JsonResponse
+    {
+
+        $data = json_decode($request->getContent(), true);
+
+
+        $nom = $data['nomplat'];
+        $nomnou =$data['nomnou'];
+        $preunou = $data['preunou'];
+        
+        $platfound = $this->platrepo->findOneBy(array("Nom" => $nom));
+        $this->platrepo->remove($platfound);
+        $platfound->setNom($nomnou);
+        $platfound->setPreu($preunou);
+        $this->platrepo->add($platfound);
+
+
+
+
+
+
+        return new JsonResponse(['status' => 'bien!'], Response::HTTP_CREATED);
+    }
+
+
+    #[Route('/del_plat', name: 'del_plat')]
+    public function delplat(Request $request): JsonResponse
+    {
+
+        $data = json_decode($request->getContent(), true);
+
+
+        $nom = $data['nom'];
+
+
+        $platfound = $this->platrepo->findOneBy(array("Nom" => $nom));
+        $this->platrepo->remove($platfound);
+
+        return new JsonResponse(['status' => 'bien!'], Response::HTTP_CREATED);
+    }
+
+
+
+
 
     #[Route('/get_plats', name: 'get_plats')]
     public function getAll(): JsonResponse
