@@ -91,7 +91,7 @@ export class AfegirPlatsComponent implements OnInit {
   eliminarCategoria(categoria :any){
     console.log(categoria);
 
-    this.httpclient.delete("http://192.168.210.169:8000/add_tipus"+categoria)
+    this.httpclient.delete("http://192.168.210.169:8000/del_tipus/"+categoria)
     .subscribe(
     data => {
     console.log("POST Request is successful ", data);
