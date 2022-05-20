@@ -99,11 +99,11 @@ export class AfegirPlatsComponent implements OnInit {
   }
 
   afegirCategoria(categoria :any){
-   this.platTipusService.addCategoria(categoria)
+   this.platTipusService.addCategoria(categoria).subscribe(item=>{},error=>console.log(error))
   }
 
   eliminarCategoria(categoria :any){  
-  this.platTipusService.deleteCategoria(categoria);
+  this.platTipusService.deleteCategoria(categoria).subscribe(item=>{},error=>console.log(error));
   }
 
 }
