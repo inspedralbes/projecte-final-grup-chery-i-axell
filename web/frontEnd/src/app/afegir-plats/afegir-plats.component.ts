@@ -18,6 +18,8 @@ export class AfegirPlatsComponent implements OnInit {
   tipusplat: any;
   preuplat: any;
   selectedtipus: any;
+  categoria: any;
+  selectedtipusBorrar: any;
 
 
   constructor(private platTipusService:PlatsTipusService) {
@@ -43,7 +45,11 @@ export class AfegirPlatsComponent implements OnInit {
     this.plats=item ;
    
   })
-  }
+
+}
+
+
+
 
 
   eliminarPlat(nomPlat:string){
@@ -92,5 +98,35 @@ export class AfegirPlatsComponent implements OnInit {
 
   }
 
+  afegirCategoria(categoria :any){
+    console.log(categoria);
+
+    this.httpclient.post("http://192.168.210.169:8000/add_tipus",
+    {
+    "categoria":  categoria ,
+    },)
+    .subscribe(
+    data => {
+    console.log("POST Request is successful ", data);
+    },
+    error => {
+    console.log("Error", error);
+    }
+    );
+  }
+
+  eliminarCategoria(categoria :any){
+    console.log(categoria);
+
+    this.httpclient.delete("http://192.168.210.169:8000/del_tipus/"+categoria)
+    .subscribe(
+    data => {
+    console.log("POST Request is successful ", data);
+    },
+    error => {
+    console.log("Error", error);
+    }
+    );
+  }
 
 }

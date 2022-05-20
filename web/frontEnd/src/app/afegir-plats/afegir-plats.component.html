@@ -2,9 +2,53 @@
   <br>
   <div class="row">
     <div class="col">
-      <div class="input-group mb-3">
-        <span class="input-group-text"><b>Nom del Plat</b></span>
-        <input type="text" class="form-control" [(ngModel)]="nomplat" type="text" placeholder="" name="nomplat" required>
+      <div class="card">
+        <div class="card-body">
+          <h3>Afegir Plats</h3>
+          <br><br> 
+          <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#borrar">
+            Borrar Categoria
+          </button>
+          &nbsp;&nbsp;
+          <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#categoria">
+            Crear Categoria
+          </button> 
+          <br><br> 
+          <div class="input-group mb-3">
+            <span class="input-group-text"><b>Nom del Plat</b></span>
+            <input type="text" class="form-control" [(ngModel)]="nomplat" type="text" placeholder="" name="nomplat" required>
+          </div>
+            
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><b>Preu del plat</b></span>
+            <input type="text" class="form-control" [(ngModel)]="preuplat" type="text" placeholder="" name="preuplat" required>
+          </div>
+          
+          
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01"><b>Tipus del plat</b></label>
+            <select class="form-select"  name="selectedtipus" [(ngModel)]="selectedtipus" >
+              <option *ngFor='let tipus of tipusdeplats' [value]="tipus.nom">
+                {{tipus.nom}}
+              </option>
+            </select>
+          </div>  
+          <br>
+          <button type="button" class="btn btn-outline-danger">Volver</button>    
+          &nbsp;&nbsp;
+          <button type="button" class="btn btn-outline-success">Guardar</button>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="categoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Categoria</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
         
       <div class="input-group mb-3">
@@ -22,6 +66,42 @@
       <br>
 
       <button type="button" class="btn btn-outline-success" (click)="afegirPlat()">Confirmar</button>   
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <span class="input-group-text"><b>Nom de la categoria:</b></span>
+          <input type="text" class="form-control" [(ngModel)]="categoria" type="text" placeholder="categoria" name="categoria">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tancar</button>
+        <button type="button" class="btn btn-primary" (click)="afegirCategoria(categoria)">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="borrar" tabindex="-1" aria-labelledby="borrar" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="borrar" style="color: red;">Borrar Categoria</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect01" style="color: red;"><b>Categoria a borrar
+          </b></label>
+          <select class="form-select"  name="selectedtipus" [(ngModel)]="selectedtipusBorrar" >
+            <option *ngFor='let tipus of tipusdeplats' [value]="tipus.nom">
+              {{tipus.nom}}
+            </option>
+          </select>
+        </div>  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-outline-danger" (click)="eliminarCategoria(selectedtipusBorrar)">Borrar</button>
+      </div>
     </div>
   </div>
 </div>

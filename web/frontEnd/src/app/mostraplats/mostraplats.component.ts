@@ -32,7 +32,7 @@ export class MostraplatsComponent implements OnInit {
 
   ngOnInit(): void {
 
-/*     this.httpclient.get("http://192.168.210.168:8000/get_plats_tipus").subscribe(data => {
+    this.httpclient.get("http://192.168.210.169:8000/get_plats_tipus").subscribe(data => {
       
       data = JSON.stringify(data);
       data = JSON.parse(data.toString());
@@ -42,7 +42,7 @@ export class MostraplatsComponent implements OnInit {
 
 
 
-  });  */
+  });  
 
   this.mandarplatos.init(this.keyTaula);
 

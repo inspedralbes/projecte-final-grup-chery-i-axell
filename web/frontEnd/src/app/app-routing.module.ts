@@ -14,6 +14,7 @@ import { CambrerComponentComponent } from './cambrer-component/cambrer-component
 import { AdminTaulaComponent } from './components/admin-taula/admin-taula.component';
 import { AuthGuard } from './shared/auth.guard';
 
+
 const routes: Routes = [ 
   {path: 'crearTaula', component: CrearTaulaComponent },
   {path: 'taula/:id', component: TaulaComponent },

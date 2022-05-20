@@ -5,6 +5,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/profiler/index.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/log/dev.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/admin-cambrers/admin-cambrers.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/admin-cambrers/admin-cambrers.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/cambrer-component/cambrer-component.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/cambrer-component/cambrer-component.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/guards/admin.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/guards/admin.guard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/services/empleados.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/services/empleados.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +167,13 @@
       <workItem from="1651826780262" duration="654000" />
       <workItem from="1652087952433" duration="2410000" />
       <workItem from="1652172090399" duration="1270000" />
+      <workItem from="1652249631374" duration="637000" />
+      <workItem from="1652341185882" duration="1621000" />
+      <workItem from="1652433230648" duration="1060000" />
+      <workItem from="1652699552007" duration="626000" />
+      <workItem from="1652777033607" duration="1212000" />
+      <workItem from="1652859821139" duration="1471000" />
+      <workItem from="1652948168536" duration="2938000" />
     </task>
     <servers />
   </component>
