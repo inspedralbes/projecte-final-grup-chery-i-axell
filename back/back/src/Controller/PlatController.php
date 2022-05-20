@@ -106,6 +106,15 @@ class PlatController extends AbstractController
 
 
         $tipus = $this->tipusrepo->findOneBy(array("Nom" => $nom));
+        $platsorfans = $this->platrepo->findBy(array("Tipus"=> $tipus->getId()));
+        foreach($platsorfans as $plat)
+        {
+
+            $this->platrepo->remove($plat);
+
+        }
+
+
         $this->tipusrepo->remove($tipus);
 
 
@@ -115,7 +124,7 @@ class PlatController extends AbstractController
 
 
 
-    #[Route('/edit_plat', name: 'del_tipus')]
+    #[Route('/edit_plat', name: 'edit_plat')]
     public function editplat(Request $request): JsonResponse
     {
 
@@ -125,7 +134,7 @@ class PlatController extends AbstractController
         $nom = $data['nomplat'];
         $nomnou =$data['nomnou'];
         $preunou = $data['preunou'];
-        
+
         $platfound = $this->platrepo->findOneBy(array("Nom" => $nom));
         $this->platrepo->remove($platfound);
         $platfound->setNom($nomnou);
