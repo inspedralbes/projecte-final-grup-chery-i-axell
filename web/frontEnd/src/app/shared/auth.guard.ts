@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { AuthServiceService } from '../services/auth-service.service';
 
 import { EmpleadosService } from '../services/empleados.service';
 
@@ -9,7 +10,7 @@ import { EmpleadosService } from '../services/empleados.service';
 export class AuthGuard implements CanActivate {
 
 
-  constructor(public userService: EmpleadosService, public router:Router){
+  constructor(public authService:AuthServiceService, public router:Router){
 
   }
 
@@ -19,20 +20,12 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): any {
     
+      console
 
-      let user:any = JSON.parse(localStorage.getItem("user")!);
-    
-      return  this.userService.getEmpleat(user!.uid).snapshotChanges().subscribe(res=>{
-        console.log(res.key)
-        if(res.key==null){
-          this.router.navigate(['/login']);
-          console.log("NO existe")
-          return false
-        }else{
-          return true
-        }
-       
-      });
+     if(this.authService.isLoggedIn()!==true){
+      this.router.navigate(['/login'])
+     }
+     return true
 
 
       

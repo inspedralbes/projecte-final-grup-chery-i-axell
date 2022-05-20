@@ -9,8 +9,10 @@ export class AuthServiceService {
   constructor(public usuarisServices:EmpleadosService) { }
 
 
-  isAdmin(id:string){
-    this.usuarisServices.getEmpleat(id);
+   isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('user')!);
+    console.log("user:" +user)
+    return user !== null ? true : false;
   }
 
 

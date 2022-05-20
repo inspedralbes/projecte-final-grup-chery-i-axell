@@ -2,6 +2,7 @@ import { IfStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
+import Swal from 'sweetalert2';
 import { AuthServiceService } from '../services/auth-service.service';
 import { EmpleadosService } from '../services/empleados.service';
 
@@ -25,6 +26,19 @@ export class LoginComponent implements OnInit {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
+
+        if(!user.email?.endsWith("@inspedralbes.cat")){
+          Swal.fire({
+            title: 'Error!',
+            text: 'Aquest usuari no és vàlid, ha de ser del domini @inspedralbes.cat!',
+            icon: 'error',
+            confirmButtonText: 'Ok' 
+          }).then(value=>{
+            this.auth.signOut();
+          })
+          
+        }
+
       } else {
         localStorage.setItem('user', 'null');
         JSON.parse(localStorage.getItem('user')!);
@@ -44,11 +58,5 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  comprobasiexisteix(user: string | null){
-
-    console.log( this.authService.isAdmin(user!))
-   
-
-  }
 
 }
