@@ -18,6 +18,7 @@ export class AfegirPlatsComponent implements OnInit {
   preuplat: any;
   selectedtipus: any;
   categoria: any;
+  selectedtipusBorrar: any;
 
 
   constructor(private httpclient:HttpClient) {

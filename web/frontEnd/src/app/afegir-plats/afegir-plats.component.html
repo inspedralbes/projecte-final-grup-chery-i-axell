@@ -75,7 +75,7 @@
         <div class="input-group mb-3">
           <label class="input-group-text" for="inputGroupSelect01" style="color: red;"><b>Categoria a borrar
           </b></label>
-          <select class="form-select"  name="selectedtipus" [(ngModel)]="selectedtipus" >
+          <select class="form-select"  name="selectedtipus" [(ngModel)]="selectedtipusBorrar" >
             <option *ngFor='let tipus of tipusdeplats' [value]="tipus.nom">
               {{tipus.nom}}
             </option>
@@ -84,7 +84,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-outline-danger" (click)="eliminarCategoria(selectedtipus)">Borrar</button>
+        <button type="button" class="btn btn-outline-danger" (click)="eliminarCategoria(selectedtipusBorrar)">Borrar</button>
       </div>
     </div>
   </div>
