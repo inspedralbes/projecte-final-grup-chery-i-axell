@@ -9,34 +9,21 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-info">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">Logo</a>
+      <a class="navbar-brand" href="/" style="color: black;">IWA</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-          <li class="nav-item">
-            <a class="nav-link active">Home</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link">compra</a>
-          </li>
-
-        </ul>
+        <div class="navbar-nav me-auto mb-2 mb-lg-0">
+        </div>
         <button type="button" class="btn btn-outline-light" (click)="login()">
           Login
         </button>
       </div>
     </div>
   </nav>
-  <br>
-  <br>
-  <br>
   <router-outlet class="content"></router-outlet>
-
-  <!--<div class="footer">
+  <div class="footer">
     <footer>
         <ul class="list-inline">
             <li class="list-inline-item"><a href="#">Home</a></li>
@@ -47,7 +34,7 @@
         </ul>
         <p class="copyright">Company Name © 2018</p>
     </footer>
-  </div>-->
+  </div>
 
 </body>
 </html>
