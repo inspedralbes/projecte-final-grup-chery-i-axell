@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaulaService } from 'src/app/services/taula.service';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class AdminTaulaComponent implements OnInit {
 
   public taules:any[]=[];
 
-  constructor(public taulaService:TaulaService) {
+  constructor(public taulaService:TaulaService,private _location: Location) {
 
     
     this.taulaService.getTaules().snapshotChanges().subscribe(taules=>{
@@ -33,6 +34,10 @@ export class AdminTaulaComponent implements OnInit {
   borrar(t: string){  
 
   this.taulaService.deleteTaula(t);
+  }
+
+  volver(){
+    this._location.back();
   }
 
 }

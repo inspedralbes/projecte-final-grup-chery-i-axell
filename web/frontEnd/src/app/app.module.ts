@@ -29,6 +29,7 @@ import { TiquetComponent } from './components/tiquet/tiquet.component';
 import { HomepageComponent } from './homepage/homepage.component';
 
 import { AdminTaulaComponent } from './components/admin-taula/admin-taula.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { AdminTaulaComponent } from './components/admin-taula/admin-taula.compon
     LoginComponent,
     CambrerComponentComponent,
     AdminTaulaComponent,
+    AdminComponent,
   ],
   
   imports: [

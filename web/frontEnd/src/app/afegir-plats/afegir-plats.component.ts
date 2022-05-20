@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Location } from '@angular/common';
 
 
 
@@ -21,7 +22,7 @@ export class AfegirPlatsComponent implements OnInit {
   selectedtipusBorrar: any;
 
 
-  constructor(private httpclient:HttpClient) {
+  constructor(private httpclient:HttpClient,private _location: Location) {
     
 
 
@@ -38,6 +39,7 @@ export class AfegirPlatsComponent implements OnInit {
 
   }); 
 }
+
 
 
   mostraTipus(){
@@ -101,6 +103,10 @@ export class AfegirPlatsComponent implements OnInit {
     console.log("Error", error);
     }
     );
+  }
+
+  volver(){
+    this._location.back();
   }
 
 }

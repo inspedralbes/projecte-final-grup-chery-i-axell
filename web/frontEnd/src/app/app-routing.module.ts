@@ -12,6 +12,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
 import { AdminTaulaComponent } from './components/admin-taula/admin-taula.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 const routes: Routes = [ 
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'cambrers/:idcambrer', component: CambrerComponentComponent},
   {path: 'adminTaula', component: AdminTaulaComponent},
+  {path: 'admin', component: AdminComponent},
   
 ];
 
