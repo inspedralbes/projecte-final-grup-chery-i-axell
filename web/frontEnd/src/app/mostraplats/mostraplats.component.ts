@@ -46,7 +46,7 @@ export class MostraplatsComponent implements OnInit {
 
   this.mandarplatos.init(this.keyTaula);
 
-  this.comensal= localStorage.getItem("comensal")!;
+  this.comensal= localStorage.getItem("comensal"+this.keyTaula)!;
 
   this.plats=[
     {nomTipus:"Primeros", llistatPlats:[
@@ -94,7 +94,7 @@ export class MostraplatsComponent implements OnInit {
 
   pedirPlat(plato: string, precio: number){
 
-    let plat = new Plat(plato, precio, "Demanat", localStorage.getItem("comensal")! );
+    let plat = new Plat(plato, precio, "Demanat", localStorage.getItem("comensal"+this.keyTaula)! );
     let platTmp = {...plat, quantitat:1}
     this.platsperdemanar.push(plat);
     this.ordenarPlats();

@@ -17,7 +17,7 @@ import { AuthGuard } from './shared/auth.guard';
 
 
 const routes: Routes = [ 
-  {path: 'crearTaula', component: CrearTaulaComponent },
+  {path: 'taula', component: CrearTaulaComponent },
   {path: 'taula/:id', component: TaulaComponent },
   {path: 'afegirPlat', component: AfegirPlatsComponent, canActivate:[AuthGuard]},
   {path: 'adminPlats', component: AdminPlatsComponent, canActivate:[AuthGuard]},
