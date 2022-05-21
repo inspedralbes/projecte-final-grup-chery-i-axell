@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
+import { PlatsTipusService } from '../services/plats-tipus.service';
 
 
 
@@ -12,7 +13,7 @@ import { Location } from '@angular/common';
 export class AfegirPlatsComponent implements OnInit {
 
 
-  plats: any;
+  plats: any[]=[];
   tipusdeplats: any;
   nomplat: any;
   tipusplat: any;
@@ -22,87 +23,88 @@ export class AfegirPlatsComponent implements OnInit {
   selectedtipusBorrar: any;
 
 
-  constructor(private httpclient:HttpClient,private _location: Location) {
-    
-
-
+  constructor(private platTipusService:PlatsTipusService, private _location: Location) {
    }
 
   ngOnInit() {
-   this.httpclient.get("http://192.168.210.169:8000/get_plats").subscribe(data => {
-      console.log(data + " holaaaa'");
-      
-      data = JSON.stringify(data);
-      this.plats=data;
-      this.mostraTipus()
 
 
-  }); 
+    this.getPlats()
+
+  
+  this.platTipusService.getTipus().subscribe(res=>{
+   this.tipusdeplats=res;
+  })
+
+
+
+}
+  getPlats() {
+    
+  this.platTipusService.getPlatsTipus().subscribe((item:any)=>{
+    this.plats=[];
+    this.plats=item ;
+   
+  })
+
 }
 
 
 
-  mostraTipus(){
-    console.log(this.plats)
-    this.httpclient.get("http://192.168.210.169:8000/get_tipus").subscribe(data => {
-      console.log(data + " holaa");
-      
-      data = JSON.stringify(data);
-      let json = JSON.parse(data.toString());
-      console.log(json)
-      this.tipusdeplats=json;
-    })
+
+
+  eliminarPlat(nomPlat:string){
+    console.log("deleting "+ nomPlat)
+    this.platTipusService.deletePlat(nomPlat).subscribe(item=>{
+      this.getPlats();
+    });
   }
 
 
-  afegirplat(){
-    console.log(this.nomplat, this.selectedtipus, this.preuplat);
 
-    this.httpclient.post("http://192.168.210.169:8000/add_plat",
-    {
-    "nom":  this.nomplat ,
-    "preu":  this.preuplat ,
-    "tipusnom":   this.selectedtipus  
-    },)
-    .subscribe(
-    data => {
-    console.log("POST Request is successful ", data);
-    },
-    error => {
-    console.log("Error", error);
-    }
-    );
+  afegirPlat(){
+    let preu = parseInt(this.preuplat);
+    this.platTipusService.postPlat({"nom":this.nomplat, "preu": preu, "tipusnom":this.selectedtipus}).subscribe((res:any)=>{
+      (res.status=="bien!")?this.onSuccess():this.onError();
+    },err => { 
+      this.onError()
+    })
+
+
+
+
+  }
+  onError() {
+    Swal.fire({
+      title: 'Error',
+      text: "Algo ha sortit malament",
+      icon: 'error',
+      confirmButtonText: 'Ok' 
+    })
+  }
+  onSuccess() {
+    Swal.fire({
+      title: 'OK!',
+      text: "S'ha confirmat la petició",
+      icon: 'success',
+      confirmButtonText: 'Ok' 
+    })
+    this.resetForm();
+    this.getPlats();
+  }
+
+  resetForm() {
+    this.nomplat=""
+    this.preuplat=""
+
   }
 
   afegirCategoria(categoria :any){
-    console.log(categoria);
-
-    this.httpclient.post("http://192.168.210.169:8000/add_tipus",
-    {
-    "categoria":  categoria ,
-    },)
-    .subscribe(
-    data => {
-    console.log("POST Request is successful ", data);
-    },
-    error => {
-    console.log("Error", error);
-    }
-    );
+   this.platTipusService.addCategoria(categoria).subscribe(item=>{},error=>console.log(error))
   }
 
-  eliminarCategoria(categoria :any){
-    console.log(categoria);
-
-    this.httpclient.delete("http://192.168.210.169:8000/del_tipus/"+categoria)
-    .subscribe(
-    data => {
-    console.log("POST Request is successful ", data);
-    },
-    error => {
-    console.log("Error", error);
-    }
-    );
+  eliminarCategoria(categoria :any){  
+  this.platTipusService.deleteCategoria(categoria).subscribe(item=>{},error=>console.log(error));
   }
 
   volver(){
