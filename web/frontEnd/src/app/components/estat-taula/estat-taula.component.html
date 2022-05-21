@@ -1,16 +1,19 @@
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="card text-center">
-                <div class="card-header">
-                    <h2 style="color: lightblue;">{{codiTaula}}</h2>
-                </div>
-                <div class="card-body">
-                    <app-plat *ngFor="let plat of llistaPlats" [plat]=plat></app-plat>
-                    <hr>
-                    <app-tiquet [codiTaula]="codiTaula"></app-tiquet>
-                </div>
+<h3 class="my-3">
+    Taula: {{codiTaula | titlecase}}
+</h3>
+
+<div class="accordion mx-5" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Estat de les comandes
+        </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <app-plat *ngFor="let plat of llistaPlats" [plat]=plat></app-plat>
             </div>
         </div>
     </div>
 </div>
+<app-tiquet [codiTaula]="codiTaula"></app-tiquet>
