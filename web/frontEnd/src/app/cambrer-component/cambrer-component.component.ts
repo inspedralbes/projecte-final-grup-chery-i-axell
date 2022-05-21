@@ -35,6 +35,7 @@ export class CambrerComponentComponent implements OnInit {
     this.servicioempleados.getComandes(this.idCambrer!).snapshotChanges().subscribe(data => {
 
   
+      this.arrayOrdres = [];
       data.forEach(element=>{
 
         let ordre = {
@@ -69,8 +70,9 @@ export class CambrerComponentComponent implements OnInit {
 
   }
 
-  submitOrdres(codiplat: string, coditaula: string){
-    this.servicioplatos.insertcomandaEstat(coditaula, codiplat, "Entregat");
+  submitOrdres(codiplat: string, coditaula: string, idcambrer: string | undefined){
+  //  this.servicioplatos.insertcomandaEstat(coditaula, codiplat, "Entregat");
+    this.servicioempleados.removecomandes(idcambrer!, codiplat);
 
   }
 
@@ -78,14 +80,19 @@ export class CambrerComponentComponent implements OnInit {
 
    
     this.arrayOrdres.forEach(element=>{
-      this.servicioplatos.getNomPlatsiTaules( element.mesataula, element.keyplat).snapshotChanges().
+
+      console.log(element.keyplat)
+
+      this.servicioplatos.getNomPlatsiTaules( element.mesataula.nom, element.keyplat).snapshotChanges().
       subscribe(data=>{
 
-        let objeto = data.payload.val() as Plat;
+        let obj = data.payload.val() as Plat;
+
+        console.log(obj)
         
 
-        element.nomplat = objeto.nom;
-        element.estat = objeto.estat;
+        // element.nomplat = objeto.nom;
+        // element.estat = objeto.estat;
 
 
 

@@ -68,6 +68,34 @@ getPlatsTemporal(){
 
 }
 
+
+removePlatsTemporal(){
+
+  return this.firebase.list(`plats/`).remove();
+
+
+}
+
+
+removecomandes(empleat: string, plat: string){
+
+
+  console.log(empleat + " " + plat)
+
+  return this.firebase.object(`comandes/${empleat}/plats/${plat}`).remove();
+
+
+}
+
+
+
+removeOnePlatTemporal(plat: string){
+
+  return this.firebase.object(`plats/${plat}`).remove();
+
+
+}
+
 deleteComandes(empleat: string, plat: string){
 
 
@@ -77,11 +105,9 @@ deleteComandes(empleat: string, plat: string){
 
  insertPlat(empleat: string, plat: any| undefined){
 
-  console.log(plat.estat)
 
   let llistaplatsempleat = this.firebase.object(`comandes/${empleat}/plats/${plat.key}`).set(
-    {comensal: plat.comensal,
-      
+    {comensal: plat.comensal,   
       preu: plat.preu,
       taula: plat.taula,
       nom: plat.nom,

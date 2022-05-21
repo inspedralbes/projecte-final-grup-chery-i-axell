@@ -18,7 +18,7 @@ class Tipus
     #[ORM\Column(type: 'string', length: 255)]
     private $Nom;
 
-    #[ORM\OneToMany(mappedBy: 'Tipus', targetEntity: Plat::class)]
+    #[ORM\OneToMany(mappedBy: 'Tipus', targetEntity: Plat::class) ]
     private $plats;
 
     public function __construct()
