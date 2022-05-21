@@ -91,7 +91,7 @@ export class TaulaComponent implements OnInit, OnDestroy{
   }
 
   sendComanda(){
-  this.taulaService.enviarComanda(this.codiTaula);
+  this.taulaService.enviarComanda(this.codiTaula, this.nameComensal);
   this.taulaService.deletePlatsTemporal(this.codiTaula);
   this.taulaService.setComensalsToUnReady(this.codiTaula);
 
