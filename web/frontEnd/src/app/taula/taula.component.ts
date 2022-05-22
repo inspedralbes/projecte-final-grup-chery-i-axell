@@ -91,7 +91,7 @@ export class TaulaComponent implements OnInit, OnDestroy{
   }
 
   sendComanda(){
-  this.taulaService.enviarComanda(this.codiTaula);
+  this.taulaService.enviarComanda(this.codiTaula, this.nameComensal);
   this.taulaService.deletePlatsTemporal(this.codiTaula);
   this.taulaService.setComensalsToUnReady(this.codiTaula);
 
@@ -118,7 +118,7 @@ export class TaulaComponent implements OnInit, OnDestroy{
     let image = document.getElementById(this.selectedImage) as HTMLImageElement;
     let source= "assets"+image.src.split("assets")[1];
     this.taulaService.insertComensal(new Comensal(this.nameComensal, source));
-    localStorage.setItem("comensal",this.nameComensal);
+    localStorage.setItem("comensal"+this.codiTaula,this.nameComensal);
   }
 
   seleccionarImagen(event:any){
@@ -144,7 +144,7 @@ export class TaulaComponent implements OnInit, OnDestroy{
 
 
   ngOnInit(): void {
-    let comensal =localStorage.getItem("comensal");
+    let comensal =localStorage.getItem("comensal"+this.codiTaula);
     if(comensal==null || comensal==""){
       this.askForComensal();
     }else{

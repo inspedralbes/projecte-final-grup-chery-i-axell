@@ -5,6 +5,7 @@ import { Plat } from '../model/Plat';
 import { Taula } from '../model/Taula';
 import { TaulaService } from '../services/taula.service';
 import { MandarplatosService } from '../services/mandarplatos.service';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class AdminPlatsComponent implements OnInit {
   taulesmesas:  any[] = [];
   platsbuit: any[] = [];
 
-  constructor(private serveitaules:TaulaService, private serveiplatos: MandarplatosService) { 
+  constructor(private serveitaules:TaulaService, private serveiplatos: MandarplatosService,private _location: Location) { 
 
   
 
@@ -87,7 +88,9 @@ insertcomandaEstat(keymesa: string, keyplat:string, estat:string){
   this.serveiplatos.insertcomandaEstat(keymesa, keyplat, estat);
 }
 
-
+volver(){
+  this._location.back();
+}
 
 muestraCosas(){
   

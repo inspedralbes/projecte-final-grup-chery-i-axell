@@ -21,6 +21,7 @@ export class TiquetComponent implements OnInit {
    
     this.taulaService.getPlatsDeTaula(this.codiTaula).snapshotChanges().subscribe(item=>{
       this.plats=[];
+      this.totalTaula=0;
       this.platsOrdenatsPerComensal = [];
 
       item.forEach(element=>{
@@ -67,6 +68,7 @@ export class TiquetComponent implements OnInit {
 
        
 
+       console.log(this.platsOrdenatsPerComensal)
 
 
     })

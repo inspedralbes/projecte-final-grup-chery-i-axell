@@ -8,39 +8,25 @@ import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 import { EstatTaulaComponent } from './components/estat-taula/estat-taula.component';
 import {AdminPlatsComponent} from './admin-plats/admin-plats.component';
 
-import { AdminCambrersComponent } from './admin-cambrers/admin-cambrers.component';
-import { ConfirmarCompraComponent } from './components/confirmar-compra/confirmar-compra.component';
-
-
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { CambrerComponentComponent } from './cambrer-component/cambrer-component.component';
+import { AdminTaulaComponent } from './components/admin-taula/admin-taula.component';
+import { AdminComponent } from './admin/admin.component';
+import { AuthGuard } from './shared/auth.guard';
+
 
 const routes: Routes = [ 
-  {path: 'crearTaula', component: CrearTaulaComponent },
+  {path: 'taula', component: CrearTaulaComponent },
   {path: 'taula/:id', component: TaulaComponent },
-  {path: 'comensal', component: ComensalComponent },
-  {path: 'AfegirPlat', component: AfegirPlatsComponent},
-{path: 'MostrarPlat', component: MostraplatsComponent},
-{path: 'adminPlats', component: AdminPlatsComponent},
-{path: 'login', component: LoginComponent},
-{path: 'adminCambrers', component: AdminCambrersComponent},
-
-{path: 'cambrers/:idcambrer', component: CambrerComponentComponent},
-
-  {path: 'MostrarPlat', component: MostraplatsComponent},
-  {path: 'estatTaula/:id', component: EstatTaulaComponent},
-  {path: 'MostrarPlat', component: MostraplatsComponent},
-  {path: 'adminPlats', component: AdminPlatsComponent},
-  {path: 'confirmar', component: ConfirmarCompraComponent},
-
-
-  {path: 'afegirPlat', component: AfegirPlatsComponent},
-  {path: 'adminPlats', component: AdminPlatsComponent},
+  {path: 'afegirPlat', component: AfegirPlatsComponent, canActivate:[AuthGuard]},
+  {path: 'adminPlats', component: AdminPlatsComponent, canActivate:[AuthGuard]},
   {path: 'estatTaula/:id', component: EstatTaulaComponent},
   {path:'' ,component:HomepageComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'cambrers/:idcambrer', component: CambrerComponentComponent},
+  {path: 'admin', component: AdminComponent},
+  {path: 'cambrers/:idcambrer', component: CambrerComponentComponent , canActivate:[AuthGuard]} ,
+  {path: 'adminTaula', component: AdminTaulaComponent, canActivate:[AuthGuard]},
 ];
 
 @NgModule({
