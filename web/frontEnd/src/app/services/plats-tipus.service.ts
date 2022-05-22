@@ -14,6 +14,7 @@ export class PlatsTipusService {
   urlDeletePlat="http://projectedawback.alumnes.inspedralbes.cat/back/back/public/del_plat"
   urlAddCategoria ="http://projectedawback.alumnes.inspedralbes.cat/back/back/public/add_tipus"
   urlDeleteCategoria ="http://projectedawback.alumnes.inspedralbes.cat/back/back/public/del_tipus";
+  urlEditPlat="http://projectedawback.alumnes.inspedralbes.cat/back/back/public/edit_plat";
 
 
   constructor(private httpClient:HttpClient) { }
@@ -57,6 +58,11 @@ export class PlatsTipusService {
   deletePlat(nomPlat: string) {
     
     return this.httpClient.post(this.urlDeletePlat, {"nom":nomPlat});
+  }
+
+
+  editPlat(nomPlat:string, nouNom:string, nouPreu:number){
+    return this.httpClient.post(this.urlEditPlat,{"nomplat":nomPlat, "nomnou":nouNom, "preunou":nouPreu})
   }
 
 

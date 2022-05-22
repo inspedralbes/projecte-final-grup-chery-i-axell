@@ -22,6 +22,9 @@ export class AfegirPlatsComponent implements OnInit {
   selectedtipus: any;
   categoria: any;
   selectedtipusBorrar: any;
+  selectedPlat:string="";
+  nouNom:string="";
+  preuSelectedPlat:string="";
 
 
   constructor(private platTipusService:PlatsTipusService, private _location: Location) {
@@ -32,14 +35,17 @@ export class AfegirPlatsComponent implements OnInit {
 
     this.getPlats()
 
-  
-  this.platTipusService.getTipus().subscribe(res=>{
-   this.tipusdeplats=res;
-  })
+    this.getTipus()
+ 
 
 
 
 }
+  getTipus() {
+    this.platTipusService.getTipus().subscribe(res=>{
+      this.tipusdeplats=res;
+     })
+  }
   getPlats() {
     
   this.platTipusService.getPlatsTipus().subscribe((item:any)=>{
@@ -62,6 +68,23 @@ export class AfegirPlatsComponent implements OnInit {
   }
 
 
+  selectEditPlat(nom:string, preu: string){
+ 
+    this.selectedPlat=nom;
+    this.nouNom=this.selectedPlat;
+    this.preuSelectedPlat=preu;
+  }
+
+
+  editarPlat(){
+
+    this.platTipusService.editPlat(this.selectedPlat, this.nouNom, parseInt(this.preuSelectedPlat)).subscribe(item=>{
+      this.getPlats();
+      this.getTipus();
+    })
+ 
+  }
+
 
   afegirPlat(){
     let preu = parseInt(this.preuplat);
@@ -70,11 +93,9 @@ export class AfegirPlatsComponent implements OnInit {
     },err => { 
       this.onError()
     })
-
-
-
-
   }
+
+
   onError() {
     Swal.fire({
       title: 'Error',
@@ -101,11 +122,20 @@ export class AfegirPlatsComponent implements OnInit {
   }
 
   afegirCategoria(categoria :any){
-   this.platTipusService.addCategoria(categoria).subscribe(item=>{},error=>console.log(error))
+   this.platTipusService.addCategoria(categoria).subscribe(item=>{
+    this.getPlats();
+    this.getTipus();
+   })
+  
   }
 
   eliminarCategoria(categoria :any){  
-  this.platTipusService.deleteCategoria(categoria).subscribe(item=>{},error=>console.log(error));
+  this.platTipusService.deleteCategoria(categoria).subscribe(item=>{
+    this.getPlats();
+    this.getTipus();
+  });
+
+
   }
 
   volver(){
