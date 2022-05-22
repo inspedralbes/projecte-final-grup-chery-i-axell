@@ -7,13 +7,13 @@ import { Injectable } from '@angular/core';
 export class PlatsTipusService {
  
 
-  urlAllPlats = 'http://192.168.210.169:8000/get_plats';
-  urlAllTipus = 'http://192.168.210.169:8000/get_tipus';
-  urlPostPlat = 'http://192.168.210.169:8000/add_plat';
-  urlPlatsTipus = "http://192.168.210.169:8000/get_plats_tipus"
-  urlDeletePlat="http://192.168.210.169:8000/del_plat"
-  urlAddCategoria ="http://192.168.210.169:8000/add_tipus"
-  urlDeleteCategoria ="http://192.168.210.169:8000/del_tipus";
+  urlAllPlats = 'http://projectedawback.alumnes.inspedralbes.cat/back/back/public/get_plats';
+  urlAllTipus = 'http://projectedawback.alumnes.inspedralbes.cat/back/back/public/get_tipus';
+  urlPostPlat = 'http://projectedawback.alumnes.inspedralbes.cat/back/back/public/add_plat';
+  urlPlatsTipus = "http://projectedawback.alumnes.inspedralbes.cat/back/back/public/get_plats_tipus"
+  urlDeletePlat="http://projectedawback.alumnes.inspedralbes.cat/back/back/public/del_plat"
+  urlAddCategoria ="http://projectedawback.alumnes.inspedralbes.cat/back/back/public/add_tipus"
+  urlDeleteCategoria ="http://projectedawback.alumnes.inspedralbes.cat/back/back/public/del_tipus";
 
 
   constructor(private httpClient:HttpClient) { }

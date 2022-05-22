@@ -4,6 +4,7 @@ import { Plat } from '../model/Plat';
 import { MandarplatosService } from '../services/mandarplatos.service';
 import { Comensal } from '../interface/Comensal';
 import Swal from 'sweetalert2';
+import { PlatsTipusService } from '../services/plats-tipus.service';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class MostraplatsComponent implements OnInit {
   platsTemporalTaula:any[]=[];
   platsTemporalComensal:any=[];
 
-  constructor(private httpclient:HttpClient, private mandarplatos:MandarplatosService) {
+  constructor(private httpclient:HttpClient, private mandarplatos:MandarplatosService, private platTipusService:PlatsTipusService) {
     
 
 
@@ -32,34 +33,17 @@ export class MostraplatsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.httpclient.get("http://192.168.210.169:8000/get_plats_tipus").subscribe(data => {
-      
-      data = JSON.stringify(data);
-      data = JSON.parse(data.toString());
-      this.plats=data;
-    
+  
 
-
-
-
-  });  
+  this.platTipusService.getPlatsTipus().subscribe(data=>{
+    this.plats=[];
+    this.plats=data;
+  })
 
   this.mandarplatos.init(this.keyTaula);
 
   this.comensal= localStorage.getItem("comensal"+this.keyTaula)!;
 
-  this.plats=[
-    {nomTipus:"Primeros", llistatPlats:[
-                          {nom:"Spaguetis", preu:6},
-                          {nom:"Macarrons", preu:3},
-                          {nom:"No sé", preu:6},
-                          ]},
-  {nomTipus:"Segundos", llistatPlats:[
-                            {nom:"ASDF", preu:6},
-                            {nom:"gdfh", preu:3},
-                            {nom:"NasdAS", preu:6},
-                            ]},
-  ];
 
 
 
