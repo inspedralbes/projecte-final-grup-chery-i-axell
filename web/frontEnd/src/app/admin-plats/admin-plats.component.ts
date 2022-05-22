@@ -25,7 +25,7 @@ export class AdminPlatsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.muestraCosas();
+   
 
     
     this.serveitaules.getTaules().snapshotChanges().subscribe(data => {
@@ -92,50 +92,7 @@ volver(){
   this._location.back();
 }
 
-muestraCosas(){
-  
-  this.serveitaules.getTaules().snapshotChanges().subscribe(data => {
 
-    this.taulesmesas=[];
-    data.forEach(element=>{
-
-      let string = element.key;
-
-      let plats = this.serveitaules.getFillsTaules(string!).snapshotChanges().subscribe(platosget=>{
-    
-       this.platsbuit = [];
-
-        platosget.forEach(element=>{
-
-          let platAmbKey ={
-            key: element.key,  
-            nom: element.payload.val().nom,
-            preu: element.payload.val().preu,
-            comensal: element.payload.val().comensal,
-            estat: element.payload.val().estat,
-
-              }
-
-          this.platsbuit.push(platAmbKey)
-
-
-        })
-        let x ={
-          key: element.key,  
-          plats: this.platsbuit!,
-            }
-            this.taulesmesas.push(x);
-
-
-
-
-        }
-      );
-
-});
-this.getPlatossuscription(this.taulesmesas)
-});
-}
 
 
 }
