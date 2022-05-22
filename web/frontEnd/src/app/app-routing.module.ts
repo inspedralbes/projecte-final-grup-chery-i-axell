@@ -7,6 +7,7 @@ import { AfegirPlatsComponent } from './afegir-plats/afegir-plats.component';
 import { MostraplatsComponent } from './mostraplats/mostraplats.component';
 import { EstatTaulaComponent } from './components/estat-taula/estat-taula.component';
 import {AdminPlatsComponent} from './admin-plats/admin-plats.component';
+import { AdminCambrersComponent } from './admin-cambrers/admin-cambrers.component';
 
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
@@ -14,6 +15,7 @@ import { CambrerComponentComponent } from './cambrer-component/cambrer-component
 import { AdminTaulaComponent } from './components/admin-taula/admin-taula.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './shared/auth.guard';
+
 
 
 const routes: Routes = [ 
