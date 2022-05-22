@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Router} from '@angular/router';
+import { AuthServiceService } from './services/auth-service.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent {
   password: any;
 
 
-  constructor(private httpclient:HttpClient,private router:Router) {
+  constructor(private authService:AuthServiceService,private router:Router) {
   }
 
   
@@ -23,6 +24,18 @@ export class AppComponent {
   login(){
     this.router.navigate(['/login']);
   }
+
+  checkIfLoged(){
+    return this.authService.isLoggedIn();
+  }
+
+
+  logOut(){
+    this.authService.logOut();
+  }
+
+
+
 
 }
 

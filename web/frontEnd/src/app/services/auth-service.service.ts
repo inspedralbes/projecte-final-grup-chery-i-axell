@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { EmpleadosService } from './empleados.service';
 
 @Injectable({
@@ -6,7 +7,9 @@ import { EmpleadosService } from './empleados.service';
 })
 export class AuthServiceService {
 
-  constructor(public usuarisServices:EmpleadosService) { }
+  constructor(public usuarisServices:EmpleadosService, public auth: AngularFireAuth) { }
+
+
 
 
    isLoggedIn(): boolean {
@@ -14,6 +17,15 @@ export class AuthServiceService {
     console.log("user:" +user)
     return user !== null ? true : false;
   }
+
+
+  logOut(){
+    this.auth.signOut().then(() => {
+      localStorage.removeItem('user');
+    });
+  }
+
+
 
 
 }

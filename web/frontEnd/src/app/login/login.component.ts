@@ -53,9 +53,7 @@ export class LoginComponent implements OnInit {
 
 
   logout() {
-    this.auth.signOut().then(() => {
-      localStorage.removeItem('user');
-    });
+    this.authService.logOut();
   }
 
 
