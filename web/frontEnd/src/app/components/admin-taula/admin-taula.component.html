@@ -1,6 +1,6 @@
 <div class="spinner-border text-primary" role="status" *ngIf="taules.length==0">
     <span class="visually-hidden">Loading...</span>
-  </div>
+</div>
 
 <div class="container">
     <div class="row">
@@ -9,11 +9,11 @@
                 <div class="py-1">
                     Resum:
                 </div>
-                <app-tiquet  [codiTaula]="taula"></app-tiquet>
+                <app-tiquet [codiTaula]="taula"></app-tiquet>
                 <button class="btn btn-danger" (click)="borrar(taula)">Esborrar taula</button>
-            </div> 
-            <button mat-raised-button (click)="volver()" class="btn btn-outline-danger">Volver</button>  
-            <br><br><br>        
+            </div>
+            <button mat-raised-button (click)="volver()" class="btn btn-outline-danger">Tornar</button>
+            <br><br><br>
         </div>
     </div>
 </div>
