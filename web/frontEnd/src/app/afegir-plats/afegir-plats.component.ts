@@ -5,6 +5,7 @@ import { PlatsTipusService } from '../services/plats-tipus.service';
 
 
 
+
 @Component({
   selector: 'app-afegir-plats',
   templateUrl: './afegir-plats.component.html',

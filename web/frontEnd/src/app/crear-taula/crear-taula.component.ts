@@ -2,6 +2,9 @@ import { Component,  Inject,  OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DOCUMENT } from '@angular/common'; 
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-crear-taula',
@@ -14,11 +17,14 @@ export class CrearTaulaComponent implements OnInit {
 
 
 
-  constructor(public router: Router, @Inject(DOCUMENT) document: Document) { }
+  constructor(public router: Router, @Inject(DOCUMENT) document: Document, private _location: Location) { }
 
   ngOnInit(): void {
   }
 
+  volver(){
+    this._location.back();
+  }
 
   saveModal(){
     
