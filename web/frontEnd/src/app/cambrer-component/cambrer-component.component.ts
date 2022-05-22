@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Empleat } from '../model/Empleat';
 import { Plat } from '../model/Plat';
 import { EmpleadosService } from '../services/empleados.service';
 import { MandarplatosService } from '../services/mandarplatos.service';
@@ -14,6 +15,7 @@ import { TaulaService } from '../services/taula.service';
 export class CambrerComponentComponent implements OnInit {
 
   public idCambrer: string | undefined;
+  public nomCambrer: string | undefined;
   public arrayOrdres: any[] = [] ;
   public arrayOrdresTraducida: any[] = [] ;
 
@@ -24,10 +26,17 @@ export class CambrerComponentComponent implements OnInit {
 
     this.idCambrer =  this.route.snapshot.paramMap.get("idcambrer")!;
     this.servicioempleados.getComandes(this.idCambrer);
-    this.repOrdres();
+    this.servicioempleados.getCambrer(this.idCambrer).snapshotChanges().subscribe(data =>{
+    
+      let empleat = data.payload.val() as Empleat;
+
+      this.nomCambrer = empleat.nom;
+      this.repOrdres();
+
+    
 
 
-
+  })
   }
 
   repOrdres(){
@@ -101,8 +110,6 @@ export class CambrerComponentComponent implements OnInit {
 
 
     });
-
-    console.log(this.arrayOrdres+ " estoy aqui..?")
 
 
 
