@@ -109,8 +109,6 @@ export class TaulaService {
 
          if(plat.comensal==nameComensal){
 
-          console.log(plat)
-
           for (let index = 0; index < plat.quantitat; index++) {
             const element = plat;
            
