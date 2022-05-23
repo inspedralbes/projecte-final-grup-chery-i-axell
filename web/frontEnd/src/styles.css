@@ -13,3 +13,8 @@
 .main-back {
     background-color: #0741ad;
 }
+
+.img-fit{
+    object-fit: cover;
+    width: 100%;
+}
