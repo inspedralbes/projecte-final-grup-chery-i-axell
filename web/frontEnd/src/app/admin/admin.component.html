@@ -1,43 +1,38 @@
 <div class="container">
+
     <div class="row">
-        <div class="col">
+        <div class="col my-5">
             <div class="card text-center">
-                <div class="card-header">
-                <h3>Administrador</h3>
-                </div>
-                <br>
                 <div class="card-body">
-                <h5 class="card-title">Peticions</h5>
-                <a routerLink="/adminPlats" class="btn btn-primary">Veure</a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card text-center">
-                    <div class="card-body">
-                    <h5 class="card-title">Veure les comandes</h5>
-                    <a routerLink="/cambrers/{{cambrer}}" class="btn btn-primary">Veure</a>
-                    </div>
+                <h5 class="card-title">Veure les meves comandes a entregar</h5>
+                <a routerLink="/cambrers/{{cambrer}}" class="btn btn-primary">Veure</a>
                 </div>
             </div>
         </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col">
+        <div class="col my-5">
             <div class="card text-center">
                 <div class="card-body">
-                <h5 class="card-title">afegir Plats</h5>
+                <h5 class="card-title">Canviar l'estat de les comandes</h5>
+                <a routerLink="/adminPlats" class="btn btn-primary">Veure</a>
+                </div>
+            </div>
+        </div>
+        <div class="col my-5">
+            <div class="card text-center">
+                <div class="card-body">
+                <h5 class="card-title">Administrar plats i categories</h5>
                 <a routerLink="/afegirPlat" class="btn btn-primary">Veure</a>
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col my-5">
             <div class="card text-center">
                 <div class="card-body">
-                <h5 class="card-title">Administrar Taules</h5>
+                <h5 class="card-title">Administrar i veure tiquet de taules</h5>
                 <a routerLink="/adminTaula" class="btn btn-primary">Veure</a>
                 </div>
             </div>
         </div>
+       
     </div>
 </div>
