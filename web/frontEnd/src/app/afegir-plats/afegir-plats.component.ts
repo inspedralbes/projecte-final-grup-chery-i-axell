@@ -61,7 +61,7 @@ export class AfegirPlatsComponent implements OnInit {
 
 
   eliminarPlat(nomPlat:string){
-    console.log("deleting "+ nomPlat)
+ 
     this.platTipusService.deletePlat(nomPlat).subscribe(item=>{
       this.getPlats();
     });

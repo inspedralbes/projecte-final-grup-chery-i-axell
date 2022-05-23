@@ -148,6 +148,10 @@ export class MostraplatsComponent implements OnInit {
 
   addItem(plat: any){
 
+    plat.comensal=this.comensal;
+
+
+   
      if(this.platsTemporalComensal.length!=0){
       let noIntroduit= true;
       this.platsTemporalComensal.forEach((element: { nom: string, quantitat:number; }) => {
@@ -158,6 +162,7 @@ export class MostraplatsComponent implements OnInit {
       });
       if(noIntroduit){
         plat.quantitat=1;
+
         this.platsTemporalComensal.push(plat)
       }
     }else{
@@ -174,7 +179,6 @@ export class MostraplatsComponent implements OnInit {
 
   deleteItem(key:string){
   
-      console.log(key)
 
     if(this.platsTemporalComensal.length!=0){
      

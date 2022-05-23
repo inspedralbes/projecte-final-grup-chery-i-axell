@@ -74,7 +74,6 @@ removePlatsTemporal(){
 removecomandes(empleat: string, plat: string){
 
 
-  console.log(empleat + " " + plat)
 
   return this.firebase.object(`comandes/${empleat}/plats/${plat}`).remove();
 

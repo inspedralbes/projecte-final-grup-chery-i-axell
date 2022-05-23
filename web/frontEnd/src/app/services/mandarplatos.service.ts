@@ -60,7 +60,6 @@ export class MandarplatosService {
 
   insertcomanda(plat: Plat){
 
-    console.log(plat)
 
     this.comandaList?.push({nom:plat.nom, preu: plat.preu, estat: plat.estat, comensal: plat.comensal })
 

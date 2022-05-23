@@ -90,14 +90,12 @@ export class CambrerComponentComponent implements OnInit {
    
     this.arrayOrdres.forEach(element=>{
 
-      console.log(element.keyplat)
 
       this.servicioplatos.getNomPlatsiTaules( element.mesataula.nom, element.keyplat).snapshotChanges().
       subscribe(data=>{
 
         let obj = data.payload.val() as Plat;
 
-        console.log(obj)
         
 
         // element.nomplat = objeto.nom;
@@ -111,7 +109,6 @@ export class CambrerComponentComponent implements OnInit {
 
     });
 
-    console.log(this.arrayOrdres+ " estoy aqui..?")
 
 
 

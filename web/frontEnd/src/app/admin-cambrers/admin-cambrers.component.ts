@@ -50,7 +50,7 @@ export class AdminCambrersComponent implements OnInit {
   getPlatossuscription(taulesmesasub: any) {
 
     this.taulesmesas = taulesmesasub;
-    console.log(this.taulesmesas)
+ 
 
   }
 
@@ -259,7 +259,7 @@ export class AdminCambrersComponent implements OnInit {
 
       })
 
-      console.log(arrayplats.length + " platos i empleados " + this.empleatsperassignar.length)
+  
 
     this.automatizadorReparte(arrayplats, this.empleatsperassignar);
 
@@ -324,13 +324,13 @@ export class AdminCambrersComponent implements OnInit {
 
     let repartidor = Math.floor(platos.length / camareros.length)
 
-    console.log(platos + " somlos platos")
+    
 
 
     camareros.forEach(el=>{
 
       el.comandes.forEach((com: any)=>{
-        console.log(com.preu)
+    
       })
 
 
@@ -348,7 +348,7 @@ export class AdminCambrersComponent implements OnInit {
 
     camareros.forEach(el => {
 
-      console.log(el.comandes)
+
 
       for (let i = 0; i < repartidor; i++) {
 
@@ -386,7 +386,7 @@ export class AdminCambrersComponent implements OnInit {
     camareros.forEach(insert => {
 
 
-      console.log(insert)
+   
 
       insert.comandes.forEach((a: any)  => {
 

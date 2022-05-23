@@ -68,7 +68,6 @@ export class TiquetComponent implements OnInit {
 
        
 
-       console.log(this.platsOrdenatsPerComensal)
 
 
     })
