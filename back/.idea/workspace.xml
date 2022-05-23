@@ -3,24 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9d4bcec0-0ece-4772-88f0-75ed2bf80f75" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/Controller/PlatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/Controller/PlatController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/Entity/Tipus.php" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/Entity/Tipus.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainer.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainer.php.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainer.xml.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainerCompiler.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainerDeprecations.log" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/App_KernelDevDebugContainerDeprecations.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/1/K/Vq7uQ1KxIza8E5BVBoLQ" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/1/K/Vq7uQ1KxIza8E5BVBoLQ" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/B/P/EYoW-CZNikV7tnj3NsOQ" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/B/P/EYoW-CZNikV7tnj3NsOQ" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/E/+/-cDqj1aEjQurxbFTUPww" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/E/+/-cDqj1aEjQurxbFTUPww" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/F/-/fc9-jAacOVPOos4QMrpg" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/F/-/fc9-jAacOVPOos4QMrpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/G/V/B2jhcLxvxDB-kksufPPw" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/G/V/B2jhcLxvxDB-kksufPPw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/L/9/rcnbHrd9dNMsnMW9jOeg" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/pools/system/FsJmajN+xH/L/9/rcnbHrd9dNMsnMW9jOeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/profiler/index.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/url_generating_routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/url_generating_routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/cache/dev/url_matching_routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/cache/dev/url_matching_routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/back/var/log/dev.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/frontEnd/src/app/services/empleados.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web/frontEnd/src/app/services/empleados.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,6 +167,7 @@
       <workItem from="1652859821139" duration="1471000" />
       <workItem from="1652948168536" duration="3815000" />
       <workItem from="1653037030732" duration="6234000" />
+      <workItem from="1653302132565" duration="2140000" />
     </task>
     <servers />
   </component>
