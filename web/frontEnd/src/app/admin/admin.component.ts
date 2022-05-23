@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
+  public cambrer = "";
+
   constructor() { }
 
   ngOnInit(): void {
+
+    let cam =  JSON.parse(localStorage.getItem("user")!);
+    this.cambrer = cam.uid;
+
+
+
   }
 
 }

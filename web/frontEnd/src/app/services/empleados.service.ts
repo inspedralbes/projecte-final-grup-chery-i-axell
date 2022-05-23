@@ -37,11 +37,21 @@ export class EmpleadosService {
 
 
 
+
+
 getEmpleats(){
 
   return this.firebase.list(`empleats/`);
 }
 
+
+getCambrer(empleat: string){
+
+
+  return this.firebase.object(`empleats/${empleat}`);
+  
+  
+  }
 
 
 getPlatsTemporal(){
