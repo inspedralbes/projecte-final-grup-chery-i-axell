@@ -327,6 +327,14 @@ export class AdminCambrersComponent implements OnInit {
     console.log(platos + " somlos platos")
 
 
+    camareros.forEach(el=>{
+
+      el.comandes.forEach((com: any)=>{
+        console.log(com.preu)
+      })
+
+
+    })
 
 
     let excedente = platos.length % camareros.length;
