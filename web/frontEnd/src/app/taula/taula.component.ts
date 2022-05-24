@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 
 
@@ -36,7 +37,7 @@ export class TaulaComponent implements OnInit, OnDestroy{
   
 
 
-  constructor(private route:ActivatedRoute,  private taulaService: TaulaService, public router: Router) {
+  constructor(private route:ActivatedRoute,  private taulaService: TaulaService, public router: Router,private _location: Location) {
 
 
     this.selectedImage="avatarImg1";
@@ -156,7 +157,9 @@ export class TaulaComponent implements OnInit, OnDestroy{
     this.confirmarCompraComponent.closeModal();
   }
 
-
+  volver(){
+    this._location.back();
+  }
 
   
 }

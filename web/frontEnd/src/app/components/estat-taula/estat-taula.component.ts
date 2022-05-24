@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TaulaService } from 'src/app/services/taula.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-estat-taula',
@@ -11,7 +12,7 @@ export class EstatTaulaComponent implements OnInit {
   codiTaula: any;
   llistaPlats:any;
 
-  constructor(private route:ActivatedRoute, private taulaService: TaulaService) { 
+  constructor(private route:ActivatedRoute, private taulaService: TaulaService,private _location: Location) { 
     this.codiTaula=this.route.snapshot.paramMap.get("id")!;
   
     this.taulaService.getPlatsDeTaula(this.codiTaula).snapshotChanges().subscribe(item=>{
@@ -33,6 +34,10 @@ export class EstatTaulaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+  
+  volver(){
+    this._location.back();
   }
 
 }
