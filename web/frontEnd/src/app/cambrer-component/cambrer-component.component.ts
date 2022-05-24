@@ -6,6 +6,7 @@ import { Plat } from '../model/Plat';
 import { EmpleadosService } from '../services/empleados.service';
 import { MandarplatosService } from '../services/mandarplatos.service';
 import { TaulaService } from '../services/taula.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-cambrer-component',
@@ -19,7 +20,11 @@ export class CambrerComponentComponent implements OnInit {
   public arrayOrdres: any[] = [] ;
   public arrayOrdresTraducida: any[] = [] ;
 
-  constructor(private servicioplatos: MandarplatosService, private route:ActivatedRoute, private serviciomesa: TaulaService, private servicioempleados: EmpleadosService) { }
+  constructor(private servicioplatos: MandarplatosService, private route:ActivatedRoute, private serviciomesa: TaulaService, private servicioempleados: EmpleadosService, private _location: Location) { }
+  
+  volver(){
+    this._location.back();
+  }
 
   ngOnInit(): void {
 
