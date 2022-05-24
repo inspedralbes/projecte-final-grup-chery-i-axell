@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+
+.avatar-card {
+    width: 11rem !important;
+}
+
+.main-border {
+    border: 1px solid #c5c5c5;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.main-back {
+    background-color: #0741ad;
+}
+
+.img-fit{
+    object-fit: cover;
+    width: 100%;
+}

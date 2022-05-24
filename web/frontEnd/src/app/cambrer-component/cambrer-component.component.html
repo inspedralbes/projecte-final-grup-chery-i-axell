@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card text-center">
+        <div class="card-header">
+          <h3>Comandas:</h3>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Cambrer:</h5>
+          <p class="card-text">{{nomCambrer}}</p>
+          <div class="card text-center" *ngFor='let ordre of arrayOrdres'>
+            <div class="card-header">
+              <h5 class="card-title">Taula:</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ordre.mesataula.taula}}</h6>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Nom del plat:</h5>
+              <p class="card-text">{{ordre.mesataula.nom}}</p>
+              <h5 class="card-title">Estat del plat:</h5>
+              <p class="card-text">{{ordre.mesataula.estat }}</p>
+
+              <h5 class="card-title">Quantitat:</h5>
+              <p class="card-text">{{ordre.mesataula.quantitat }}</p>
+
+              <h5 class="card-title">Preu:</h5>
+              <p class="card-text">{{ordre.mesataula.preu }}</p>
+              <button class="btn btn-outline-primary" (click)= "submitOrdres(ordre.keyplat, ordre.mesataula, idCambrer)" >Entregat</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <button mat-raised-button (click)="volver()" class="btn btn-outline-danger">Tornar</button>
+      <br><br><br><br>
+    </div>
+  </div>
+</div>

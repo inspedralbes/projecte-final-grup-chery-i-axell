@@ -1,0 +1,89 @@
+<h5 class="text-center">El nom de la teva taula és: {{codiTaula}}</h5>
+<h1>
+
+</h1>
+<div class="accordion my-5 mx-5 " id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+         Comensals de la taula
+        </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+
+                <div class="container">
+                    <div class="row ">
+                        <app-comensal *ngFor="let comensal of comensalList" [name]="comensal.name" [image]="comensal.image" [key]="comensal.key" (delete)="deleteComensal($event)" (select)="selectComensal($event)" [checkIfMe]="nameComensal"></app-comensal>
+                        <button type="button" class="btn btn-primary" (click)="askForComensal()" *ngIf="nameComensal==''">Afegir-me a la taula</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div>
+    <app-mostraplats [keyTaula]="codiTaula" [comensal]="nameComensal"></app-mostraplats>
+</div>
+
+
+<app-confirmar-compra class="m-5" [comensalList]="comensalList" [myKey]="myComensalKey" [isReady]="imReady" [keyTaula]="codiTaula"></app-confirmar-compra>
+
+<a [routerLink]="['/estatTaula',codiTaula]" class="btn btn-primary m-5">
+    Informació de les meves comandes
+  </a>
+  <br><br><br>
+  <button mat-raised-button (click)="volver()" class="btn btn-outline-danger">Tornar</button>
+  <br><br><br>
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Afegir comensal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+
+                    <h5>Afegir comensal</h5>
+                    <input type="text" [(ngModel)]="nameComensal">
+
+                    <div class="container my-5">
+                        <div class="row">
+                            <img #elem id="avatarImg1" width="150" src="assets/images/avatar-astro-1.webp" alt="avatar astronaut burguer" class="col-sm-12 col-lg-3 img-fluid" (click)="seleccionarImagen($event)" [ngClass]="{'image-selected': imageIsSelected(elem.id)}">
+                            <img #elem2 id="avatarImg2" width="150" src="assets/images/avatar-astro-2.webp" alt="avatar astronaut chips" class="col-sm-12 col-lg-3" (click)="seleccionarImagen($event)" [ngClass]="{'image-selected': imageIsSelected(elem2.id)}">
+                            <img #elem3 id="avatarImg3" width="150" src="assets/images/avatar-astro-3.webp" alt="avatar astronaut cheese" class="col-sm-12 col-lg-3" (click)="seleccionarImagen($event)" [ngClass]="{'image-selected': imageIsSelected(elem3.id)}">
+                            <img #elem4 id="avatarImg4" width="150" src="assets/images/avatar-astro-4.webp" alt="avatar astronaut sausage" class="col-sm-12 col-lg-3" (click)="seleccionarImagen($event)" [ngClass]="{'image-selected': imageIsSelected(elem4.id)}">
+                            <img #elem5 id="avatarImg5" width="150" src="assets/images/avatar-astro-5.webp" alt="avatar astronaut meat" class="col-sm-12 col-lg-3" (click)="seleccionarImagen($event)" [ngClass]="{'image-selected': imageIsSelected(elem5.id)}">
+                            <img #elem6 id="avatarImg6" width="150" src="assets/images/avatar-boy-1.webp" alt="avatar boy watermelon" class="col-sm-12 col-lg-3" (click)="seleccionarImagen($event)" [ngClass]="{'image-selected': imageIsSelected(elem6.id)}">
+                            <img #elem7 id="avatarImg7" width="150" src="assets/images/avatar-cat-1.webp" alt="avatar cat ramen " class="col-sm-12 col-lg-3" (click)="seleccionarImagen($event)" [ngClass]="{'image-selected': imageIsSelected(elem7.id)}">
+                            <img #elem8 id="avatarImg8" width="150" src="assets/images/avatar-cat-2.webp" alt="avatar cat sushi" class="col-sm-12 col-lg-3" (click)="seleccionarImagen($event)" [ngClass]="{'image-selected': imageIsSelected(elem8.id)}">
+                            <img #elem9 id="avatarImg9" width="150" src="assets/images/avatar-dog-1.webp" alt="avatar dog cake" class="col-sm-12 col-lg-3" (click)="seleccionarImagen($event)" [ngClass]="{'image-selected': imageIsSelected(elem9.id)}">
+                            <img #elem10 id="avatarImg10" width="150" src="assets/images/avatar-donkey-1.webp" alt="avatar donkey carrot" class="col-sm-12 col-lg-3" (click)="seleccionarImagen($event)" [ngClass]="{'image-selected': imageIsSelected(elem10.id)}">
+                            <img #elem11 id="avatarImg11" width="150" src="assets/images/avatar-panda-1.webp" alt="avatar panda burguer" class="col-sm-12 col-lg-3" (click)="seleccionarImagen($event)" [ngClass]="{'image-selected': imageIsSelected(elem11.id)}">
+                            <img #elem12 id="avatarImg12" width="150" src="assets/images/avatar-panda-2.webp" alt="avatar panda cereal" class="col-sm-12 col-lg-3" (click)="seleccionarImagen($event)" [ngClass]="{'image-selected': imageIsSelected(elem12.id)}">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="buttonClose">Tancar</button>
+                <a class="btn btn-primary" data-bs-dismiss="modal" (click)="saveComensal()">Continuar</a>
+
+            </div>
+        </div>
+    </div>
+</div>

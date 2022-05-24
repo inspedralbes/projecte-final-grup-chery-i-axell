@@ -1,0 +1,49 @@
+<div class="card  my-3">
+    <div class="card-header">
+        <h3>{{plat.nom}}</h3>
+    </div>
+    <div class="card-body">
+        <!--   <h5 class="card-title">{{plat.preu}} €</h5>
+        <p class="card-text">{{plat.comensal}}</p>
+        <h5>Estat:</h5>
+        <button type="button" class="btn btn-primary estat-preparat" [ngClass]="{'estat-preparat': (plat.estat=='Preparat') , 'estat-demanat':(plat.estat=='Demanat'),  'estat-entregat':(plat.estat=='Entregat'),  'estat-preparacio':(plat.estat=='En preparació')  }">{{plat.estat}}</button>
+ -->
+        <div class="text-center">
+            <div><span class="fw-bolder">Comensal:</span> {{plat.comensal}}</div>
+            <div> <span class="fw-bolder">Preu:</span> {{plat.preu}}€</div>
+            <div>
+                <button type="button" class="btn btn-primary estat-preparat" [ngClass]="{'estat-preparat': (plat.estat=='Preparat') , 'estat-demanat':(plat.estat=='Demanat'),  'estat-entregat':(plat.estat=='Entregat'),  'estat-preparacio':(plat.estat=='En preparació')  }">{{plat.estat}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="table-responsive">
+    <table class="table my-2">
+        <thead>
+            <tr>
+                <th scope="col">
+                    Plat
+                </th>
+                <th scope="col">
+                    Comensal
+                </th>
+                <th scope="col">
+                    Preu
+                </th>
+                <th scope="col">
+                    Estat
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{plat.nom}}</td>
+                <td>{{plat.comensal}}</td>
+                <td>{{plat.preu}}</td>
+                <td>
+                    <button type="button" class="btn btn-primary estat-preparat" [ngClass]="{'estat-preparat': (plat.estat=='Preparat') , 'estat-demanat':(plat.estat=='Demanat'),  'estat-entregat':(plat.estat=='Entregat'),  'estat-preparacio':(plat.estat=='En preparació')  }">{{plat.estat}}</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->

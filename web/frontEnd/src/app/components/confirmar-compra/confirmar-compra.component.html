@@ -1,0 +1,55 @@
+<!-- <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modal2" id="openModal2" (click)="ordenarPlats()">
+  Confirmar la compra
+</button>
+ -->
+
+<button type="button" class="btn btn-primary " (click)="openModal()" id="openModal2">
+    Confirmar la compra
+
+  </button>
+
+
+<div class="modal fade" id="modalConfirm" tabindex="-1" aria-labelledby="modalConfirmLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title " id="modalConfirmLabel">Confirmar comanda</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div *ngFor="let comensal of comensalList" class="m-1 col">
+                            {{comensal.name}}
+
+                            <span *ngIf="comensal.ready">
+                                <img src="assets/images/check.png" alt="preparat" srcset="">
+                            </span>
+                            <span *ngIf="!comensal.ready">
+                                <img src="assets/images/close.png" alt="no preparat" srcset="">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center my-2">
+                    <button class="btn btn-success" *ngIf="!isReady" (click)="confirmar()">
+                        Confirmar comanda
+                    </button>
+                    <button class="btn btn-danger" *ngIf="isReady" (click)="unConfirm()">
+                        Desconfirmar
+                    </button>
+                </div>
+
+                <div class="text-center fw-lighter">
+                    Quan tots els comensals hagin confirmat la seva comanda aquesta serà enviada a cuina.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="buttonClose">Tancar</button>
+                    <!--  <a class="btn btn-primary" data-bs-dismiss="modal" >Continuar</a> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

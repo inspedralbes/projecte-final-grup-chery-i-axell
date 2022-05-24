@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "projecte-daw": {
+      "hosting": {
+        "frontEnd": [
+          "projecte-daw"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "projecte-daw"
+  }
+}

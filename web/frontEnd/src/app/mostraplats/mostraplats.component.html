@@ -1,0 +1,46 @@
+<div class="m-4">
+    <div class="row">
+        <div class="accordion col-sm-6 mt-5 mb-1 " id="accordionExample">
+            <div class="accordion-item" *ngFor='let plat of plats'>
+                <h2 class="accordion-header" [id]="'h'+plat.nomTipus">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#'+plat.nomTipus" aria-expanded="false" [attr.aria-controls]="plat.nomTipus">
+              {{plat.nomTipus}}
+          </button>
+                </h2>
+                <div [attr.id]="plat.nomTipus" class="accordion-collapse collapse " [attr.aria-labelledby]="'h'+plat.nomTipus" data-bs-parent="#accordionExample">
+                    <div class="accordion-body" *ngFor='let platnom of plat.llistatPlats'>
+                        <strong>{{platnom.nom}}</strong><br>
+                        <strong>{{platnom.preu}} € </strong>
+                        <button (click)="pedirPlat(platnom.nom, platnom.preu)" class="btn btn-sm btn-primary"> +</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 order-summary mt-5 mb-1">
+            <h6 class="text-center">La meva comanda:</h6>
+            <div *ngFor="let plat of platsTemporalComensal">
+                <span>{{plat.nom | titlecase}} x </span> <span class="">{{plat.quantitat}}</span>
+                <button class="btn btn-sm btn-primary" (click)="deleteItem(plat.nom)">-</button>
+            </div> 
+        </div>
+
+        <div class="col-sm-6 order-summary my-1">
+            <h6 class="text-center">Comanda de la taula</h6>
+            <div *ngFor="let item of platsTemporalTaula">
+                {{item.comensal}} 
+                 <div *ngFor="let plat of item.plats">
+                    <span>{{plat.nom}} </span><span>{{plat.quantitat}}</span>
+                    <button class="btn btn-sm btn-primary" (click)="addItem(plat)">+</button>
+                </div> 
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

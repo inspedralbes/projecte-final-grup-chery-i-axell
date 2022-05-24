@@ -1,0 +1,44 @@
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark main-back mb-5">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="/assets/images/logo.png" alt="logo" width="100">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item" *ngIf="checkIfLoged()">
+                        <a routerLink="/admin" class="nav-link">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/taula" class="nav-link">Demanar / consultar taula</a>
+                    </li>
+                    <li class="nav-item">
+                        <button *ngIf="checkIfLoged()==false" type="button" class="btn btn-outline-light" (click)="login()">
+                            Login
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button *ngIf="checkIfLoged()" type="button" class="btn btn-outline-light" (click)="logOut()">
+                            Logout
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <router-outlet class="content "></router-outlet>
+    <div class="footer">
+        <footer>
+            <ul class="list-inline text-white">
+                <li class="list-inline-item"><a href="/">Home</a></li>
+                <li class="list-inline-item"><a href="https://web.gencat.cat/es/ajuda/avis_legal/" target="_blank">Terms</a></li>
+                <li class="list-inline-item"><a href="https://www.boe.es/doue/2016/119/L00001-00088.pdf" target="_blank">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Designed by Axel Chaparro, Cheryl Trujillo and Simo Wafik © 2022</p>
+        </footer>
+    </div>
+
+</body>

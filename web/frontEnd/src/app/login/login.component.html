@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card" *ngIf="auth.user | async as user; else showLogin">
+        <h3 class="card-header">Benvingut</h3>
+        <div class="card-body">
+          <h5 class="card-subtitle mb-2 text-muted">{{ user.email }}</h5>
+          <p class="card-text"><b>ID:</b> {{ user.uid }}</p>
+          <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+          &nbsp;
+    
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #showLogin>
+
+  <div class="card">
+    <div class="card-header-center">
+      Si us plau, registrat o logejat amb la teva compta.
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">¿Registrat o unir-te amb <b>Google</b> ?</h5>
+      <button class="btn btn-outline-info" (click)="login()">Login</button>
+    </div>
+  </div>
+</ng-template>
