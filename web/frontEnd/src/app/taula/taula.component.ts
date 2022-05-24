@@ -96,7 +96,7 @@ export class TaulaComponent implements OnInit, OnDestroy{
   this.taulaService.deletePlatsTemporal(this.codiTaula);
   this.taulaService.setComensalsToUnReady(this.codiTaula);
 
- // this.router.navigate([`estatTaula/${this.codiTaula}`]);
+  this.router.navigate([`estatTaula/${this.codiTaula}`]);
  
   }
 
