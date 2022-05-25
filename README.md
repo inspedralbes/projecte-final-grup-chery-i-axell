@@ -6,13 +6,12 @@ Esquema mínim de carpetes pels projectes transversals
 
 https://trello.com/b/PkPF2z47/scrum
 
-http://projecterestaurant.alumnes.inspedralbes.cat/
 
 # Aquest fitxer ha de contenir com a mínim:
  * Cheryl Trujillo, Axell Chaparro, Mohamed  Wafik
  * SHUSHI&FRIENDS
  * SHUSHI & FRIENDS és un Restaurant/bar al cual l'hem desenvolupat una pagina web on el usuaris o clients del Restaurant/bar fan totes les seves comandes amb el            telefon, amb possiblitat de editar la teva comanda cuan ja esta a produccio, veure l'estat dels plats que has demanat o dividir la compte per comensals... La            aplicacio tambe compta amb un apartat administrador on els treballadors poden administrar les comandes dels clients, els estats dels seus plats i les taules que s'han    creat a la aplicacio.
- * URL de producció (quan la tingueu)
+ * URL de producció : http://projecterestaurant.alumnes.inspedralbes.cat/
  * Estat: En un principi l' aplicacio tendria el apartat local, Delivery i el apartat d'administrador , hem aconseguit acabar els apartats local i admin pero no ens ha      donat temps ha fer l' apartat Delivery i hem decidit prescindir per enfocarnos en els altres 2 apartats i les seves funcionalitats
 
 
