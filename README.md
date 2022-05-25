@@ -6,6 +6,8 @@ Esquema mínim de carpetes pels projectes transversals
 
 https://trello.com/b/PkPF2z47/scrum
 
+http://projecterestaurant.alumnes.inspedralbes.cat/
+
 # Aquest fitxer ha de contenir com a mínim:
  * Cheryl Trujillo, Axell Chaparro, Mohamed  Wafik
  * SHUSHI&FRIENDS
